@@ -1,0 +1,2146 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17324d">
+  <meta name="description" content="Tarjetas de vocabulario inglés-español con audio, caja de espera y sistema Leitner de cinco cajas.">
+  <title>Tarjetas de inglés — Sistema Leitner</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #17324d;
+      --navy-2: #254d70;
+      --teal: #0d7c78;
+      --teal-dark: #09635f;
+      --cream: #f7f3eb;
+      --paper: #fffdf9;
+      --ink: #14212b;
+      --muted: #5f6f7b;
+      --line: #dce3e7;
+      --shadow: 0 14px 36px rgba(23, 50, 77, .13);
+      --danger: #a43a3a;
+      --warning: #9a6414;
+      --success: #197348;
+      --radius: 22px;
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-height: 100%; background: var(--cream); }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(13, 124, 120, .10), transparent 28rem),
+        linear-gradient(180deg, #fbf9f4 0%, var(--cream) 100%);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    button, input, select { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+    [hidden] { display: none !important; }
+
+    .app-shell {
+      width: min(100%, 760px);
+      min-height: 100vh;
+      min-height: 100dvh;
+      margin: 0 auto;
+      padding: 0 16px calc(22px + var(--safe-bottom));
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 70px;
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--navy);
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--navy);
+      color: white;
+      box-shadow: 0 8px 18px rgba(23, 50, 77, .18);
+    }
+
+    .icon-button {
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 253, 249, .86);
+      color: var(--navy);
+      cursor: pointer;
+    }
+
+    .icon-button:active { transform: scale(.97); }
+
+    main { padding: 10px 0 24px; }
+
+    .screen { animation: fade-in .24s ease-out; }
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 10px;
+      color: var(--navy);
+      font-size: clamp(2rem, 8vw, 3.4rem);
+      line-height: 1.03;
+      letter-spacing: -.045em;
+    }
+    h2 {
+      margin-bottom: 8px;
+      color: var(--navy);
+      font-size: clamp(1.45rem, 5vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -.025em;
+    }
+    h3 { color: var(--navy); }
+    .lead { color: var(--muted); font-size: 1.05rem; }
+    .muted { color: var(--muted); }
+    .small { font-size: .9rem; }
+
+    .hero {
+      padding: 26px 4px 20px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 14px;
+      color: var(--teal-dark);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .panel {
+      border: 1px solid rgba(220, 227, 231, .95);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 249, .94);
+      box-shadow: var(--shadow);
+    }
+
+    .setup-panel { padding: 22px; }
+
+    .upload-zone {
+      display: grid;
+      place-items: center;
+      min-height: 190px;
+      margin-top: 18px;
+      padding: 24px 18px;
+      border: 2px dashed #a9bcc7;
+      border-radius: 18px;
+      background: #f8fbfc;
+      text-align: center;
+      transition: border-color .2s, background .2s, transform .2s;
+    }
+
+    .upload-zone.dragging {
+      border-color: var(--teal);
+      background: #eefaf9;
+      transform: scale(1.01);
+    }
+
+    .upload-icon {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 12px;
+      border-radius: 18px;
+      background: #e8f5f4;
+      color: var(--teal-dark);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 52px;
+      padding: 13px 19px;
+      border: 0;
+      border-radius: 15px;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform .12s ease, box-shadow .15s ease, background .15s ease;
+      text-decoration: none;
+    }
+
+    .button:active { transform: translateY(1px) scale(.99); }
+    .button:focus-visible, .icon-button:focus-visible, .grade-button:focus-visible,
+    .direction-option:focus-within, .audio-button:focus-visible, .flashcard:focus-visible {
+      outline: 3px solid rgba(13, 124, 120, .28);
+      outline-offset: 3px;
+    }
+
+    .button-primary {
+      background: var(--teal);
+      color: white;
+      box-shadow: 0 10px 22px rgba(13, 124, 120, .21);
+    }
+    .button-primary:hover { background: var(--teal-dark); }
+    .button-secondary {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--navy);
+    }
+    .button-ghost {
+      background: transparent;
+      color: var(--navy-2);
+    }
+    .button-danger {
+      border: 1px solid #efcccc;
+      background: #fff6f6;
+      color: var(--danger);
+    }
+    .button[disabled] { opacity: .5; cursor: not-allowed; box-shadow: none; }
+    .button-block { width: 100%; }
+
+    .requirements {
+      display: grid;
+      gap: 7px;
+      margin: 18px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: .91rem;
+    }
+    .requirements li { display: flex; gap: 8px; align-items: flex-start; }
+    .requirements svg { flex: 0 0 auto; margin-top: 3px; color: var(--success); }
+
+    .dashboard-top {
+      padding: 18px 2px 12px;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .stat-card {
+      min-height: 112px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 253, 249, .96);
+    }
+    .stat-card strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--navy);
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .stat-card span { color: var(--muted); font-size: .9rem; }
+    .stat-card.wide { grid-column: 1 / -1; min-height: 92px; }
+    .stat-card.wide strong { font-size: 1.12rem; line-height: 1.25; }
+
+    .holding-panel {
+      display: grid;
+      gap: 15px;
+      margin-top: 14px;
+      padding: 18px;
+      border-color: #b9d8d5;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(13, 124, 120, .09), transparent 13rem),
+        rgba(255, 253, 249, .96);
+    }
+    .holding-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .holding-heading h3 { margin: 0; }
+    .holding-badge {
+      flex: 0 0 auto;
+      min-width: 48px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: #e1f2f0;
+      color: var(--teal-dark);
+      font-size: 1rem;
+      font-weight: 850;
+      text-align: center;
+    }
+    .holding-panel p { margin: 5px 0 0; }
+
+    .box-panel { margin-top: 14px; padding: 18px; }
+    .box-row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 7px;
+      margin-top: 13px;
+    }
+    .box-chip {
+      min-width: 0;
+      padding: 10px 3px;
+      border-radius: 13px;
+      background: #eef3f5;
+      text-align: center;
+    }
+    .box-chip b { display: block; color: var(--navy); font-size: 1.1rem; }
+    .box-chip span { display: block; overflow: hidden; color: var(--muted); font-size: .72rem; text-overflow: ellipsis; white-space: nowrap; }
+
+    .study-options { margin-top: 14px; padding: 18px; }
+    fieldset { margin: 0; padding: 0; border: 0; }
+    legend { margin-bottom: 12px; color: var(--navy); font-weight: 800; }
+    .direction-list { display: grid; gap: 10px; }
+    .direction-option {
+      position: relative;
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 12px;
+      align-items: center;
+      min-height: 66px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: white;
+      cursor: pointer;
+    }
+    .direction-option:has(input:checked) {
+      border-color: var(--teal);
+      background: #effaf9;
+      box-shadow: inset 0 0 0 1px var(--teal);
+    }
+    .direction-option input { width: 20px; height: 20px; accent-color: var(--teal); }
+    .direction-option strong { display: block; color: var(--navy); }
+    .direction-option small { display: block; margin-top: 2px; color: var(--muted); }
+
+    .dashboard-actions { display: grid; gap: 10px; margin-top: 14px; }
+    .privacy-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      margin: 14px 5px 0;
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    .study-header {
+      display: grid;
+      grid-template-columns: 46px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .study-progress-copy { min-width: 0; }
+    .study-progress-copy strong { display: block; color: var(--navy); font-size: .93rem; }
+    .study-progress-copy span { display: block; color: var(--muted); font-size: .78rem; }
+    .box-badge {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: #e9f4f3;
+      color: var(--teal-dark);
+      font-size: .78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .progress-track {
+      grid-column: 2 / -1;
+      height: 7px;
+      margin-top: -5px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #dfe7ea;
+    }
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      border-radius: inherit;
+      background: var(--teal);
+      transition: width .24s ease;
+    }
+
+    .study-instruction {
+      min-height: 44px;
+      margin: 12px auto 9px;
+      color: var(--muted);
+      text-align: center;
+      font-size: .93rem;
+    }
+
+    .card-stage { perspective: 1200px; }
+    .flashcard {
+      position: relative;
+      width: 100%;
+      height: clamp(290px, 50dvh, 430px);
+      min-height: 290px;
+      border-radius: 28px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    .flashcard-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform .5s cubic-bezier(.2, .75, .2, 1);
+      transform-style: preserve-3d;
+    }
+    .flashcard-inner.flipped { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(220, 227, 231, .9);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 100% 0%, rgba(13, 124, 120, .08), transparent 16rem),
+        var(--paper);
+      box-shadow: 0 18px 44px rgba(23, 50, 77, .16);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .card-face::after {
+      content: "";
+      position: absolute;
+      right: -38px;
+      bottom: -46px;
+      width: 150px;
+      height: 150px;
+      border: 24px solid rgba(13, 124, 120, .055);
+      border-radius: 50%;
+    }
+    .card-back { transform: rotateY(180deg); }
+
+    .spanish-word {
+      position: relative;
+      z-index: 1;
+      max-width: 88%;
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2.1rem, 10vw, 4.6rem);
+      font-weight: 850;
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      text-align: center;
+      overflow-wrap: anywhere;
+    }
+
+    .audio-button {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      width: 128px;
+      height: 128px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      box-shadow: 0 18px 32px rgba(23, 50, 77, .26);
+      cursor: pointer;
+      transition: transform .14s ease, background .15s ease;
+    }
+    .audio-button:hover { background: var(--navy-2); }
+    .audio-button:active { transform: scale(.96); }
+    .audio-button.playing { animation: pulse 1.05s ease-in-out infinite; background: var(--teal-dark); }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 18px 32px rgba(23, 50, 77, .24), 0 0 0 0 rgba(13, 124, 120, .26); }
+      50% { box-shadow: 0 18px 32px rgba(23, 50, 77, .24), 0 0 0 16px rgba(13, 124, 120, 0); }
+    }
+
+    .flip-button { margin-top: 13px; }
+
+    .grade-panel {
+      margin-top: 13px;
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 253, 249, .96);
+      box-shadow: 0 12px 28px rgba(23, 50, 77, .09);
+      animation: grade-in .2s ease-out;
+    }
+    @keyframes grade-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .grade-title { margin: 0 0 10px; color: var(--navy); font-size: .94rem; font-weight: 800; text-align: center; }
+    .grade-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .grade-button {
+      min-height: 68px;
+      padding: 8px 5px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: .82rem;
+      font-weight: 800;
+      line-height: 1.15;
+    }
+    .grade-button svg { display: block; margin: 0 auto 5px; }
+    .grade-button.missed { color: var(--danger); background: #fff8f8; }
+    .grade-button.hard { color: var(--warning); background: #fffbf4; }
+    .grade-button.knew { color: var(--success); background: #f5fbf7; }
+    .grade-button:active { transform: scale(.98); }
+
+    .summary-card { padding: 24px 20px; text-align: center; }
+    .summary-icon {
+      display: grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 16px;
+      border-radius: 24px;
+      background: #e9f6ef;
+      color: var(--success);
+    }
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 21px 0;
+    }
+    .summary-stat { padding: 13px 6px; border-radius: 15px; background: #f1f5f6; }
+    .summary-stat b { display: block; color: var(--navy); font-size: 1.45rem; }
+    .summary-stat span { display: block; color: var(--muted); font-size: .74rem; }
+
+    dialog {
+      width: min(calc(100% - 24px), 620px);
+      max-height: min(88dvh, 760px);
+      margin: auto;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      border-radius: 24px;
+      background: var(--paper);
+      color: var(--ink);
+      box-shadow: 0 26px 80px rgba(16, 37, 53, .32);
+    }
+    dialog::backdrop { background: rgba(11, 26, 38, .54); backdrop-filter: blur(3px); }
+    .dialog-header {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 18px 18px 13px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 253, 249, .96);
+    }
+    .dialog-header h2 { margin: 0; font-size: 1.3rem; }
+    .dialog-body { max-height: calc(88dvh - 78px); padding: 17px 18px 24px; overflow-y: auto; }
+    .settings-section + .settings-section { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .settings-section h3 { margin-bottom: 5px; font-size: 1rem; }
+    .settings-section p { margin-bottom: 12px; color: var(--muted); font-size: .88rem; }
+    .settings-actions { display: grid; gap: 9px; }
+    .file-summary {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 14px;
+      margin-bottom: 12px;
+      padding: 13px;
+      border-radius: 14px;
+      background: #f2f6f7;
+      font-size: .88rem;
+    }
+    .file-summary span { color: var(--muted); }
+    .file-summary b { color: var(--navy); text-align: right; overflow-wrap: anywhere; }
+    .range-row { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+    input[type="range"] { width: 100%; accent-color: var(--teal); }
+    .range-value { min-width: 44px; color: var(--navy); font-weight: 800; text-align: right; }
+
+    .confirm-dialog { width: min(calc(100% - 28px), 430px); }
+    .confirm-content { padding: 24px 20px 20px; }
+    .confirm-content h2 { font-size: 1.35rem; }
+    .confirm-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-top: 19px; }
+
+    .toast {
+      position: fixed;
+      z-index: 100;
+      left: 50%;
+      bottom: calc(18px + var(--safe-bottom));
+      width: min(calc(100% - 28px), 520px);
+      padding: 13px 16px;
+      border-radius: 14px;
+      background: #152a3a;
+      color: white;
+      box-shadow: 0 16px 34px rgba(11, 26, 38, .28);
+      font-size: .9rem;
+      font-weight: 650;
+      text-align: center;
+      transform: translate(-50%, 120%);
+      opacity: 0;
+      transition: transform .25s ease, opacity .25s ease;
+      pointer-events: none;
+    }
+    .toast.show { transform: translate(-50%, 0); opacity: 1; }
+    .toast.error { background: #7d2929; }
+
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+    @media (min-width: 620px) {
+      .app-shell { padding-left: 24px; padding-right: 24px; }
+      .status-grid { grid-template-columns: repeat(3, 1fr); }
+      .stat-card.wide { grid-column: auto; }
+      .holding-panel { grid-template-columns: 1fr auto; align-items: center; padding: 22px; }
+      .holding-panel .button { min-width: 220px; }
+      .dashboard-actions { grid-template-columns: 1.5fr 1fr; }
+      .setup-panel { padding: 30px; }
+      .grade-button { font-size: .9rem; }
+      .settings-actions.two-column { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="brand" aria-label="Tarjetas de inglés">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="14" height="16" rx="2"></rect>
+            <path d="M8 8h6M8 12h6"></path>
+            <path d="M18 8h2v12a2 2 0 0 1-2 2H8v-2"></path>
+          </svg>
+        </span>
+        <span>Tarjetas de inglés</span>
+      </div>
+      <button id="manageButton" class="icon-button" type="button" aria-label="Abrir administración" title="Administrar" hidden>
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path>
+          <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 8.6 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 8.6a1.7 1.7 0 0 0-.34-1.88l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15.4 4.6a1.7 1.7 0 0 0 1.88-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.14.38.36.72.66 1 .3.27.7.4 1.1.4H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51.6Z"></path>
+        </svg>
+      </button>
+    </header>
+
+    <main>
+      <section id="loadingScreen" class="screen" aria-live="polite">
+        <div class="hero">
+          <span class="eyebrow">Sistema Leitner · 5 cajas</span>
+          <h1>Preparando tus tarjetas…</h1>
+          <p class="lead">Estamos buscando el vocabulario guardado en este dispositivo.</p>
+        </div>
+      </section>
+
+      <section id="setupScreen" class="screen" hidden>
+        <div class="hero">
+          <span class="eyebrow">Escucha · Recuerda · Avanza</span>
+          <h1>Aprende inglés sin leerlo.</h1>
+          <p class="lead">Carga un archivo CSV de dos columnas. Durante el ejercicio, el inglés se presenta únicamente como audio. Las tarjetas nuevas quedan en espera y se añaden a la práctica de cinco en cinco.</p>
+        </div>
+
+        <div class="panel setup-panel">
+          <h2>Cargar vocabulario</h2>
+          <p class="muted">El archivo debe tener las columnas <strong>English</strong> y <strong>Spanish</strong>.</p>
+
+          <div id="setupDropZone" class="upload-zone">
+            <div>
+              <div class="upload-icon" aria-hidden="true">
+                <svg width="29" height="29" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 16V4"></path><path d="m7 9 5-5 5 5"></path><path d="M20 15v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4"></path>
+                </svg>
+              </div>
+              <strong>Selecciona tu archivo CSV</strong>
+              <p class="muted small" style="margin:6px 0 14px">También puedes arrastrarlo hasta aquí.</p>
+              <button id="setupImportButton" class="button button-primary" type="button">Elegir archivo CSV</button>
+            </div>
+          </div>
+
+          <ul class="requirements">
+            <li>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>
+              <span>Se aceptan comas, punto y coma o tabulaciones como separador.</span>
+            </li>
+            <li>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>
+              <span>Los acentos y la letra ñ se conservan.</span>
+            </li>
+            <li>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m20 6-11 11-5-5"></path></svg>
+              <span>El progreso se guardará únicamente en este navegador.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="homeScreen" class="screen" hidden>
+        <div class="dashboard-top">
+          <span class="eyebrow">Tu práctica de hoy</span>
+          <h1 id="homeHeading">Listo para estudiar</h1>
+          <p id="homeMessage" class="lead">Repasa las tarjetas pendientes y fortalece tu comprensión auditiva.</p>
+        </div>
+
+        <div class="status-grid" aria-label="Resumen del progreso">
+          <div class="stat-card">
+            <span>Pendientes ahora</span>
+            <strong id="dueCount">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Total de tarjetas</span>
+            <strong id="totalCount">0</strong>
+          </div>
+          <div class="stat-card wide">
+            <span>Próxima revisión</span>
+            <strong id="nextReview">—</strong>
+          </div>
+        </div>
+
+        <div class="panel holding-panel" aria-labelledby="holdingTitle">
+          <div>
+            <div class="holding-heading">
+              <h3 id="holdingTitle">Caja de espera</h3>
+              <span id="holdingCount" class="holding-badge" aria-label="Tarjetas en espera">0</span>
+            </div>
+            <p id="holdingMessage" class="muted small">Las tarjetas nuevas permanecen aquí hasta que decidas practicarlas.</p>
+          </div>
+          <button id="addFiveButton" class="button button-primary button-block" type="button">Añadir 5 a la Caja 1</button>
+        </div>
+
+        <div class="panel box-panel">
+          <h3 style="margin:0">Distribución por cajas</h3>
+          <p class="muted small" style="margin:4px 0 0">Estas son las cinco cajas activas. Las tarjetas avanzan cuando las recuerdas.</p>
+          <div class="box-row" aria-label="Cantidad de tarjetas en cada caja">
+            <div class="box-chip"><b id="boxCount1">0</b><span>Caja 1</span></div>
+            <div class="box-chip"><b id="boxCount2">0</b><span>Caja 2</span></div>
+            <div class="box-chip"><b id="boxCount3">0</b><span>Caja 3</span></div>
+            <div class="box-chip"><b id="boxCount4">0</b><span>Caja 4</span></div>
+            <div class="box-chip"><b id="boxCount5">0</b><span>Caja 5</span></div>
+          </div>
+        </div>
+
+        <div class="panel study-options">
+          <fieldset>
+            <legend>Elige la dirección</legend>
+            <div class="direction-list">
+              <label class="direction-option">
+                <input type="radio" name="direction" value="spanish-first">
+                <span>
+                  <strong>Español → inglés</strong>
+                  <small>Mira la palabra en español y recuerda cómo suena en inglés.</small>
+                </span>
+              </label>
+              <label class="direction-option">
+                <input type="radio" name="direction" value="english-first">
+                <span>
+                  <strong>Inglés → español</strong>
+                  <small>Escucha la palabra en inglés y recuerda su significado.</small>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="dashboard-actions">
+          <button id="startButton" class="button button-primary button-block" type="button">Comenzar tarjetas pendientes</button>
+          <button id="openManageButton" class="button button-secondary button-block" type="button">Administrar vocabulario</button>
+        </div>
+
+        <p class="privacy-note">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          <span>Tu vocabulario y tu progreso permanecen en este dispositivo. Usa una copia de seguridad antes de borrar los datos del navegador.</span>
+        </p>
+      </section>
+
+      <section id="studyScreen" class="screen" hidden>
+        <div class="study-header">
+          <button id="exitStudyButton" class="icon-button" type="button" aria-label="Salir del ejercicio" title="Salir">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
+          </button>
+          <div class="study-progress-copy">
+            <strong id="studyProgressText">Tarjeta 1</strong>
+            <span id="studyDirectionText">Español → inglés</span>
+          </div>
+          <span id="currentBoxBadge" class="box-badge">Caja 1</span>
+          <div class="progress-track" aria-hidden="true"><div id="studyProgressBar" class="progress-bar"></div></div>
+        </div>
+
+        <p id="studyInstruction" class="study-instruction">Piensa en la respuesta y luego voltea la tarjeta.</p>
+
+        <div class="card-stage">
+          <div id="flashcard" class="flashcard" tabindex="0" role="group" aria-label="Tarjeta de estudio. Toca fuera del botón de audio para voltearla.">
+            <div id="flashcardInner" class="flashcard-inner">
+              <div id="cardFront" class="card-face card-front"></div>
+              <div id="cardBack" class="card-face card-back"></div>
+            </div>
+          </div>
+        </div>
+
+        <button id="flipButton" class="button button-secondary button-block flip-button" type="button">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 0 0-14.93-4"></path><path d="M4 4v5h5"></path><path d="M4 12a8 8 0 0 0 14.93 4"></path><path d="M20 20v-5h-5"></path></svg>
+          Voltear tarjeta
+        </button>
+
+        <div id="gradePanel" class="grade-panel" hidden>
+          <p class="grade-title">¿Cómo te fue?</p>
+          <div class="grade-grid">
+            <button class="grade-button missed" type="button" data-grade="missed">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg>
+              No la sabía
+            </button>
+            <button class="grade-button hard" type="button" data-grade="hard">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4"></path><path d="M12 17h.01"></path><circle cx="12" cy="12" r="9"></circle></svg>
+              Me costó
+            </button>
+            <button class="grade-button knew" type="button" data-grade="knew">
+              <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20 6-11 11-5-5"></path></svg>
+              La sabía
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="summaryScreen" class="screen" hidden>
+        <div class="hero" style="padding-bottom:14px">
+          <span class="eyebrow">Sesión terminada</span>
+        </div>
+        <div class="panel summary-card">
+          <div class="summary-icon" aria-hidden="true">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15l3.5 2-1-4 3-2.5-4-.3L12 6.5l-1.5 3.7-4 .3 3 2.5-1 4 3.5-2Z"></path><circle cx="12" cy="12" r="10"></circle></svg>
+          </div>
+          <h2>¡Buen trabajo!</h2>
+          <p class="muted">Cada respuesta ayuda a programar tu próxima revisión.</p>
+
+          <div class="summary-grid">
+            <div class="summary-stat"><b id="summaryMissed">0</b><span>No sabía</span></div>
+            <div class="summary-stat"><b id="summaryHard">0</b><span>Me costó</span></div>
+            <div class="summary-stat"><b id="summaryKnew">0</b><span>La sabía</span></div>
+          </div>
+
+          <p id="summaryReviewCount" class="muted small">Revisaste 0 tarjetas.</p>
+          <button id="returnHomeButton" class="button button-primary button-block" type="button">Volver al inicio</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="manageDialog" aria-labelledby="manageTitle">
+    <div class="dialog-header">
+      <h2 id="manageTitle">Administrar</h2>
+      <button id="closeManageButton" class="icon-button" type="button" aria-label="Cerrar">
+        <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 6-12 12M6 6l12 12"></path></svg>
+      </button>
+    </div>
+    <div class="dialog-body">
+      <section class="settings-section">
+        <h3>Vocabulario</h3>
+        <p>Al cargar un archivo nuevo, se conservará el progreso de las tarjetas que no hayan cambiado.</p>
+        <div class="file-summary">
+          <span>Archivo actual</span><b id="sourceName">—</b>
+          <span>Total de tarjetas</span><b id="manageCardCount">0</b>
+          <span>En espera</span><b id="manageHoldingCount">0</b>
+          <span>En las cajas 1–5</span><b id="manageActiveCount">0</b>
+        </div>
+        <div class="settings-actions two-column">
+          <button id="replaceCsvButton" class="button button-secondary" type="button">Cargar otro CSV</button>
+          <button id="downloadTemplateButton" class="button button-secondary" type="button">Descargar plantilla</button>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h3>Audio</h3>
+        <p>La pronunciación depende de las voces instaladas en el navegador o dispositivo.</p>
+        <div class="range-row">
+          <label for="speechRate">Velocidad</label>
+          <output id="speechRateValue" class="range-value" for="speechRate">0.90×</output>
+        </div>
+        <input id="speechRate" type="range" min="0.65" max="1.15" step="0.05" value="0.90">
+        <button id="testVoiceButton" class="button button-secondary button-block" type="button" style="margin-top:10px">Probar la voz</button>
+      </section>
+
+      <section class="settings-section">
+        <h3>Copia de seguridad</h3>
+        <p>Guarda o restaura el vocabulario, la configuración y todo el progreso.</p>
+        <div class="settings-actions two-column">
+          <button id="exportBackupButton" class="button button-secondary" type="button">Exportar copia</button>
+          <button id="importBackupButton" class="button button-secondary" type="button">Importar copia</button>
+        </div>
+      </section>
+
+      <section class="settings-section">
+        <h3>Restablecer</h3>
+        <p>Puedes devolver todas las tarjetas a la caja de espera sin borrar el vocabulario, o eliminar todos los datos de esta aplicación.</p>
+        <div class="settings-actions">
+          <button id="resetProgressButton" class="button button-danger" type="button">Restablecer solo el progreso</button>
+          <button id="deleteAllButton" class="button button-danger" type="button">Borrar vocabulario y progreso</button>
+        </div>
+      </section>
+    </div>
+  </dialog>
+
+  <dialog id="confirmDialog" class="confirm-dialog" aria-labelledby="confirmTitle">
+    <div class="confirm-content">
+      <h2 id="confirmTitle">Confirmar</h2>
+      <p id="confirmMessage" class="muted">¿Deseas continuar?</p>
+      <div class="confirm-actions">
+        <button id="confirmCancelButton" class="button button-secondary" type="button">Cancelar</button>
+        <button id="confirmAcceptButton" class="button button-danger" type="button">Continuar</button>
+      </div>
+    </div>
+  </dialog>
+
+  <input id="csvFileInput" class="sr-only" type="file" accept=".csv,text/csv">
+  <input id="backupFileInput" class="sr-only" type="file" accept=".json,application/json">
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const STORAGE_KEY = "tarjetasLeitner.v1";
+      const BACKUP_VERSION = 2;
+      const HOLDING_BOX = 0;
+      const NEW_CARD_BATCH_SIZE = 5;
+      const DAY_MS = 24 * 60 * 60 * 1000;
+      const BOX_INTERVAL_DAYS = Object.freeze({ 1: 0, 2: 1, 3: 3, 4: 7, 5: 14 });
+      const EMBEDDED_VOCABULARY_BASE64 = [
+        "77u/RW5nbGlzaCxTcGFuaXNoDQpjb21wdXRlcixjb21wdXRhZG9yYSAvIG9yZGVuYWRvcg0KbGFwdG9wLGNvbXB1dGFkb3JhIHBv",
+        "cnTDoXRpbA0KZGVza3RvcCBjb21wdXRlcixjb21wdXRhZG9yYSBkZSBlc2NyaXRvcmlvDQpzY3JlZW4scGFudGFsbGENCm1vbml0",
+        "b3IsbW9uaXRvcg0Ka2V5Ym9hcmQsdGVjbGFkbw0KbW91c2UscmF0w7NuIC8gbW91c2UNCmtleSx0ZWNsYSAvIGNsYXZlIChzZWfD",
+        "um4gZWwgY29udGV4dG8pDQpidXR0b24sYm90w7NuDQpjYWJsZSxjYWJsZQ0KY2hhcmdlcixjYXJnYWRvcg0KYmF0dGVyeSxiYXRl",
+        "csOtYQ0KcG93ZXIsZW5lcmfDrWEgLyBhbGltZW50YWNpw7NuDQpkZXZpY2UsZGlzcG9zaXRpdm8NCmhhcmR3YXJlLGhhcmR3YXJl",
+        "IC8gY29tcG9uZW50ZXMgZsOtc2ljb3MNCnNvZnR3YXJlLHNvZnR3YXJlIC8gcHJvZ3JhbWFzDQpwcm9ncmFtLHByb2dyYW1hDQph",
+        "cHBsaWNhdGlvbiAvIGFwcCxhcGxpY2FjacOzbg0KZmlsZSxhcmNoaXZvDQpmb2xkZXIsY2FycGV0YQ0KZG9jdW1lbnQsZG9jdW1l",
+        "bnRvDQpwYWdlLHDDoWdpbmENCndpbmRvdyx2ZW50YW5hDQptZW51LG1lbsO6DQppY29uLGljb25vDQpsaW5rLGVubGFjZQ0Kd2Vi",
+        "c2l0ZSxzaXRpbyB3ZWINCndlYnBhZ2UscMOhZ2luYSB3ZWINCmJyb3dzZXIsbmF2ZWdhZG9yDQpJbnRlcm5ldCxJbnRlcm5ldA0K",
+        "bmV0d29yayxyZWQNCldpLUZpLHdpZmkgLyByZWQgaW5hbMOhbWJyaWNhDQpwYXNzd29yZCxjb250cmFzZcOxYQ0KdXNlcm5hbWUs",
+        "bm9tYnJlIGRlIHVzdWFyaW8NCmFjY291bnQsY3VlbnRhDQpsb2dpbixpbmljaW8gZGUgc2VzacOzbg0KbG9nIGluLGluaWNpYXIg",
+        "c2VzacOzbg0KbG9nIG91dCxjZXJyYXIgc2VzacOzbg0KZG93bmxvYWQsZGVzY2FyZ2FyDQp1cGxvYWQsc3ViaXIgLyBjYXJnYXIN",
+        "CnNhdmUsZ3VhcmRhcg0Kb3BlbixhYnJpcg0KY2xvc2UsY2VycmFyDQpjb3B5LGNvcGlhcg0KcGFzdGUscGVnYXINCmN1dCxjb3J0",
+        "YXINCmRlbGV0ZSxlbGltaW5hcg0Kc2VsZWN0LHNlbGVjY2lvbmFyDQpjbGljayxoYWNlciBjbGljDQpkb3VibGUtY2xpY2ssaGFj",
+        "ZXIgZG9ibGUgY2xpYw0Kc2Nyb2xsLGRlc3BsYXphcnNlDQpzZWFyY2gsYnVzY2FyDQpwcmludCxpbXByaW1pcg0KaW5zdGFsbCxp",
+        "bnN0YWxhcg0KdXBkYXRlLGFjdHVhbGl6YXINCnNldHRpbmdzLGNvbmZpZ3VyYWNpw7NuDQplcnJvcixlcnJvcg0KbWVzc2FnZSxt",
+        "ZW5zYWplDQpkYXRhLGRhdG9zDQppbmZvcm1hdGlvbixpbmZvcm1hY2nDs24NCm9ubGluZSxlbiBsw61uZWEgLyBjb25lY3RhZG8N",
+        "Cm9mZmxpbmUsc2luIGNvbmV4acOzbg0KYWRkcmVzcyxkaXJlY2Npw7NuDQphY2Nlc3MsYWNjZXNvIC8gYWNjZWRlcg0KY2xvdWQs",
+        "bnViZQ0KY291cnNlLGN1cnNvIC8gYXNpZ25hdHVyYQ0KY2xhc3MsY2xhc2UNCmxlY3R1cmUsY2xhc2UgbWFnaXN0cmFsIC8gY29u",
+        "ZmVyZW5jaWENCnByb2Zlc3Nvcixwcm9mZXNvcg0KaW5zdHJ1Y3RvcixpbnN0cnVjdG9yDQp0ZWFjaGluZyBhc3Npc3RhbnQgLyBU",
+        "QSxhc2lzdGVudGUgZGUgZW5zZcOxYW56YQ0Kb2ZmaWNlIGhvdXJzLGhvcmFyaW8gZGUgY29uc3VsdGENCnN5bGxhYnVzLHByb2dy",
+        "YW1hIGRlIGxhIGFzaWduYXR1cmENCmFzc2lnbm1lbnQsdGFyZWENCmhvbWV3b3JrLHRhcmVhDQpleGVyY2lzZSxlamVyY2ljaW8N",
+        "CnByb2JsZW0gc2V0LGNvbmp1bnRvIGRlIHByb2JsZW1hcw0KcHJvamVjdCxwcm95ZWN0bw0KbGFiLGxhYm9yYXRvcmlvIC8gcHLD",
+        "oWN0aWNhDQpkZWFkbGluZSxmZWNoYSBsw61taXRlDQpzdWJtaXNzaW9uLGVudHJlZ2ENCmdyYWRlLGNhbGlmaWNhY2nDs24NCmV4",
+        "YW0sZXhhbWVuDQpxdWl6LHBydWViYSBjb3J0YQ0KbWlkdGVybSxleGFtZW4gcGFyY2lhbA0KZmluYWwgZXhhbSxleGFtZW4gZmlu",
+        "YWwNCnRleHRib29rLGxpYnJvIGRlIHRleHRvDQpjaGFwdGVyLGNhcMOtdHVsbw0Kc2VjdGlvbixzZWNjacOzbg0KZXhhbXBsZSxl",
+        "amVtcGxvDQpkZWZpbml0aW9uLGRlZmluaWNpw7NuDQpjb25jZXB0LGNvbmNlcHRvDQp0aGVvcnksdGVvcsOtYQ0KYXBwcm9hY2gs",
+        "ZW5mb3F1ZQ0Kc29sdXRpb24sc29sdWNpw7NuDQpyZXF1aXJlbWVudCxyZXF1aXNpdG8NCmluc3RydWN0aW9uLGluc3RydWNjacOz",
+        "bg0KZXhwbGFpbixleHBsaWNhcg0KZGVzY3JpYmUsZGVzY3JpYmlyDQpkZWZpbmUsZGVmaW5pcg0KaWRlbnRpZnksaWRlbnRpZmlj",
+        "YXINCmRldGVybWluZSxkZXRlcm1pbmFyDQpkZW1vbnN0cmF0ZSxkZW1vc3RyYXINCmlsbHVzdHJhdGUsaWx1c3RyYXINCmNvbXBh",
+        "cmUsY29tcGFyYXINCmNvbnRyYXN0LGNvbnRyYXN0YXINCmFuYWx5emUsYW5hbGl6YXINCmV2YWx1YXRlLGV2YWx1YXINCmNhbGN1",
+        "bGF0ZSxjYWxjdWxhcg0KY29tcHV0ZSxjYWxjdWxhciAvIGNvbXB1dGFyDQpkZXJpdmUsZGVyaXZhciAvIGRlZHVjaXINCnByb3Zl",
+        "LGRlbW9zdHJhcg0KYXNzdW1lLHN1cG9uZXINCnZlcmlmeSx2ZXJpZmljYXINCmp1c3RpZnksanVzdGlmaWNhcg0KZXN0aW1hdGUs",
+        "ZXN0aW1hcg0KaW1wbGVtZW50LGltcGxlbWVudGFyDQptb2RpZnksbW9kaWZpY2FyDQpkZXNpZ24sZGlzZcOxYXINCmRldmVsb3As",
+        "ZGVzYXJyb2xsYXINCnRlc3QscHJvYmFyIC8gcHJ1ZWJhDQpkZWJ1ZyxkZXB1cmFyDQpzdWJtaXQsZW50cmVnYXINCnJldmlldyxy",
+        "ZXZpc2FyIC8gcmV2aXNpw7NuDQpwcmVyZXF1aXNpdGUscHJlcnJlcXVpc2l0bw0Kc2VtZXN0ZXIsc2VtZXN0cmUNCmNyZWRpdCxj",
+        "csOpZGl0byBhY2Fkw6ltaWNvDQptYWpvcixjYXJyZXJhIC8gZXNwZWNpYWxpZGFkIHByaW5jaXBhbA0KbWlub3IsZXNwZWNpYWxp",
+        "ZGFkIHNlY3VuZGFyaWENCnVuZGVyZ3JhZHVhdGUsZXN0dWRpYW50ZSBkZSBwcmVncmFkbw0KZ3JhZHVhdGUgc3R1ZGVudCxlc3R1",
+        "ZGlhbnRlIGRlIHBvc2dyYWRvDQpjb2RlLGPDs2RpZ28NCnNvdXJjZSBjb2RlLGPDs2RpZ28gZnVlbnRlDQpwcm9ncmFtbWluZyxw",
+        "cm9ncmFtYWNpw7NuDQpwcm9ncmFtbWVyLHByb2dyYW1hZG9yDQpkZXZlbG9wZXIsZGVzYXJyb2xsYWRvcg0KcHJvZ3JhbW1pbmcg",
+        "bGFuZ3VhZ2UsbGVuZ3VhamUgZGUgcHJvZ3JhbWFjacOzbg0KY29tbWFuZCxjb21hbmRvDQpzdGF0ZW1lbnQsc2VudGVuY2lhIC8g",
+        "aW5zdHJ1Y2Npw7NuDQpsaW5lIG9mIGNvZGUsbMOtbmVhIGRlIGPDs2RpZ28NCnZhcmlhYmxlLHZhcmlhYmxlDQp2YWx1ZSx2YWxv",
+        "cg0KY29uc3RhbnQsY29uc3RhbnRlDQpudW1iZXIsbsO6bWVybw0KaW50ZWdlcixuw7ptZXJvIGVudGVybw0KZGVjaW1hbCxkZWNp",
+        "bWFsDQpmbG9hdCxuw7ptZXJvIGRlIHB1bnRvIGZsb3RhbnRlDQpzdHJpbmcsY2FkZW5hIGRlIHRleHRvDQpjaGFyYWN0ZXIsY2Fy",
+        "w6FjdGVyDQpCb29sZWFuLGJvb2xlYW5vDQp0cnVlLHZlcmRhZGVybw0KZmFsc2UsZmFsc28NCm51bGwsbnVsbyAvIHNpbiB2YWxv",
+        "cg0KaW5wdXQsZW50cmFkYQ0Kb3V0cHV0LHNhbGlkYQ0KZnVuY3Rpb24sZnVuY2nDs24NCnBhcmFtZXRlcixwYXLDoW1ldHJvDQph",
+        "cmd1bWVudCxhcmd1bWVudG8NCnJldHVybixkZXZvbHZlcg0KcmV0dXJuIHZhbHVlLHZhbG9yIGRlIHJldG9ybm8NCm9wZXJhdG9y",
+        "LG9wZXJhZG9yDQphcml0aG1ldGljIG9wZXJhdG9yLG9wZXJhZG9yIGFyaXRtw6l0aWNvDQpjb21wYXJpc29uIG9wZXJhdG9yLG9w",
+        "ZXJhZG9yIGRlIGNvbXBhcmFjacOzbg0KYXNzaWdubWVudCBvcGVyYXRvcixvcGVyYWRvciBkZSBhc2lnbmFjacOzbg0KZXhwcmVz",
+        "c2lvbixleHByZXNpw7NuDQpjb25kaXRpb24sY29uZGljacOzbg0KaWYgc3RhdGVtZW50LHNlbnRlbmNpYSBpZg0KZWxzZSxzaSBu",
+        "byAvIGVsc2UNCmJyYW5jaCxyYW1hDQpsb29wLGJ1Y2xlDQpmb3IgbG9vcCxidWNsZSBmb3INCndoaWxlIGxvb3AsYnVjbGUgd2hp",
+        "bGUNCml0ZXJhdGlvbixpdGVyYWNpw7NuDQpjb3VudGVyLGNvbnRhZG9yDQppbmNyZW1lbnQsaW5jcmVtZW50YXINCmRlY3JlbWVu",
+        "dCxkaXNtaW51aXIgLyBkZWNyZW1lbnRhcg0KYXJyYXksYXJyZWdsbyAvIG1hdHJpeg0KbGlzdCxsaXN0YQ0KaW5kZXgsw61uZGlj",
+        "ZQ0KZWxlbWVudCxlbGVtZW50bw0KbGVuZ3RoLGxvbmdpdHVkDQpzZXF1ZW5jZSxzZWN1ZW5jaWENCmNvbGxlY3Rpb24sY29sZWNj",
+        "acOzbg0KZGljdGlvbmFyeSxkaWNjaW9uYXJpbw0KdmFsdWUgcGFpcixwYXIgZGUgdmFsb3Jlcw0Kc2V0LGNvbmp1bnRvDQp0dXBs",
+        "ZSx0dXBsYQ0Kb2JqZWN0LG9iamV0bw0KbWV0aG9kLG3DqXRvZG8NCnByb3BlcnR5LHByb3BpZWRhZA0KaW5zdGFuY2UsaW5zdGFu",
+        "Y2lhDQpjb25zdHJ1Y3Rvcixjb25zdHJ1Y3Rvcg0Kc2NvcGUsw6FtYml0bw0KbG9jYWwgdmFyaWFibGUsdmFyaWFibGUgbG9jYWwN",
+        "Cmdsb2JhbCB2YXJpYWJsZSx2YXJpYWJsZSBnbG9iYWwNCmJsb2NrLGJsb3F1ZQ0Kc3ludGF4LHNpbnRheGlzDQpzeW50YXggZXJy",
+        "b3IsZXJyb3IgZGUgc2ludGF4aXMNCmJ1ZyxlcnJvciAvIGZhbGxvDQpydW50aW1lIGVycm9yLGVycm9yIGRlIGVqZWN1Y2nDs24N",
+        "CmxvZ2ljIGVycm9yLGVycm9yIGzDs2dpY28NCmV4Y2VwdGlvbixleGNlcGNpw7NuDQpleGNlcHRpb24gaGFuZGxpbmcsbWFuZWpv",
+        "IGRlIGV4Y2VwY2lvbmVzDQpkZWJ1Z2dpbmcsZGVwdXJhY2nDs24NCmRlYnVnZ2VyLGRlcHVyYWRvcg0KY29tcGlsZSxjb21waWxh",
+        "cg0KY29tcGlsZXIsY29tcGlsYWRvcg0KZXhlY3V0ZSxlamVjdXRhcg0KcnVuLGVqZWN1dGFyDQpydW50aW1lLHRpZW1wbyBkZSBl",
+        "amVjdWNpw7NuDQp0ZXJtaW5hbCx0ZXJtaW5hbA0KY29tbWFuZCBsaW5lLGzDrW5lYSBkZSBjb21hbmRvcw0KY29uc29sZSxjb25z",
+        "b2xhDQpzY3JpcHQsc2NyaXB0IC8gZ3Vpb24NCmxpYnJhcnksYmlibGlvdGVjYQ0KZnJhbWV3b3JrLGZyYW1ld29yayAvIG1hcmNv",
+        "IGRlIHRyYWJham8NCm1vZHVsZSxtw7NkdWxvDQpwYWNrYWdlLHBhcXVldGUNCmNvbW1lbnQsY29tZW50YXJpbw0KaW5kZW50YXRp",
+        "b24sc2FuZ3LDrWENCmJyYWNrZXRzLGNvcmNoZXRlcw0KcGFyZW50aGVzZXMscGFyw6ludGVzaXMNCnF1b3RhdGlvbiBtYXJrcyxj",
+        "b21pbGxhcw0KYXNzaWduLGFzaWduYXINCmRlY2xhcmUsZGVjbGFyYXINCmluaXRpYWxpemUsaW5pY2lhbGl6YXINCmNhbGwsbGxh",
+        "bWFyDQpwYXNzLHBhc2FyDQpyZXBlYXQscmVwZXRpcg0KaXRlcmF0ZSxpdGVyYXINCmNvbnZlcnQsY29udmVydGlyDQphbGdvcml0",
+        "aG0sYWxnb3JpdG1vDQpkYXRhIHN0cnVjdHVyZSxlc3RydWN0dXJhIGRlIGRhdG9zDQpiaW5hcnksYmluYXJpbw0KYml0LGJpdA0K",
+        "Ynl0ZSxieXRlDQptZW1vcnksbWVtb3JpYQ0Kc3RvcmFnZSxhbG1hY2VuYW1pZW50bw0KcHJvY2Vzc29yLHByb2Nlc2Fkb3INCkNQ",
+        "VSx1bmlkYWQgY2VudHJhbCBkZSBwcm9jZXNhbWllbnRvDQpvcGVyYXRpbmcgc3lzdGVtLHNpc3RlbWEgb3BlcmF0aXZvDQpwcm9j",
+        "ZXNzLHByb2Nlc28NCnRocmVhZCxoaWxvDQpzdGFjayxwaWxhDQpxdWV1ZSxjb2xhDQpsaW5rZWQgbGlzdCxsaXN0YSBlbmxhemFk",
+        "YQ0KdHJlZSzDoXJib2wNCmJpbmFyeSB0cmVlLMOhcmJvbCBiaW5hcmlvDQpncmFwaCxncmFmbw0Kbm9kZSxub2RvDQplZGdlLGFy",
+        "aXN0YQ0Kcm9vdCxyYcOteg0KbGVhZixob2phDQpwb2ludGVyLHB1bnRlcm8NCnJlZmVyZW5jZSxyZWZlcmVuY2lhDQpyZWN1cnNp",
+        "b24scmVjdXJzacOzbg0KcmVjdXJzaXZlLHJlY3Vyc2l2bw0Kc2VhcmNoIGFsZ29yaXRobSxhbGdvcml0bW8gZGUgYsO6c3F1ZWRh",
+        "DQpzb3J0aW5nIGFsZ29yaXRobSxhbGdvcml0bW8gZGUgb3JkZW5hbWllbnRvDQpsaW5lYXIgc2VhcmNoLGLDunNxdWVkYSBsaW5l",
+        "YWwNCmJpbmFyeSBzZWFyY2gsYsO6c3F1ZWRhIGJpbmFyaWENCnNvcnQsb3JkZW5hcg0KZGF0YXNldCxjb25qdW50byBkZSBkYXRv",
+        "cw0KZGF0YWJhc2UsYmFzZSBkZSBkYXRvcw0KdGFibGUsdGFibGENCnJvdyxmaWxhDQpyZWNvcmQscmVnaXN0cm8NCmNvbHVtbixj",
+        "b2x1bW5hDQpmaWVsZCxjYW1wbw0KcXVlcnksY29uc3VsdGENCnByaW1hcnkga2V5LGNsYXZlIHByaW1hcmlhDQpmb3JlaWduIGtl",
+        "eSxjbGF2ZSBmb3LDoW5lYQ0KcmVsYXRpb25zaGlwLHJlbGFjacOzbg0KcmVsYXRpb25hbCBkYXRhYmFzZSxiYXNlIGRlIGRhdG9z",
+        "IHJlbGFjaW9uYWwNCnNjaGVtYSxlc3F1ZW1hDQpTUUwsU1FMDQpqb2luLHVuacOzbg0KZmlsdGVyLGZpbHRyYXIgLyBmaWx0cm8N",
+        "CnRyYW5zYWN0aW9uLHRyYW5zYWNjacOzbg0KZGF0YWJhc2Ugc2NoZW1hLGVzcXVlbWEgZGUgYmFzZSBkZSBkYXRvcw0Kbm9ybWFs",
+        "aXphdGlvbixub3JtYWxpemFjacOzbg0KY29uc3RyYWludCxyZXN0cmljY2nDs24NCmludGVyZmFjZSxpbnRlcmZheg0KaW1wbGVt",
+        "ZW50YXRpb24saW1wbGVtZW50YWNpw7NuDQphYnN0cmFjdGlvbixhYnN0cmFjY2nDs24NCmluaGVyaXRhbmNlLGhlcmVuY2lhDQpl",
+        "bmNhcHN1bGF0aW9uLGVuY2Fwc3VsYWNpw7NuDQpwb2x5bW9ycGhpc20scG9saW1vcmZpc21vDQpvYmplY3Qtb3JpZW50ZWQgcHJv",
+        "Z3JhbW1pbmcscHJvZ3JhbWFjacOzbiBvcmllbnRhZGEgYSBvYmpldG9zDQpwcm9jZWR1cmFsIHByb2dyYW1taW5nLHByb2dyYW1h",
+        "Y2nDs24gcHJvY2VkdXJhbA0KdW5pdCB0ZXN0LHBydWViYSB1bml0YXJpYQ0KdGVzdCBjYXNlLGNhc28gZGUgcHJ1ZWJhDQpkb2N1",
+        "bWVudGF0aW9uLGRvY3VtZW50YWNpw7NuDQpyZXBvc2l0b3J5LHJlcG9zaXRvcmlvDQp2ZXJzaW9uIGNvbnRyb2wsY29udHJvbCBk",
+        "ZSB2ZXJzaW9uZXMNCkdpdCxHaXQNCmNvbW1pdCxjb21taXQgLyBjb25maXJtYWNpw7NuDQptZXJnZSxmdXNpb25hciAvIGNvbWJp",
+        "bmFyDQpjb25mbGljdCxjb25mbGljdG8NCmNsb25lLGNsb25hcg0KcHVsbCxvYnRlbmVyIGNhbWJpb3MNCnB1c2gsZW52aWFyIGNh",
+        "bWJpb3MNCnJlbW90ZSxyZW1vdG8NCmxvY2FsIHJlcG9zaXRvcnkscmVwb3NpdG9yaW8gbG9jYWwNCmNoYW5nZSxjYW1iaW8NCnJl",
+        "dmlzaW9uLHJldmlzacOzbg0KY29kZSByZXZpZXcscmV2aXNpw7NuIGRlIGPDs2RpZ28NClJFQURNRSxhcmNoaXZvIFJFQURNRQ0K",
+        "ZGVwZW5kZW5jeSxkZXBlbmRlbmNpYQ0KYWxsb2NhdGUsYXNpZ25hciBtZW1vcmlhDQpkZWFsbG9jYXRlLGxpYmVyYXIgbWVtb3Jp",
+        "YQ0KcmV0cmlldmUscmVjdXBlcmFyDQpzdG9yZSxhbG1hY2VuYXINCnByb2Nlc3MgZGF0YSxwcm9jZXNhciBkYXRvcw0KdHJhdmVy",
+        "c2UscmVjb3JyZXINCmluc2VydCxpbnNlcnRhcg0KcmVtb3ZlLHF1aXRhciAvIGVsaW1pbmFyDQppbmhlcml0LGhlcmVkYXINCm92",
+        "ZXJyaWRlLHNvYnJlc2NyaWJpcg0KaW5zdGFudGlhdGUsaW5zdGFuY2lhcg0KaGFuZGxlLG1hbmVqYXINCnZhbGlkYXRlLHZhbGlk",
+        "YXINCmNvbXB1dGF0aW9uYWwgY29tcGxleGl0eSxjb21wbGVqaWRhZCBjb21wdXRhY2lvbmFsDQpjb21wbGV4aXR5LGNvbXBsZWpp",
+        "ZGFkDQp0aW1lIGNvbXBsZXhpdHksY29tcGxlamlkYWQgdGVtcG9yYWwNCnNwYWNlIGNvbXBsZXhpdHksY29tcGxlamlkYWQgZXNw",
+        "YWNpYWwNCkJpZyBPIG5vdGF0aW9uLG5vdGFjacOzbiBCaWcgTw0KZWZmaWNpZW5jeSxlZmljaWVuY2lhDQpwZXJmb3JtYW5jZSxy",
+        "ZW5kaW1pZW50bw0Kb3B0aW1pemF0aW9uLG9wdGltaXphY2nDs24NCm9wdGltaXplLG9wdGltaXphcg0Kd29yc3QgY2FzZSxwZW9y",
+        "IGNhc28NCmJlc3QgY2FzZSxtZWpvciBjYXNvDQphdmVyYWdlIGNhc2UsY2FzbyBwcm9tZWRpbw0KZGl2aWRlIGFuZCBjb25xdWVy",
+        "LGRpdmlkZSB5IHZlbmNlcsOhcw0KZHluYW1pYyBwcm9ncmFtbWluZyxwcm9ncmFtYWNpw7NuIGRpbsOhbWljYQ0KZ3JlZWR5IGFs",
+        "Z29yaXRobSxhbGdvcml0bW8gdm9yYXoNCmxpbmVhcixsaW5lYWwNCmxvZ2FyaXRobWljLGxvZ2Fyw610bWljbw0KcXVhZHJhdGlj",
+        "LGN1YWRyw6F0aWNvDQpjb25zdGFudCB0aW1lLHRpZW1wbyBjb25zdGFudGUNCnRyYWRlLW9mZixjb21wcm9taXNvIC8gZXF1aWxp",
+        "YnJpbw0KaW5wdXQgc2l6ZSx0YW1hw7FvIGRlIGVudHJhZGENCm9wZXJhdGlvbixvcGVyYWNpw7NuDQpzdGVwLHBhc28NCmJ1YmJs",
+        "ZSBzb3J0LG9yZGVuYW1pZW50byBidXJidWphDQppbnNlcnRpb24gc29ydCxvcmRlbmFtaWVudG8gcG9yIGluc2VyY2nDs24NCnNl",
+        "bGVjdGlvbiBzb3J0LG9yZGVuYW1pZW50byBwb3Igc2VsZWNjacOzbg0KbWVyZ2Ugc29ydCxvcmRlbmFtaWVudG8gcG9yIG1lemNs",
+        "YQ0KcXVpY2tzb3J0LG9yZGVuYW1pZW50byByw6FwaWRvDQpiYXNlIGNhc2UsY2FzbyBiYXNlDQpjYWxsIHN0YWNrLHBpbGEgZGUg",
+        "bGxhbWFkYXMNCnRyYXZlcnNhbCxyZWNvcnJpZG8NCnNlcXVlbnRpYWwsc2VjdWVuY2lhbA0Kb3JkZXJlZCxvcmRlbmFkbw0KdW5v",
+        "cmRlcmVkLG5vIG9yZGVuYWRvDQpzd2FwLGludGVyY2FtYmlhcg0KcGFydGl0aW9uLHBhcnRpY2nDs24gLyBwYXJ0aWNpb25hcg0K",
+        "aGFzaCxoYXNoIC8gcmVzdW1lbg0KaGFzaCBmdW5jdGlvbixmdW5jacOzbiBoYXNoDQpoYXNoIHRhYmxlLHRhYmxhIGhhc2gNCmNv",
+        "bGxpc2lvbixjb2xpc2nDs24NCmJ1Y2tldCxjdWJldGENCmhlYXAsbW9udMOtY3VsbyAvIGhlYXANCnByaW9yaXR5IHF1ZXVlLGNv",
+        "bGEgZGUgcHJpb3JpZGFkDQpiYWxhbmNlZCB0cmVlLMOhcmJvbCBiYWxhbmNlYWRvDQpiaW5hcnkgc2VhcmNoIHRyZWUsw6FyYm9s",
+        "IGJpbmFyaW8gZGUgYsO6c3F1ZWRhDQpBVkwgdHJlZSzDoXJib2wgQVZMDQpyZWQtYmxhY2sgdHJlZSzDoXJib2wgcm9qby1uZWdy",
+        "bw0KYWRqYWNlbmN5IGxpc3QsbGlzdGEgZGUgYWR5YWNlbmNpYQ0KYWRqYWNlbmN5IG1hdHJpeCxtYXRyaXogZGUgYWR5YWNlbmNp",
+        "YQ0KZG91Ymx5IGxpbmtlZCBsaXN0LGxpc3RhIGRvYmxlbWVudGUgZW5sYXphZGENCm5vZGUgcG9pbnRlcixwdW50ZXJvIGRlIG5v",
+        "ZG8NCmVucXVldWUsYcOxYWRpciBhIHVuYSBjb2xhDQpkZXF1ZXVlLHJldGlyYXIgZGUgdW5hIGNvbGENCnRyYXZlcnNhbCBvcmRl",
+        "cixvcmRlbiBkZSByZWNvcnJpZG8NCmFtb3J0aXplZCxhbW9ydGl6YWRvDQphZGRyZXNzIChtZW1vcnkpLGRpcmVjY2nDs24gZGUg",
+        "bWVtb3JpYQ0KaGVhcCBtZW1vcnksbWVtb3JpYSBoZWFwDQpzdGFjayBtZW1vcnksbWVtb3JpYSBkZSBwaWxhDQpnYXJiYWdlIGNv",
+        "bGxlY3Rpb24scmVjb2xlY2Npw7NuIGRlIGJhc3VyYQ0KbXV0YWJsZSxtdXRhYmxlDQppbW11dGFibGUsaW5tdXRhYmxlDQpzaGFs",
+        "bG93IGNvcHksY29waWEgc3VwZXJmaWNpYWwNCmRlZXAgY29weSxjb3BpYSBwcm9mdW5kYQ0KYWxpYXMsYWxpYXMNCmRlcmVmZXJl",
+        "bmNlLGRlc3JlZmVyZW5jaWFyDQptZW1vcnkgbGVhayxmdWdhIGRlIG1lbW9yaWENCnJlc291cmNlLHJlY3Vyc28NCm9iamVjdCBs",
+        "aWZldGltZSx2aWRhIMO6dGlsIGRlIHVuIG9iamV0bw0KbnVsbCBwb2ludGVyLHB1bnRlcm8gbnVsbw0KbWVtb3J5IGFsbG9jYXRp",
+        "b24sYXNpZ25hY2nDs24gZGUgbWVtb3JpYQ0KY29uY3VycmVuY3ksY29uY3VycmVuY2lhDQpwYXJhbGxlbGlzbSxwYXJhbGVsaXNt",
+        "bw0Kc2NoZWR1bGVyLHBsYW5pZmljYWRvcg0Kc3luY2hyb25pemF0aW9uLHNpbmNyb25pemFjacOzbg0KcmFjZSBjb25kaXRpb24s",
+        "Y29uZGljacOzbiBkZSBjYXJyZXJhDQpkZWFkbG9jayxpbnRlcmJsb3F1ZW8NCm11dGV4LGV4Y2x1c2nDs24gbXV0dWEgLyBtdXRl",
+        "eA0Kc2VtYXBob3JlLHNlbcOhZm9ybw0KY29udGV4dCBzd2l0Y2gsY2FtYmlvIGRlIGNvbnRleHRvDQprZXJuZWwsbsO6Y2xlbw0K",
+        "c3lzdGVtIGNhbGwsbGxhbWFkYSBhbCBzaXN0ZW1hDQpwcm9jZXNzIElELGlkZW50aWZpY2Fkb3IgZGUgcHJvY2Vzbw0Kc2hhcmVk",
+        "IG1lbW9yeSxtZW1vcmlhIGNvbXBhcnRpZGENCnZpcnR1YWwgbWVtb3J5LG1lbW9yaWEgdmlydHVhbA0KbWVtb3J5IHBhZ2UscMOh",
+        "Z2luYSBkZSBtZW1vcmlhDQptZW1vcnkgbWFuYWdlbWVudCxnZXN0acOzbiBkZSBtZW1vcmlhDQpyZXNvdXJjZSBhbGxvY2F0aW9u",
+        "LGFzaWduYWNpw7NuIGRlIHJlY3Vyc29zDQpjYWNoZSxjYWNow6kNCmZpbGUgc3lzdGVtLHNpc3RlbWEgZGUgYXJjaGl2b3MNCnBy",
+        "b3RvY29sLHByb3RvY29sbw0KcGFja2V0LHBhcXVldGUNCklQIGFkZHJlc3MsZGlyZWNjacOzbiBJUA0KcG9ydCxwdWVydG8NCnNv",
+        "Y2tldCxzb2NrZXQNCmNsaWVudCxjbGllbnRlDQpzZXJ2ZXIsc2Vydmlkb3INCmNsaWVudC1zZXJ2ZXIsY2xpZW50ZS1zZXJ2aWRv",
+        "cg0KcmVxdWVzdCxzb2xpY2l0dWQNCnJlc3BvbnNlLHJlc3B1ZXN0YQ0KYmFuZHdpZHRoLGFuY2hvIGRlIGJhbmRhDQpsYXRlbmN5",
+        "LGxhdGVuY2lhDQpyb3V0ZXIsZW5ydXRhZG9yDQpzd2l0Y2gsY29ubXV0YWRvcg0KRE5TLHNpc3RlbWEgZGUgbm9tYnJlcyBkZSBk",
+        "b21pbmlvDQpIVFRQLEhUVFANCkhUVFBTLEhUVFBTDQpUQ1AsVENQDQpVRFAsVURQDQpjb25uZWN0aW9uLGNvbmV4acOzbg0KdGlt",
+        "ZW91dCx0aWVtcG8gZGUgZXNwZXJhDQpwYXJlbnQscGFkcmUNCmNoaWxkLGhpam8NCnZlcnRleCx2w6lydGljZQ0KZGlyZWN0ZWQg",
+        "Z3JhcGgsZ3JhZm8gZGlyaWdpZG8NCnVuZGlyZWN0ZWQgZ3JhcGgsZ3JhZm8gbm8gZGlyaWdpZG8NCndlaWdodGVkIGdyYXBoLGdy",
+        "YWZvIHBvbmRlcmFkbw0KYWRqYWNlbmN5LGFkeWFjZW5jaWENCnBhdGgsY2FtaW5vDQpjeWNsZSxjaWNsbw0KZGVwdGgtZmlyc3Qg",
+        "c2VhcmNoLGLDunNxdWVkYSBlbiBwcm9mdW5kaWRhZA0KYnJlYWR0aC1maXJzdCBzZWFyY2gsYsO6c3F1ZWRhIGVuIGFuY2h1cmEN",
+        "CnNob3J0ZXN0IHBhdGgsY2FtaW5vIG3DoXMgY29ydG8NCnNwYW5uaW5nIHRyZWUsw6FyYm9sIGRlIGV4cGFuc2nDs24NCmRlc2ln",
+        "biBwYXR0ZXJuLHBhdHLDs24gZGUgZGlzZcOxbw0KYXJjaGl0ZWN0dXJlLGFycXVpdGVjdHVyYQ0KY29tcG9uZW50LGNvbXBvbmVu",
+        "dGUNCmNvdXBsaW5nLGFjb3BsYW1pZW50bw0KY29oZXNpb24sY29oZXNpw7NuDQptb2R1bGFyaXR5LG1vZHVsYXJpZGFkDQptYWlu",
+        "dGFpbmFiaWxpdHksbWFudGVuaWJpbGlkYWQNCnNjYWxhYmlsaXR5LGVzY2FsYWJpbGlkYWQNCnJlbGlhYmlsaXR5LGZpYWJpbGlk",
+        "YWQgLyBjb25maWFiaWxpZGFkDQpmYXVsdCB0b2xlcmFuY2UsdG9sZXJhbmNpYSBhIGZhbGxvcw0KcmVmYWN0b3IscmVmYWN0b3Jp",
+        "emFyDQpyZWZhY3RvcmluZyxyZWZhY3Rvcml6YWNpw7NuDQp0ZWNobmljYWwgZGVidCxkZXVkYSB0w6ljbmljYQ0KcmVxdWlyZW1l",
+        "bnQgc3BlY2lmaWNhdGlvbixlc3BlY2lmaWNhY2nDs24gZGUgcmVxdWlzaXRvcw0Kc29mdHdhcmUgbGlmZWN5Y2xlLGNpY2xvIGRl",
+        "IHZpZGEgZGVsIHNvZnR3YXJlDQpzcGVjaWZpY2F0aW9uLGVzcGVjaWZpY2FjacOzbg0KY29tcHV0YXRpb25hbCxjb21wdXRhY2lv",
+        "bmFsDQpjb21wdXRhdGlvbixjb21wdXRhY2nDs24gLyBjw6FsY3Vsbw0KY29tcHV0YWJpbGl0eSxjb21wdXRhYmlsaWRhZA0KZGV0",
+        "ZXJtaW5pc3RpYyxkZXRlcm1pbmlzdGENCm5vbmRldGVybWluaXN0aWMsbm8gZGV0ZXJtaW5pc3RhDQpmaW5pdGUsZmluaXRvDQpp",
+        "bmZpbml0ZSxpbmZpbml0bw0KZGlzY3JldGUsZGlzY3JldG8NCmNvbnRpbnVvdXMsY29udGludW8NCmRlY2lkYWJsZSxkZWNpZGli",
+        "bGUNCnVuZGVjaWRhYmxlLGluZGVjaWRpYmxlDQpUdXJpbmcgbWFjaGluZSxtw6FxdWluYSBkZSBUdXJpbmcNCnN0YXRlLGVzdGFk",
+        "bw0KdHJhbnNpdGlvbix0cmFuc2ljacOzbg0KZm9ybWFsIGxhbmd1YWdlLGxlbmd1YWplIGZvcm1hbA0KZ3JhbW1hcixncmFtw6F0",
+        "aWNhDQphdXRvbWF0b24sYXV0w7NtYXRhDQpwcm9vZixkZW1vc3RyYWNpw7NuDQp0aGVvcmVtLHRlb3JlbWENCmludmFyaWFudCxp",
+        "bnZhcmlhbnRlDQpwcmVjb25kaXRpb24scHJlY29uZGljacOzbg0KcG9zdGNvbmRpdGlvbixwb3Njb25kaWNpw7NuDQpjb3JyZWN0",
+        "bmVzcyxjb3JyZWNjacOzbg0KcHJvb2Ygb2YgY29ycmVjdG5lc3MscHJ1ZWJhIGRlIGNvcnJlY2Npw7NuDQp0ZXJtaW5hdGlvbix0",
+        "ZXJtaW5hY2nDs24NCmFzeW1wdG90aWMsYXNpbnTDs3RpY28NCnVwcGVyIGJvdW5kLGNvdGEgc3VwZXJpb3INCmxvd2VyIGJvdW5k",
+        "LGNvdGEgaW5mZXJpb3INCnBvbHlub21pYWwgdGltZSx0aWVtcG8gcG9saW7Ds21pY28NCmV4cG9uZW50aWFsIHRpbWUsdGllbXBv",
+        "IGV4cG9uZW5jaWFsDQp0cmFjdGFibGUsdHJhdGFibGUNCmludHJhY3RhYmxlLGludHJhdGFibGUNCk5QLE5QDQpOUC1oYXJkLE5Q",
+        "LWRpZsOtY2lsDQpOUC1jb21wbGV0ZSxOUC1jb21wbGV0bw0KcmVkdWN0aW9uLHJlZHVjY2nDs24NCnJlY3VycmVuY2UgcmVsYXRp",
+        "b24scmVsYWNpw7NuIGRlIHJlY3VycmVuY2lhDQptZW1vaXphdGlvbixtZW1vaXphY2nDs24NCnRhYnVsYXRpb24sdGFidWxhY2nD",
+        "s24NCm9wdGltYWwgc3Vic3RydWN0dXJlLHN1YmVzdHJ1Y3R1cmEgw7NwdGltYQ0Kb3ZlcmxhcHBpbmcgc3VicHJvYmxlbXMsc3Vi",
+        "cHJvYmxlbWFzIHN1cGVycHVlc3Rvcw0KaGV1cmlzdGljLGhldXLDrXN0aWNhDQphcHByb3hpbWF0aW9uLGFwcm94aW1hY2nDs24N",
+        "CmFwcHJveGltYXRpb24gYWxnb3JpdGhtLGFsZ29yaXRtbyBkZSBhcHJveGltYWNpw7NuDQpvcHRpbWl6YXRpb24gcHJvYmxlbSxw",
+        "cm9ibGVtYSBkZSBvcHRpbWl6YWNpw7NuDQphcnRpZmljaWFsIGludGVsbGlnZW5jZSxpbnRlbGlnZW5jaWEgYXJ0aWZpY2lhbA0K",
+        "bWFjaGluZSBsZWFybmluZyxhcHJlbmRpemFqZSBhdXRvbcOhdGljbw0KbmV1cmFsIG5ldHdvcmsscmVkIG5ldXJvbmFsDQptb2Rl",
+        "bCxtb2RlbG8NCnRyYWluaW5nIGRhdGEsZGF0b3MgZGUgZW50cmVuYW1pZW50bw0KdHJhaW5pbmcgc2V0LGNvbmp1bnRvIGRlIGVu",
+        "dHJlbmFtaWVudG8NCnZhbGlkYXRpb24gc2V0LGNvbmp1bnRvIGRlIHZhbGlkYWNpw7NuDQp0ZXN0IHNldCxjb25qdW50byBkZSBw",
+        "cnVlYmENCmZlYXR1cmUsY2FyYWN0ZXLDrXN0aWNhIC8gYXRyaWJ1dG8NCmxhYmVsLGV0aXF1ZXRhDQpwcmVkaWN0aW9uLHByZWRp",
+        "Y2Npw7NuDQpjbGFzc2lmaWNhdGlvbixjbGFzaWZpY2FjacOzbg0KcmVncmVzc2lvbixyZWdyZXNpw7NuDQpjbHVzdGVyaW5nLGFn",
+        "cnVwYW1pZW50bw0KaW5mZXJlbmNlLGluZmVyZW5jaWENCmFjY3VyYWN5LGV4YWN0aXR1ZA0KcHJlY2lzaW9uLHByZWNpc2nDs24N",
+        "CnJlY2FsbCxleGhhdXN0aXZpZGFkIC8gcmVjYWxsDQpiaWFzLHNlc2dvDQpvdmVyZml0dGluZyxzb2JyZWFqdXN0ZQ0KZGlzdHJp",
+        "YnV0ZWQgc3lzdGVtLHNpc3RlbWEgZGlzdHJpYnVpZG8NCmRpc3RyaWJ1dGVkIGNvbXB1dGluZyxjb21wdXRhY2nDs24gZGlzdHJp",
+        "YnVpZGENCmNsb3VkIGNvbXB1dGluZyxjb21wdXRhY2nDs24gZW4gbGEgbnViZQ0KdmlydHVhbGl6YXRpb24sdmlydHVhbGl6YWNp",
+        "w7NuDQpjb250YWluZXIsY29udGVuZWRvcg0KbWljcm9zZXJ2aWNlLG1pY3Jvc2VydmljaW8NCmxvYWQgYmFsYW5jaW5nLGJhbGFu",
+        "Y2VvIGRlIGNhcmdhDQpyZWR1bmRhbmN5LHJlZHVuZGFuY2lhDQpyZXBsaWNhdGlvbixyZXBsaWNhY2nDs24NCmNvbnNpc3RlbmN5",
+        "LGNvbnNpc3RlbmNpYQ0KYXZhaWxhYmlsaXR5LGRpc3BvbmliaWxpZGFkDQpwYXJ0aXRpb24gdG9sZXJhbmNlLHRvbGVyYW5jaWEg",
+        "YSBwYXJ0aWNpb25lcw0KY29uc2Vuc3VzLGNvbnNlbnNvDQpsZWFkZXIsbMOtZGVyDQpmb2xsb3dlcixzZWd1aWRvcg0KZmF1bHQs",
+        "ZmFsbG8NCnRocm91Z2hwdXQsdGFzYSBkZSBwcm9jZXNhbWllbnRvIC8gcmVuZGltaWVudG8NCmJvdHRsZW5lY2ssY3VlbGxvIGRl",
+        "IGJvdGVsbGENCmNsdXN0ZXIsY2zDunN0ZXINCm5vZGUgZmFpbHVyZSxmYWxsbyBkZSBub2RvDQpzZWN1cml0eSxzZWd1cmlkYWQN",
+        "CmN5YmVyc2VjdXJpdHksY2liZXJzZWd1cmlkYWQNCmVuY3J5cHRpb24sY2lmcmFkbw0KZGVjcnlwdGlvbixkZXNjaWZyYWRvDQph",
+        "dXRoZW50aWNhdGlvbixhdXRlbnRpY2FjacOzbg0KYXV0aG9yaXphdGlvbixhdXRvcml6YWNpw7NuDQphY2Nlc3MgY29udHJvbCxj",
+        "b250cm9sIGRlIGFjY2Vzbw0KY29uZmlkZW50aWFsaXR5LGNvbmZpZGVuY2lhbGlkYWQNCmludGVncml0eSxpbnRlZ3JpZGFkDQp2",
+        "dWxuZXJhYmlsaXR5LHZ1bG5lcmFiaWxpZGFkDQpleHBsb2l0LGV4cGxvdGFjacOzbiAvIGV4cGxvaXQNCnRocmVhdCxhbWVuYXph",
+        "DQphdHRhY2ssYXRhcXVlDQptYWxpY2lvdXMsbWFsaWNpb3NvDQpwcml2aWxlZ2UscHJpdmlsZWdpbw0KbGVhc3QgcHJpdmlsZWdl",
+        "LG3DrW5pbW8gcHJpdmlsZWdpbw0KZGlnaXRhbCBzaWduYXR1cmUsZmlybWEgZGlnaXRhbA0KY2VydGlmaWNhdGUsY2VydGlmaWNh",
+        "ZG8NCnNlY3VyZSBjaGFubmVsLGNhbmFsIHNlZ3Vybw0KRXhjZWwsRXhjZWwNCnNwcmVhZHNoZWV0LGhvamEgZGUgY8OhbGN1bG8N",
+        "Cndvcmtib29rLGxpYnJvIGRlIEV4Y2VsIC8gbGlicm8gZGUgdHJhYmFqbw0Kd29ya3NoZWV0LGhvamEgZGUgY8OhbGN1bG8gLyBo",
+        "b2phIGRlIHRyYWJham8NCmNlbGwsY2VsZGENCmNlbGwgcmVmZXJlbmNlLHJlZmVyZW5jaWEgZGUgY2VsZGENCnJhbmdlLHJhbmdv",
+        "DQphY3RpdmUgY2VsbCxjZWxkYSBhY3RpdmENCm1vdXNlIHBvaW50ZXIscHVudGVybyBkZWwgbW91c2UNCmN1cnNvcixjdXJzb3IN",
+        "ClJpYmJvbixjaW50YSBkZSBvcGNpb25lcw0KSG9tZSB0YWIscGVzdGHDsWEgSW5pY2lvDQpmb3JtdWxhIGJhcixiYXJyYSBkZSBm",
+        "w7NybXVsYXMNCndvcmtzaGVldCB0YWIscGVzdGHDsWEgZGUgaG9qYQ0KZHJvcC1kb3duIGFycm93LGZsZWNoYSBkZXNwbGVnYWJs",
+        "ZQ0KZmlyc3QgZW1wdHkgY2VsbCxwcmltZXJhIGNlbGRhIHZhY8OtYQ0KYWJvdmUsYXJyaWJhIGRlIC8gZW5jaW1hIGRlDQpiZWxv",
+        "dyxkZWJham8gZGUNCmxlZnQsaXpxdWllcmRhDQpyaWdodCxkZXJlY2hhDQpuZXh0IHRvLGFsIGxhZG8gZGUNCmRpcmVjdGx5IGJl",
+        "bG93LGRpcmVjdGFtZW50ZSBkZWJham8gZGUNCmltbWVkaWF0ZWx5IHRvIHRoZSByaWdodCxpbm1lZGlhdGFtZW50ZSBhIGxhIGRl",
+        "cmVjaGENCmF0IHRoZSB0b3Agb2YgdGhlIHNjcmVlbixlbiBsYSBwYXJ0ZSBzdXBlcmlvciBkZSBsYSBwYW50YWxsYQ0KYXQgdGhl",
+        "IGJvdHRvbSBvZiB0aGUgc2NyZWVuLGVuIGxhIHBhcnRlIGluZmVyaW9yIGRlIGxhIHBhbnRhbGxhDQpvbiB0aGUgbGVmdCxhIGxh",
+        "IGl6cXVpZXJkYQ0Kb24gdGhlIHJpZ2h0LGEgbGEgZGVyZWNoYQ0KaW5zaWRlLGRlbnRybyBkZQ0KYmV0d2VlbixlbnRyZQ0KZmly",
+        "c3QscHJpbWVybw0Kc2Vjb25kLHNlZ3VuZG8NCmxhc3Qsw7psdGltbw0KRW50ZXIga2V5LHRlY2xhIEVudGVyDQpUYWIga2V5LHRl",
+        "Y2xhIFRhYg0KYXJyb3cga2V5cyx0ZWNsYXMgZGUgZmxlY2hhDQp1bmRvLGRlc2hhY2VyDQpyZWRvLHJlaGFjZXINCmNsZWFyLGJv",
+        "cnJhciBjb250ZW5pZG8gLyBsaW1waWFyDQptb3ZlLG1vdmVyDQpib2xkLG5lZ3JpdGENCml0YWxpYyxjdXJzaXZhDQpmb250LGZ1",
+        "ZW50ZQ0KZm9udCBzaXplLHRhbWHDsW8gZGUgZnVlbnRlDQphbGlnbm1lbnQsYWxpbmVhY2nDs24NCmNlbnRlcixjZW50cmFyDQpu",
+        "dW1iZXIgZm9ybWF0LGZvcm1hdG8gZGUgbsO6bWVybw0KcGVyY2VudGFnZSxwb3JjZW50YWplDQpjdXJyZW5jeSxtb25lZGENCmJv",
+        "cmRlcixib3JkZQ0KZmlsbCBjb2xvcixjb2xvciBkZSByZWxsZW5vDQphdXRvZmlsbCxhdXRvcnJlbGxlbm8NCnJlc2l6ZSxjYW1i",
+        "aWFyIHRhbWHDsW8NCmNvbHVtbiB3aWR0aCxhbmNobyBkZSBjb2x1bW5hDQpyb3cgaGVpZ2h0LGFsdG8gZGUgZmlsYQ0KaW5zZXJ0",
+        "IHJvdyxpbnNlcnRhciBmaWxhDQppbnNlcnQgY29sdW1uLGluc2VydGFyIGNvbHVtbmENCmRlbGV0ZSByb3csZWxpbWluYXIgZmls",
+        "YQ0KZGVsZXRlIGNvbHVtbixlbGltaW5hciBjb2x1bW5hDQpjb3B5IGZvcm11bGEsY29waWFyIGbDs3JtdWxhDQpmb3JtdWxhLGbD",
+        "s3JtdWxhDQpmb3JtdWxhIHZhbHVlLHZhbG9yIGRlIGbDs3JtdWxhDQpyZWxhdGl2ZSByZWZlcmVuY2UscmVmZXJlbmNpYSByZWxh",
+        "dGl2YQ0KYWJzb2x1dGUgcmVmZXJlbmNlLHJlZmVyZW5jaWEgYWJzb2x1dGENCm1peGVkIHJlZmVyZW5jZSxyZWZlcmVuY2lhIG1p",
+        "eHRhDQpBdXRvU3VtLEF1dG9zdW1hDQpTVU0sU1VNQQ0KQVZFUkFHRSxQUk9NRURJTw0KTUlOLE1JTg0KTUFYLE1BWA0KQ09VTlQs",
+        "Q09OVEFSDQpJRixTSQ0KSUZFUlJPUixTSS5FUlJPUg0KU1VNSUYsU1VNQVIuU0kNClNVTUlGUyxTVU1BUi5TSS5DT05KVU5UTw0K",
+        "Q09VTlRJRixDT05UQVIuU0kNCkNPVU5USUZTLENPTlRBUi5TSS5DT05KVU5UTw0KWExPT0tVUCxCVVNDQVJYDQpNQVRDSCxDT0lO",
+        "Q0lESVINCklOREVYL01BVENILElORElDRS9DT0lOQ0lESVINCnN0cnVjdHVyZWQgcmVmZXJlbmNlLHJlZmVyZW5jaWEgZXN0cnVj",
+        "dHVyYWRhDQpzb3J0IGFzY2VuZGluZyxvcmRlbmFyIGRlIG1lbm9yIGEgbWF5b3IgLyBhc2NlbmRlbnRlDQpzb3J0IGRlc2NlbmRp",
+        "bmcsb3JkZW5hciBkZSBtYXlvciBhIG1lbm9yIC8gZGVzY2VuZGVudGUNCnNtYWxsZXN0IHRvIGxhcmdlc3QsZGUgbWVub3IgYSBt",
+        "YXlvcg0KbGFyZ2VzdCB0byBzbWFsbGVzdCxkZSBtYXlvciBhIG1lbm9yDQpvbGRlc3QgdG8gbmV3ZXN0LGRlIG3DoXMgYW50aWd1",
+        "byBhIG3DoXMgcmVjaWVudGUNCm5ld2VzdCB0byBvbGRlc3QsZGUgbcOhcyByZWNpZW50ZSBhIG3DoXMgYW50aWd1bw0KbXVsdGkt",
+        "bGV2ZWwgc29ydCxvcmRlbmFjacOzbiBkZSB2YXJpb3Mgbml2ZWxlcw0KZmlsdGVyIGFycm93LGZsZWNoYSBkZSBmaWx0cm8NCnRh",
+        "YmxlIGZvcm1hdHRpbmcsZm9ybWF0byBkZSB0YWJsYQ0KY29uZGl0aW9uYWwgZm9ybWF0dGluZyxmb3JtYXRvIGNvbmRpY2lvbmFs",
+        "DQpkYXRhIHZhbGlkYXRpb24sdmFsaWRhY2nDs24gZGUgZGF0b3MNCkZpbmQgYW5kIFJlcGxhY2UsQnVzY2FyIHkgcmVlbXBsYXph",
+        "cg0KZnJlZXplIHBhbmVzLGlubW92aWxpemFyIHBhbmVsZXMNCmNoYXJ0LGdyw6FmaWNvDQpjb2x1bW4gY2hhcnQsZ3LDoWZpY28g",
+        "ZGUgY29sdW1uYXMNClBpdm90VGFibGUsdGFibGEgZGluw6FtaWNhDQpQaXZvdENoYXJ0LGdyw6FmaWNvIGRpbsOhbWljbw0KbmFt",
+        "ZWQgcmFuZ2UscmFuZ28gY29uIG5vbWJyZQ0Kd29ya3NoZWV0IHByb3RlY3Rpb24scHJvdGVjY2nDs24gZGUgaG9qYQ0KcHJpbnQg",
+        "c2V0dXAsY29uZmlndXJhY2nDs24gZGUgaW1wcmVzacOzbg0KcGFnZSBsYXlvdXQsZGlzZcOxbyBkZSBww6FnaW5hDQppbXBvcnQg",
+        "ZGF0YSxpbXBvcnRhciBkYXRvcw0KQ1NWIGZpbGUsYXJjaGl2byBDU1YNCmRhdGEgY2xlYW5pbmcsbGltcGllemEgZGUgZGF0b3MN",
+        "CmRhdGEgYW5hbHlzaXMsYW7DoWxpc2lzIGRlIGRhdG9zDQp0ZXh0IGZ1bmN0aW9uLGZ1bmNpw7NuIGRlIHRleHRvDQpkYXRlIGZ1",
+        "bmN0aW9uLGZ1bmNpw7NuIGRlIGZlY2hhDQp2aXNpYmxlIHZhbHVlcyx2YWxvcmVzIHZpc2libGVzDQpibGFuayByb3csZmlsYSBl",
+        "biBibGFuY28NCmJsYW5rIGNlbGwsY2VsZGEgdmFjw61hDQpoZWFkaW5nLGVuY2FiZXphZG8NCnJldmVudWUsaW5ncmVzb3MNCnNh",
+        "bGVzLHZlbnRhcw0KZXhwZW5zZXMsZ2FzdG9zDQpxdWFydGVybHkgc2FsZXMsdmVudGFzIHRyaW1lc3RyYWxlcw0KcmVnaW9uLHJl",
+        "Z2nDs24NCnByb2R1Y3QscHJvZHVjdG8NCnRvdGFsLHRvdGFsDQp0YXggcmF0ZSx0YXNhIGRlIGltcHVlc3RvDQo=",
+      ].join("");
+
+      const defaultState = () => ({
+        version: BACKUP_VERSION,
+        cards: [],
+        progress: {},
+        settings: {
+          direction: "spanish-first",
+          speechRate: 0.9,
+          sourceName: "",
+          sourceMode: "auto"
+        },
+        totals: {
+          reviews: 0
+        }
+      });
+
+      let state = defaultState();
+      let session = null;
+      let currentCard = null;
+      let cardIsFlipped = false;
+      let toastTimer = null;
+      let confirmResolver = null;
+
+      const $ = (selector) => document.querySelector(selector);
+      const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+
+      const els = {
+        loadingScreen: $("#loadingScreen"),
+        setupScreen: $("#setupScreen"),
+        homeScreen: $("#homeScreen"),
+        studyScreen: $("#studyScreen"),
+        summaryScreen: $("#summaryScreen"),
+        manageButton: $("#manageButton"),
+        openManageButton: $("#openManageButton"),
+        manageDialog: $("#manageDialog"),
+        confirmDialog: $("#confirmDialog"),
+        csvFileInput: $("#csvFileInput"),
+        backupFileInput: $("#backupFileInput"),
+        toast: $("#toast"),
+        flashcard: $("#flashcard"),
+        flashcardInner: $("#flashcardInner"),
+        cardFront: $("#cardFront"),
+        cardBack: $("#cardBack"),
+        gradePanel: $("#gradePanel")
+      };
+
+      function normalizeState(candidate) {
+        const clean = defaultState();
+        if (!candidate || typeof candidate !== "object") return clean;
+        const sourceVersion = Number.parseInt(candidate.version, 10) || 1;
+        const isLegacyState = sourceVersion < 2;
+
+        clean.cards = Array.isArray(candidate.cards)
+          ? candidate.cards.filter(card => card && typeof card.english === "string" && typeof card.spanish === "string")
+              .map(card => ({
+                id: typeof card.id === "string" && card.id ? card.id : makeCardId(card.english, card.spanish),
+                english: card.english.trim(),
+                spanish: card.spanish.trim()
+              }))
+          : [];
+
+        if (candidate.settings && typeof candidate.settings === "object") {
+          clean.settings.direction = candidate.settings.direction === "english-first" ? "english-first" : "spanish-first";
+          const rate = Number(candidate.settings.speechRate);
+          clean.settings.speechRate = Number.isFinite(rate) ? Math.min(1.15, Math.max(.65, rate)) : .9;
+          clean.settings.sourceName = typeof candidate.settings.sourceName === "string" ? candidate.settings.sourceName : "";
+          clean.settings.sourceMode = candidate.settings.sourceMode === "manual" ? "manual" : "auto";
+        }
+
+        if (candidate.totals && Number.isFinite(Number(candidate.totals.reviews))) {
+          clean.totals.reviews = Math.max(0, Number(candidate.totals.reviews));
+        }
+
+        const oldProgress = candidate.progress && typeof candidate.progress === "object" ? candidate.progress : {};
+        for (const card of clean.cards) {
+          clean.progress[card.id] = normalizeProgress(oldProgress[card.id], { legacy: isLegacyState });
+        }
+        return clean;
+      }
+
+      function normalizeProgress(value, { legacy = false } = {}) {
+        const raw = value && typeof value === "object" ? value : {};
+        const reviews = Math.max(0, Number.parseInt(raw.reviews, 10) || 0);
+        const lastReviewedAt = raw.lastReviewedAt !== null && raw.lastReviewedAt !== "" && Number.isFinite(Number(raw.lastReviewedAt))
+          ? Number(raw.lastReviewedAt)
+          : null;
+        const parsedBox = Number.parseInt(raw.box, 10);
+        let box = Number.isInteger(parsedBox) && parsedBox >= HOLDING_BOX && parsedBox <= 5 ? parsedBox : HOLDING_BOX;
+
+        // Version 1 placed every new card directly in Box 1. During migration,
+        // only untouched Box 1 cards move to the new holding box.
+        if (legacy && box === 1 && reviews === 0 && (lastReviewedAt === null || lastReviewedAt === 0)) box = HOLDING_BOX;
+
+        const hasDueAt = raw.dueAt !== null && raw.dueAt !== "" && Number.isFinite(Number(raw.dueAt));
+        return {
+          box,
+          dueAt: box === HOLDING_BOX ? null : (hasDueAt ? Number(raw.dueAt) : 0),
+          lastReviewedAt,
+          reviews,
+          knew: Math.max(0, Number.parseInt(raw.knew, 10) || 0),
+          hard: Math.max(0, Number.parseInt(raw.hard, 10) || 0),
+          missed: Math.max(0, Number.parseInt(raw.missed, 10) || 0),
+          streak: Math.max(0, Number.parseInt(raw.streak, 10) || 0)
+        };
+      }
+
+      function loadState() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (raw) {
+            const saved = JSON.parse(raw);
+            const savedVersion = Number.parseInt(saved.version, 10) || 1;
+            state = normalizeState(saved);
+            if (savedVersion < BACKUP_VERSION) saveState();
+          }
+        } catch (error) {
+          console.warn("No se pudo leer el progreso guardado.", error);
+          state = defaultState();
+        }
+      }
+
+      function saveState() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (error) {
+          console.error("No se pudo guardar el progreso.", error);
+          showToast("No se pudo guardar el progreso en este navegador.", true);
+        }
+      }
+
+      function showScreen(name) {
+        for (const screen of [els.loadingScreen, els.setupScreen, els.homeScreen, els.studyScreen, els.summaryScreen]) {
+          screen.hidden = screen.id !== name;
+        }
+        const hasDeck = state.cards.length > 0;
+        els.manageButton.hidden = !hasDeck || name === "studyScreen";
+        window.scrollTo({ top: 0, behavior: "auto" });
+      }
+
+      function showToast(message, isError = false) {
+        clearTimeout(toastTimer);
+        els.toast.textContent = message;
+        els.toast.classList.toggle("error", isError);
+        els.toast.classList.add("show");
+        toastTimer = setTimeout(() => els.toast.classList.remove("show"), 3200);
+      }
+
+      function escapeHtml(value) {
+        return String(value).replace(/[&<>'"]/g, char => ({
+          "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;"
+        })[char]);
+      }
+
+      function normalizeText(value) {
+        return String(value)
+          .normalize("NFKC")
+          .trim()
+          .replace(/\s+/g, " ")
+          .toLocaleLowerCase();
+      }
+
+      function fnv1a(value) {
+        let hash = 0x811c9dc5;
+        for (let i = 0; i < value.length; i += 1) {
+          hash ^= value.charCodeAt(i);
+          hash = Math.imul(hash, 0x01000193);
+        }
+        return (hash >>> 0).toString(36);
+      }
+
+      function makeCardId(english, spanish) {
+        return `c_${fnv1a(`${normalizeText(english)}\u241f${normalizeText(spanish)}`)}`;
+      }
+
+      function detectDelimiter(text) {
+        const firstMeaningfulLine = text.replace(/^\uFEFF/, "").split(/\r?\n/).find(line => line.trim()) || "";
+        const candidates = [",", ";", "\t"];
+        let best = ",";
+        let bestCount = -1;
+        for (const delimiter of candidates) {
+          let count = 0;
+          let quoted = false;
+          for (let i = 0; i < firstMeaningfulLine.length; i += 1) {
+            const char = firstMeaningfulLine[i];
+            if (char === '"') {
+              if (quoted && firstMeaningfulLine[i + 1] === '"') i += 1;
+              else quoted = !quoted;
+            } else if (!quoted && char === delimiter) {
+              count += 1;
+            }
+          }
+          if (count > bestCount) {
+            best = delimiter;
+            bestCount = count;
+          }
+        }
+        return best;
+      }
+
+      function parseRows(text, delimiter) {
+        const rows = [];
+        let row = [];
+        let field = "";
+        let quoted = false;
+        const source = text.replace(/^\uFEFF/, "");
+
+        for (let i = 0; i < source.length; i += 1) {
+          const char = source[i];
+          if (quoted) {
+            if (char === '"') {
+              if (source[i + 1] === '"') {
+                field += '"';
+                i += 1;
+              } else {
+                quoted = false;
+              }
+            } else {
+              field += char;
+            }
+          } else if (char === '"') {
+            quoted = true;
+          } else if (char === delimiter) {
+            row.push(field);
+            field = "";
+          } else if (char === "\n") {
+            row.push(field.replace(/\r$/, ""));
+            rows.push(row);
+            row = [];
+            field = "";
+          } else {
+            field += char;
+          }
+        }
+
+        if (quoted) throw new Error("Hay una comilla sin cerrar en el archivo CSV.");
+        if (field.length || row.length) {
+          row.push(field.replace(/\r$/, ""));
+          rows.push(row);
+        }
+        return rows.filter(candidate => candidate.some(cell => String(cell).trim() !== ""));
+      }
+
+      function normalizeHeader(value) {
+        return normalizeText(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      }
+
+      function parseCsv(text) {
+        if (typeof text !== "string" || !text.trim()) throw new Error("El archivo CSV está vacío.");
+        const delimiter = detectDelimiter(text);
+        const rows = parseRows(text, delimiter);
+        if (rows.length < 2) throw new Error("El CSV necesita una fila de encabezados y por lo menos una tarjeta.");
+
+        const headers = rows[0].map(normalizeHeader);
+        const englishIndex = headers.findIndex(header => ["english", "ingles"].includes(header));
+        const spanishIndex = headers.findIndex(header => ["spanish", "espanol"].includes(header));
+
+        if (englishIndex < 0 || spanishIndex < 0) {
+          throw new Error('La primera fila debe contener las columnas "English" y "Spanish".');
+        }
+
+        const nonEmptyHeaders = rows[0].filter(header => String(header).trim() !== "");
+        if (nonEmptyHeaders.length !== 2) {
+          throw new Error("El CSV debe tener solamente dos columnas: English y Spanish.");
+        }
+
+        const cards = [];
+        const seen = new Set();
+        const incompleteRows = [];
+        const extraValueRows = [];
+        let duplicateCount = 0;
+
+        for (let index = 1; index < rows.length; index += 1) {
+          const english = String(rows[index][englishIndex] ?? "").trim().replace(/\s+/g, " ");
+          const spanish = String(rows[index][spanishIndex] ?? "").trim().replace(/\s+/g, " ");
+          const hasExtraValue = rows[index].some((cell, cellIndex) =>
+            cellIndex !== englishIndex && cellIndex !== spanishIndex && String(cell ?? "").trim() !== ""
+          );
+          if (hasExtraValue) {
+            extraValueRows.push(index + 1);
+            continue;
+          }
+          if (!english && !spanish) continue;
+          if (!english || !spanish) {
+            incompleteRows.push(index + 1);
+            continue;
+          }
+          const id = makeCardId(english, spanish);
+          if (seen.has(id)) {
+            duplicateCount += 1;
+            continue;
+          }
+          seen.add(id);
+          cards.push({ id, english, spanish });
+        }
+
+        if (extraValueRows.length) {
+          const sample = extraValueRows.slice(0, 5).join(", ");
+          const more = extraValueRows.length > 5 ? "…" : "";
+          throw new Error(`Hay valores adicionales en las filas ${sample}${more}. Usa comillas si una palabra o frase contiene el separador.`);
+        }
+        if (incompleteRows.length) {
+          const sample = incompleteRows.slice(0, 5).join(", ");
+          const more = incompleteRows.length > 5 ? "…" : "";
+          throw new Error(`Falta inglés o español en las filas ${sample}${more}.`);
+        }
+        if (!cards.length) throw new Error("No se encontraron tarjetas completas en el archivo.");
+        return { cards, duplicateCount };
+      }
+
+      function installDeck(cards, sourceName, sourceMode = "auto") {
+        const previousProgress = state.progress;
+        const nextProgress = {};
+        for (const card of cards) {
+          nextProgress[card.id] = normalizeProgress(previousProgress[card.id]);
+        }
+        state.cards = cards;
+        state.progress = nextProgress;
+        state.settings.sourceName = sourceName || "Vocabulario CSV";
+        state.settings.sourceMode = sourceMode === "manual" ? "manual" : "auto";
+        saveState();
+      }
+
+      async function readTextFile(file) {
+        if (!file) throw new Error("No se seleccionó ningún archivo.");
+        if (file.size > 5 * 1024 * 1024) throw new Error("El archivo es demasiado grande. El límite es 5 MB.");
+        return file.text();
+      }
+
+      async function importCsvFile(file) {
+        try {
+          const text = await readTextFile(file);
+          const { cards, duplicateCount } = parseCsv(text);
+          installDeck(cards, file.name, "manual");
+          renderHome();
+          showScreen("homeScreen");
+          if (els.manageDialog.open) els.manageDialog.close();
+          const duplicateMessage = duplicateCount ? ` Se omitieron ${duplicateCount} duplicadas.` : "";
+          showToast(`Se cargaron ${cards.length} tarjetas. Las nuevas quedaron en la caja de espera.${duplicateMessage}`);
+        } catch (error) {
+          console.error(error);
+          showToast(error.message || "No se pudo leer el archivo CSV.", true);
+        } finally {
+          els.csvFileInput.value = "";
+        }
+      }
+
+      function decodeEmbeddedVocabulary() {
+        if (!EMBEDDED_VOCABULARY_BASE64) return "";
+        const binary = window.atob(EMBEDDED_VOCABULARY_BASE64);
+        const bytes = Uint8Array.from(binary, character => character.charCodeAt(0));
+        return new TextDecoder("utf-8").decode(bytes);
+      }
+
+      function getHostedDeckCandidates() {
+        const urls = [];
+        const seen = new Set();
+        const add = value => {
+          try {
+            const href = new URL(value, document.baseURI).href;
+            if (!seen.has(href)) {
+              seen.add(href);
+              urls.push(href);
+            }
+          } catch (_) {
+            // Ignore malformed candidate URLs.
+          }
+        };
+
+        add("vocabulary.csv");
+
+        // Some simple hosts serve index.html through an extensionless route such
+        // as /flashcards instead of /flashcards/. Try that route as a directory too.
+        try {
+          const current = new URL(window.location.href);
+          const finalSegment = current.pathname.split("/").pop() || "";
+          if (!current.pathname.endsWith("/") && !finalSegment.includes(".")) {
+            const directoryUrl = new URL(current.href);
+            directoryUrl.pathname += "/";
+            add(new URL("vocabulary.csv", directoryUrl).href);
+          }
+        } catch (_) {
+          // document.baseURI remains the primary candidate.
+        }
+        return urls;
+      }
+
+      async function readHostedDeck() {
+        if (window.location.protocol === "file:") return null;
+        for (const url of getHostedDeckCandidates()) {
+          try {
+            const response = await fetch(url, {
+              cache: "no-store",
+              credentials: "same-origin"
+            });
+            if (!response.ok) continue;
+            const text = await response.text();
+            const { cards } = parseCsv(text);
+            return { cards, sourceName: "vocabulary.csv" };
+          } catch (error) {
+            console.info(`No se pudo cargar ${url}`, error);
+          }
+        }
+        return null;
+      }
+
+      function readEmbeddedDeck() {
+        try {
+          const text = decodeEmbeddedVocabulary();
+          if (!text) return null;
+          const { cards } = parseCsv(text);
+          return { cards, sourceName: "vocabulary.csv (integrado en index.html)" };
+        } catch (error) {
+          console.error("La copia integrada de vocabulary.csv no es válida.", error);
+          return null;
+        }
+      }
+
+      async function loadAutomaticDeck() {
+        const hostedDeck = await readHostedDeck();
+        if (hostedDeck) {
+          installDeck(hostedDeck.cards, hostedDeck.sourceName, "auto");
+          return "hosted";
+        }
+
+        const embeddedDeck = readEmbeddedDeck();
+        if (embeddedDeck) {
+          installDeck(embeddedDeck.cards, embeddedDeck.sourceName, "auto");
+          return "embedded";
+        }
+
+        return state.cards.length ? "saved" : null;
+      }
+
+      function getProgress(cardId) {
+        if (!state.progress[cardId]) state.progress[cardId] = normalizeProgress(null);
+        return state.progress[cardId];
+      }
+
+      function getHoldingCards() {
+        return state.cards.filter(card => getProgress(card.id).box === HOLDING_BOX);
+      }
+
+      function getDueCards(now = Date.now()) {
+        return state.cards.filter(card => {
+          const progress = getProgress(card.id);
+          return progress.box >= 1 && progress.dueAt !== null && progress.dueAt <= now;
+        });
+      }
+
+      function getBoxCounts() {
+        const counts = { [HOLDING_BOX]: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 };
+        for (const card of state.cards) counts[getProgress(card.id).box] += 1;
+        return counts;
+      }
+
+      function formatNextReview() {
+        if (!state.cards.length) return "—";
+        const activeCards = state.cards.filter(card => getProgress(card.id).box >= 1);
+        if (!activeCards.length) return "Añade tarjetas";
+        const now = Date.now();
+        if (getDueCards(now).length) return "Ahora";
+        const dueTimes = activeCards.map(card => getProgress(card.id).dueAt).filter(Number.isFinite);
+        if (!dueTimes.length) return "—";
+        const next = Math.min(...dueTimes);
+        const date = new Date(next);
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(today.getDate() + 1);
+        const sameDay = (a, b) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+        if (sameDay(date, today)) return `Hoy, ${new Intl.DateTimeFormat("es", { hour: "numeric", minute: "2-digit" }).format(date)}`;
+        if (sameDay(date, tomorrow)) return "Mañana";
+        return new Intl.DateTimeFormat("es", { weekday: "short", day: "numeric", month: "short" }).format(date);
+      }
+
+      function renderHome() {
+        const due = getDueCards().length;
+        const total = state.cards.length;
+        const counts = getBoxCounts();
+        const holding = counts[HOLDING_BOX];
+        const active = total - holding;
+        $("#dueCount").textContent = String(due);
+        $("#totalCount").textContent = String(total);
+        $("#nextReview").textContent = formatNextReview();
+        $("#holdingCount").textContent = String(holding);
+        for (let box = 1; box <= 5; box += 1) $("#boxCount" + box).textContent = String(counts[box]);
+
+        if (due) {
+          $("#homeHeading").textContent = "Listo para estudiar";
+          $("#homeMessage").textContent = `Tienes ${due} ${due === 1 ? "tarjeta pendiente" : "tarjetas pendientes"}.`;
+        } else if (!active && holding) {
+          $("#homeHeading").textContent = "Elige tus primeras tarjetas";
+          $("#homeMessage").textContent = "Añade hasta cinco tarjetas a la Caja 1 para comenzar.";
+        } else {
+          $("#homeHeading").textContent = "Todo al día";
+          $("#homeMessage").textContent = holding
+            ? "No tienes revisiones pendientes. Puedes añadir cinco tarjetas nuevas cuando estés listo."
+            : "No tienes tarjetas pendientes en este momento.";
+        }
+
+        const addFiveButton = $("#addFiveButton");
+        const batchSize = Math.min(NEW_CARD_BATCH_SIZE, holding);
+        addFiveButton.disabled = holding === 0;
+        addFiveButton.textContent = holding === 0
+          ? "No quedan tarjetas en espera"
+          : `Añadir ${batchSize} ${batchSize === 1 ? "tarjeta" : "tarjetas"} a la Caja 1`;
+        $("#holdingMessage").textContent = holding
+          ? `${holding} ${holding === 1 ? "tarjeta está" : "tarjetas están"} fuera de la práctica activa.`
+          : "Todas las tarjetas ya están dentro de las cinco cajas Leitner.";
+
+        const startButton = $("#startButton");
+        startButton.disabled = due === 0;
+        startButton.textContent = due === 0
+          ? "No hay tarjetas pendientes"
+          : `Comenzar ${due} ${due === 1 ? "tarjeta" : "tarjetas"}`;
+
+        const direction = state.settings.direction;
+        const selected = document.querySelector(`input[name="direction"][value="${direction}"]`);
+        if (selected) selected.checked = true;
+
+        $("#sourceName").textContent = state.settings.sourceName || "Vocabulario guardado";
+        $("#manageCardCount").textContent = String(total);
+        $("#manageHoldingCount").textContent = String(holding);
+        $("#manageActiveCount").textContent = String(active);
+        $("#speechRate").value = String(state.settings.speechRate);
+        $("#speechRateValue").textContent = `${Number(state.settings.speechRate).toFixed(2)}×`;
+      }
+
+      function addFiveCardsToBoxOne() {
+        const cardsToAdd = getHoldingCards().slice(0, NEW_CARD_BATCH_SIZE);
+        if (!cardsToAdd.length) {
+          showToast("No quedan tarjetas en la caja de espera.");
+          return;
+        }
+        const now = Date.now();
+        for (const card of cardsToAdd) {
+          const progress = getProgress(card.id);
+          progress.box = 1;
+          progress.dueAt = now;
+        }
+        saveState();
+        renderHome();
+        showToast(`Se añadieron ${cardsToAdd.length} ${cardsToAdd.length === 1 ? "tarjeta" : "tarjetas"} a la Caja 1.`);
+      }
+
+      function shuffle(items) {
+        const array = items.slice();
+        for (let i = array.length - 1; i > 0; i -= 1) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      function startSession() {
+        const dueCards = getDueCards();
+        if (!dueCards.length) {
+          showToast("No hay tarjetas pendientes ahora.");
+          return;
+        }
+        const ordered = dueCards.sort((a, b) => {
+          const pa = getProgress(a.id);
+          const pb = getProgress(b.id);
+          if (pa.box !== pb.box) return pa.box - pb.box;
+          return pa.dueAt - pb.dueAt;
+        });
+        session = {
+          queue: shuffle(ordered.map(card => card.id)),
+          initialCount: ordered.length,
+          completed: 0,
+          responses: { missed: 0, hard: 0, knew: 0 },
+          repeats: {}
+        };
+        showScreen("studyScreen");
+        loadNextCard();
+      }
+
+      function getCardById(id) {
+        return state.cards.find(card => card.id === id) || null;
+      }
+
+      function createSpanishFace(card) {
+        return `<p class="spanish-word" lang="es">${escapeHtml(card.spanish)}</p>`;
+      }
+
+      function createAudioFace(side) {
+        return `
+          <button class="audio-button" type="button" data-audio-side="${side}" aria-label="Escuchar la palabra en inglés">
+            <svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M11 5 6 9H3v6h3l5 4V5Z"></path>
+              <path d="M15.5 8.5a5 5 0 0 1 0 7"></path>
+              <path d="M18 6a8.5 8.5 0 0 1 0 12"></path>
+            </svg>
+          </button>`;
+      }
+
+      function loadNextCard() {
+        window.speechSynthesis?.cancel();
+        if (!session || !session.queue.length) {
+          finishSession();
+          return;
+        }
+        const id = session.queue.shift();
+        currentCard = getCardById(id);
+        if (!currentCard) {
+          loadNextCard();
+          return;
+        }
+        cardIsFlipped = false;
+        els.flashcardInner.classList.remove("flipped");
+        els.gradePanel.hidden = true;
+        $("#flipButton").hidden = false;
+
+        const direction = state.settings.direction;
+        if (direction === "spanish-first") {
+          els.cardFront.innerHTML = createSpanishFace(currentCard);
+          els.cardBack.innerHTML = createAudioFace("back");
+          $("#studyDirectionText").textContent = "Español → inglés";
+          $("#studyInstruction").textContent = "Recuerda cómo suena en inglés y luego voltea la tarjeta.";
+        } else {
+          els.cardFront.innerHTML = createAudioFace("front");
+          els.cardBack.innerHTML = createSpanishFace(currentCard);
+          $("#studyDirectionText").textContent = "Inglés → español";
+          $("#studyInstruction").textContent = "Escucha, piensa en el significado y luego voltea la tarjeta.";
+        }
+
+        const totalRemaining = session.completed + 1 + session.queue.length;
+        $("#studyProgressText").textContent = `Tarjeta ${session.completed + 1} de ${totalRemaining}`;
+        $("#currentBoxBadge").textContent = `Caja ${getProgress(currentCard.id).box}`;
+        const progressPercent = totalRemaining ? (session.completed / totalRemaining) * 100 : 0;
+        $("#studyProgressBar").style.width = `${Math.min(100, progressPercent)}%`;
+
+        requestAnimationFrame(() => {
+          const firstAudio = els.cardFront.querySelector(".audio-button");
+          if (firstAudio && state.settings.direction === "english-first") firstAudio.focus({ preventScroll: true });
+          else els.flashcard.focus({ preventScroll: true });
+        });
+      }
+
+      function flipCard() {
+        if (!currentCard || cardIsFlipped) return;
+        cardIsFlipped = true;
+        els.flashcardInner.classList.add("flipped");
+        els.gradePanel.hidden = false;
+        $("#flipButton").hidden = true;
+        $("#studyInstruction").textContent = "Compara tu respuesta y elige cómo te fue.";
+      }
+
+      function chooseVoice() {
+        if (!("speechSynthesis" in window)) return null;
+        const voices = window.speechSynthesis.getVoices();
+        const english = voices.filter(voice => /^en(?:-|_)/i.test(voice.lang));
+        const preferred = english.find(voice => /^en-US$/i.test(voice.lang) && voice.localService)
+          || english.find(voice => /^en-US$/i.test(voice.lang))
+          || english.find(voice => voice.localService)
+          || english[0];
+        return preferred || null;
+      }
+
+      function speak(text, sourceButton = null) {
+        if (!("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined") {
+          showToast("Este navegador no ofrece pronunciación por voz.", true);
+          return;
+        }
+        window.speechSynthesis.cancel();
+        $$(".audio-button.playing").forEach(button => button.classList.remove("playing"));
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "en-US";
+        utterance.rate = Number(state.settings.speechRate) || .9;
+        utterance.pitch = 1;
+        const voice = chooseVoice();
+        if (voice) utterance.voice = voice;
+        if (sourceButton) sourceButton.classList.add("playing");
+        const stopAnimation = () => sourceButton?.classList.remove("playing");
+        utterance.onend = stopAnimation;
+        utterance.onerror = stopAnimation;
+        window.speechSynthesis.speak(utterance);
+      }
+
+      function scheduleFromBox(box, now) {
+        return now + BOX_INTERVAL_DAYS[box] * DAY_MS;
+      }
+
+      function gradeCard(result) {
+        if (!currentCard || !session || !cardIsFlipped) return;
+        const now = Date.now();
+        const progress = getProgress(currentCard.id);
+        const originalBox = progress.box;
+
+        progress.reviews += 1;
+        progress.lastReviewedAt = now;
+        state.totals.reviews += 1;
+        session.responses[result] += 1;
+        session.completed += 1;
+
+        if (result === "missed") {
+          progress.box = 1;
+          progress.dueAt = now;
+          progress.missed += 1;
+          progress.streak = 0;
+          const repeatCount = session.repeats[currentCard.id] || 0;
+          if (repeatCount < 1) {
+            session.repeats[currentCard.id] = repeatCount + 1;
+            const insertAt = Math.min(session.queue.length, Math.max(2, Math.floor(session.queue.length * .7)));
+            session.queue.splice(insertAt, 0, currentCard.id);
+          }
+        } else if (result === "hard") {
+          progress.box = originalBox;
+          progress.dueAt = scheduleFromBox(originalBox, now);
+          progress.hard += 1;
+          progress.streak = 0;
+        } else {
+          progress.box = Math.min(5, originalBox + 1);
+          progress.dueAt = scheduleFromBox(progress.box, now);
+          progress.knew += 1;
+          progress.streak += 1;
+        }
+
+        saveState();
+        loadNextCard();
+      }
+
+      function finishSession() {
+        window.speechSynthesis?.cancel();
+        currentCard = null;
+        if (!session) {
+          renderHome();
+          showScreen("homeScreen");
+          return;
+        }
+        $("#summaryMissed").textContent = String(session.responses.missed);
+        $("#summaryHard").textContent = String(session.responses.hard);
+        $("#summaryKnew").textContent = String(session.responses.knew);
+        $("#summaryReviewCount").textContent = `Completaste ${session.completed} ${session.completed === 1 ? "revisión" : "revisiones"}.`;
+        showScreen("summaryScreen");
+      }
+
+      function askConfirm(title, message, acceptLabel = "Continuar") {
+        $("#confirmTitle").textContent = title;
+        $("#confirmMessage").textContent = message;
+        $("#confirmAcceptButton").textContent = acceptLabel;
+        if (confirmResolver) confirmResolver(false);
+        return new Promise(resolve => {
+          confirmResolver = resolve;
+          els.confirmDialog.showModal();
+        });
+      }
+
+      function resolveConfirm(value) {
+        if (els.confirmDialog.open) els.confirmDialog.close();
+        const resolver = confirmResolver;
+        confirmResolver = null;
+        if (resolver) resolver(value);
+      }
+
+      function downloadBlob(contents, type, filename) {
+        const blob = new Blob([contents], { type });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+      }
+
+      function exportBackup() {
+        const payload = {
+          app: "Tarjetas de inglés — Sistema Leitner",
+          version: BACKUP_VERSION,
+          exportedAt: new Date().toISOString(),
+          data: state
+        };
+        const date = new Date().toISOString().slice(0, 10);
+        downloadBlob(JSON.stringify(payload, null, 2), "application/json;charset=utf-8", `tarjetas-leitner-${date}.json`);
+        showToast("Se exportó la copia de seguridad.");
+      }
+
+      async function importBackup(file) {
+        try {
+          const text = await readTextFile(file);
+          const payload = JSON.parse(text);
+          const incoming = payload && payload.data ? payload.data : payload;
+          const normalized = normalizeState(incoming);
+          if (!normalized.cards.length) throw new Error("La copia no contiene tarjetas válidas.");
+          const approved = await askConfirm(
+            "Restaurar copia",
+            "Esto reemplazará el vocabulario y el progreso guardados actualmente.",
+            "Restaurar"
+          );
+          if (!approved) return;
+          state = normalized;
+          saveState();
+          renderHome();
+          if (els.manageDialog.open) els.manageDialog.close();
+          showScreen("homeScreen");
+          showToast("La copia de seguridad fue restaurada.");
+        } catch (error) {
+          console.error(error);
+          showToast(error.message || "La copia de seguridad no es válida.", true);
+        } finally {
+          els.backupFileInput.value = "";
+        }
+      }
+
+      async function resetProgress() {
+        const approved = await askConfirm(
+          "Restablecer progreso",
+          "Todas las tarjetas volverán a la caja de espera. El vocabulario no se borrará.",
+          "Restablecer"
+        );
+        if (!approved) return;
+        const progress = {};
+        for (const card of state.cards) progress[card.id] = normalizeProgress(null);
+        state.progress = progress;
+        state.totals.reviews = 0;
+        saveState();
+        renderHome();
+        showToast("El progreso fue restablecido y las tarjetas volvieron a la caja de espera.");
+      }
+
+      async function deleteAll() {
+        const approved = await askConfirm(
+          "Borrar todos los datos",
+          "Se eliminarán el progreso y la configuración guardados. El vocabulario automático volverá a cargarse en la caja de espera.",
+          "Borrar todo"
+        );
+        if (!approved) return;
+        state = defaultState();
+        localStorage.removeItem(STORAGE_KEY);
+        if (els.manageDialog.open) els.manageDialog.close();
+        await loadAutomaticDeck();
+        if (state.cards.length) {
+          renderHome();
+          showScreen("homeScreen");
+          showToast("Se borró el progreso y el vocabulario volvió a la caja de espera.");
+        } else {
+          showScreen("setupScreen");
+          showToast("No se pudo volver a cargar el vocabulario automático.", true);
+        }
+      }
+
+      function openManage() {
+        renderHome();
+        els.manageDialog.showModal();
+      }
+
+      function bindEvents() {
+        $("#setupImportButton").addEventListener("click", () => els.csvFileInput.click());
+        $("#replaceCsvButton").addEventListener("click", () => els.csvFileInput.click());
+        els.csvFileInput.addEventListener("change", event => importCsvFile(event.target.files?.[0]));
+
+        const dropZone = $("#setupDropZone");
+        for (const type of ["dragenter", "dragover"]) {
+          dropZone.addEventListener(type, event => {
+            event.preventDefault();
+            dropZone.classList.add("dragging");
+          });
+        }
+        for (const type of ["dragleave", "drop"]) {
+          dropZone.addEventListener(type, event => {
+            event.preventDefault();
+            dropZone.classList.remove("dragging");
+          });
+        }
+        dropZone.addEventListener("drop", event => importCsvFile(event.dataTransfer?.files?.[0]));
+
+        $$('input[name="direction"]').forEach(input => {
+          input.addEventListener("change", event => {
+            state.settings.direction = event.target.value;
+            saveState();
+          });
+        });
+
+        $("#addFiveButton").addEventListener("click", addFiveCardsToBoxOne);
+        $("#startButton").addEventListener("click", startSession);
+        $("#returnHomeButton").addEventListener("click", () => {
+          session = null;
+          renderHome();
+          showScreen("homeScreen");
+        });
+
+        $("#flipButton").addEventListener("click", flipCard);
+        els.flashcard.addEventListener("click", event => {
+          if (event.target.closest(".audio-button")) return;
+          flipCard();
+        });
+        els.flashcard.addEventListener("keydown", event => {
+          if ((event.key === "Enter" || event.key === " ") && !event.target.closest(".audio-button")) {
+            event.preventDefault();
+            flipCard();
+          }
+        });
+
+        els.studyScreen.addEventListener("click", event => {
+          const audioButton = event.target.closest(".audio-button");
+          if (audioButton && currentCard) {
+            event.stopPropagation();
+            speak(currentCard.english, audioButton);
+          }
+          const gradeButton = event.target.closest("[data-grade]");
+          if (gradeButton) gradeCard(gradeButton.dataset.grade);
+        });
+
+        $("#exitStudyButton").addEventListener("click", async () => {
+          const approved = await askConfirm(
+            "Salir del ejercicio",
+            "Las respuestas ya completadas están guardadas. La tarjeta actual seguirá pendiente.",
+            "Salir"
+          );
+          if (!approved) return;
+          window.speechSynthesis?.cancel();
+          session = null;
+          currentCard = null;
+          renderHome();
+          showScreen("homeScreen");
+        });
+
+        els.manageButton.addEventListener("click", openManage);
+        els.openManageButton.addEventListener("click", openManage);
+        $("#closeManageButton").addEventListener("click", () => els.manageDialog.close());
+        els.manageDialog.addEventListener("click", event => {
+          if (event.target === els.manageDialog) els.manageDialog.close();
+        });
+
+        $("#speechRate").addEventListener("input", event => {
+          state.settings.speechRate = Number(event.target.value);
+          $("#speechRateValue").textContent = `${state.settings.speechRate.toFixed(2)}×`;
+          saveState();
+        });
+        $("#testVoiceButton").addEventListener("click", event => speak("Welcome", event.currentTarget));
+
+        $("#downloadTemplateButton").addEventListener("click", () => {
+          downloadBlob("English,Spanish\nhello,hola\nthank you,gracias\n", "text/csv;charset=utf-8", "vocabulary-template.csv");
+        });
+        $("#exportBackupButton").addEventListener("click", exportBackup);
+        $("#importBackupButton").addEventListener("click", () => els.backupFileInput.click());
+        els.backupFileInput.addEventListener("change", event => importBackup(event.target.files?.[0]));
+        $("#resetProgressButton").addEventListener("click", resetProgress);
+        $("#deleteAllButton").addEventListener("click", deleteAll);
+
+        $("#confirmCancelButton").addEventListener("click", () => resolveConfirm(false));
+        $("#confirmAcceptButton").addEventListener("click", () => resolveConfirm(true));
+        els.confirmDialog.addEventListener("cancel", event => {
+          event.preventDefault();
+          resolveConfirm(false);
+        });
+
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) window.speechSynthesis?.cancel();
+        });
+      }
+
+      async function init() {
+        bindEvents();
+        loadState();
+
+        // The adjacent vocabulary.csv is authoritative for automatic deployments.
+        // A deliberately imported deck remains selected until all data is cleared.
+        if (state.settings.sourceMode !== "manual" || !state.cards.length) {
+          await loadAutomaticDeck();
+        }
+
+        if (state.cards.length) {
+          renderHome();
+          showScreen("homeScreen");
+        } else {
+          showScreen("setupScreen");
+        }
+      }
+
+      init();
+    })();
+  </script>
+</body>
+</html>

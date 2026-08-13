@@ -1,0 +1,685 @@
+﻿English,Spanish
+computer,computadora / ordenador
+laptop,computadora portátil
+desktop computer,computadora de escritorio
+screen,pantalla
+monitor,monitor
+keyboard,teclado
+mouse,ratón / mouse
+key,tecla / clave (según el contexto)
+button,botón
+cable,cable
+charger,cargador
+battery,batería
+power,energía / alimentación
+device,dispositivo
+hardware,hardware / componentes físicos
+software,software / programas
+program,programa
+application / app,aplicación
+file,archivo
+folder,carpeta
+document,documento
+page,página
+window,ventana
+menu,menú
+icon,icono
+link,enlace
+website,sitio web
+webpage,página web
+browser,navegador
+Internet,Internet
+network,red
+Wi-Fi,wifi / red inalámbrica
+password,contraseña
+username,nombre de usuario
+account,cuenta
+login,inicio de sesión
+log in,iniciar sesión
+log out,cerrar sesión
+download,descargar
+upload,subir / cargar
+save,guardar
+open,abrir
+close,cerrar
+copy,copiar
+paste,pegar
+cut,cortar
+delete,eliminar
+select,seleccionar
+click,hacer clic
+double-click,hacer doble clic
+scroll,desplazarse
+search,buscar
+print,imprimir
+install,instalar
+update,actualizar
+settings,configuración
+error,error
+message,mensaje
+data,datos
+information,información
+online,en línea / conectado
+offline,sin conexión
+address,dirección
+access,acceso / acceder
+cloud,nube
+course,curso / asignatura
+class,clase
+lecture,clase magistral / conferencia
+professor,profesor
+instructor,instructor
+teaching assistant / TA,asistente de enseñanza
+office hours,horario de consulta
+syllabus,programa de la asignatura
+assignment,tarea
+homework,tarea
+exercise,ejercicio
+problem set,conjunto de problemas
+project,proyecto
+lab,laboratorio / práctica
+deadline,fecha límite
+submission,entrega
+grade,calificación
+exam,examen
+quiz,prueba corta
+midterm,examen parcial
+final exam,examen final
+textbook,libro de texto
+chapter,capítulo
+section,sección
+example,ejemplo
+definition,definición
+concept,concepto
+theory,teoría
+approach,enfoque
+solution,solución
+requirement,requisito
+instruction,instrucción
+explain,explicar
+describe,describir
+define,definir
+identify,identificar
+determine,determinar
+demonstrate,demostrar
+illustrate,ilustrar
+compare,comparar
+contrast,contrastar
+analyze,analizar
+evaluate,evaluar
+calculate,calcular
+compute,calcular / computar
+derive,derivar / deducir
+prove,demostrar
+assume,suponer
+verify,verificar
+justify,justificar
+estimate,estimar
+implement,implementar
+modify,modificar
+design,diseñar
+develop,desarrollar
+test,probar / prueba
+debug,depurar
+submit,entregar
+review,revisar / revisión
+prerequisite,prerrequisito
+semester,semestre
+credit,crédito académico
+major,carrera / especialidad principal
+minor,especialidad secundaria
+undergraduate,estudiante de pregrado
+graduate student,estudiante de posgrado
+code,código
+source code,código fuente
+programming,programación
+programmer,programador
+developer,desarrollador
+programming language,lenguaje de programación
+command,comando
+statement,sentencia / instrucción
+line of code,línea de código
+variable,variable
+value,valor
+constant,constante
+number,número
+integer,número entero
+decimal,decimal
+float,número de punto flotante
+string,cadena de texto
+character,carácter
+Boolean,booleano
+true,verdadero
+false,falso
+null,nulo / sin valor
+input,entrada
+output,salida
+function,función
+parameter,parámetro
+argument,argumento
+return,devolver
+return value,valor de retorno
+operator,operador
+arithmetic operator,operador aritmético
+comparison operator,operador de comparación
+assignment operator,operador de asignación
+expression,expresión
+condition,condición
+if statement,sentencia if
+else,si no / else
+branch,rama
+loop,bucle
+for loop,bucle for
+while loop,bucle while
+iteration,iteración
+counter,contador
+increment,incrementar
+decrement,disminuir / decrementar
+array,arreglo / matriz
+list,lista
+index,índice
+element,elemento
+length,longitud
+sequence,secuencia
+collection,colección
+dictionary,diccionario
+value pair,par de valores
+set,conjunto
+tuple,tupla
+object,objeto
+method,método
+property,propiedad
+instance,instancia
+constructor,constructor
+scope,ámbito
+local variable,variable local
+global variable,variable global
+block,bloque
+syntax,sintaxis
+syntax error,error de sintaxis
+bug,error / fallo
+runtime error,error de ejecución
+logic error,error lógico
+exception,excepción
+exception handling,manejo de excepciones
+debugging,depuración
+debugger,depurador
+compile,compilar
+compiler,compilador
+execute,ejecutar
+run,ejecutar
+runtime,tiempo de ejecución
+terminal,terminal
+command line,línea de comandos
+console,consola
+script,script / guion
+library,biblioteca
+framework,framework / marco de trabajo
+module,módulo
+package,paquete
+comment,comentario
+indentation,sangría
+brackets,corchetes
+parentheses,paréntesis
+quotation marks,comillas
+assign,asignar
+declare,declarar
+initialize,inicializar
+call,llamar
+pass,pasar
+repeat,repetir
+iterate,iterar
+convert,convertir
+algorithm,algoritmo
+data structure,estructura de datos
+binary,binario
+bit,bit
+byte,byte
+memory,memoria
+storage,almacenamiento
+processor,procesador
+CPU,unidad central de procesamiento
+operating system,sistema operativo
+process,proceso
+thread,hilo
+stack,pila
+queue,cola
+linked list,lista enlazada
+tree,árbol
+binary tree,árbol binario
+graph,grafo
+node,nodo
+edge,arista
+root,raíz
+leaf,hoja
+pointer,puntero
+reference,referencia
+recursion,recursión
+recursive,recursivo
+search algorithm,algoritmo de búsqueda
+sorting algorithm,algoritmo de ordenamiento
+linear search,búsqueda lineal
+binary search,búsqueda binaria
+sort,ordenar
+dataset,conjunto de datos
+database,base de datos
+table,tabla
+row,fila
+record,registro
+column,columna
+field,campo
+query,consulta
+primary key,clave primaria
+foreign key,clave foránea
+relationship,relación
+relational database,base de datos relacional
+schema,esquema
+SQL,SQL
+join,unión
+filter,filtrar / filtro
+transaction,transacción
+database schema,esquema de base de datos
+normalization,normalización
+constraint,restricción
+interface,interfaz
+implementation,implementación
+abstraction,abstracción
+inheritance,herencia
+encapsulation,encapsulación
+polymorphism,polimorfismo
+object-oriented programming,programación orientada a objetos
+procedural programming,programación procedural
+unit test,prueba unitaria
+test case,caso de prueba
+documentation,documentación
+repository,repositorio
+version control,control de versiones
+Git,Git
+commit,commit / confirmación
+merge,fusionar / combinar
+conflict,conflicto
+clone,clonar
+pull,obtener cambios
+push,enviar cambios
+remote,remoto
+local repository,repositorio local
+change,cambio
+revision,revisión
+code review,revisión de código
+README,archivo README
+dependency,dependencia
+allocate,asignar memoria
+deallocate,liberar memoria
+retrieve,recuperar
+store,almacenar
+process data,procesar datos
+traverse,recorrer
+insert,insertar
+remove,quitar / eliminar
+inherit,heredar
+override,sobrescribir
+instantiate,instanciar
+handle,manejar
+validate,validar
+computational complexity,complejidad computacional
+complexity,complejidad
+time complexity,complejidad temporal
+space complexity,complejidad espacial
+Big O notation,notación Big O
+efficiency,eficiencia
+performance,rendimiento
+optimization,optimización
+optimize,optimizar
+worst case,peor caso
+best case,mejor caso
+average case,caso promedio
+divide and conquer,divide y vencerás
+dynamic programming,programación dinámica
+greedy algorithm,algoritmo voraz
+linear,lineal
+logarithmic,logarítmico
+quadratic,cuadrático
+constant time,tiempo constante
+trade-off,compromiso / equilibrio
+input size,tamaño de entrada
+operation,operación
+step,paso
+bubble sort,ordenamiento burbuja
+insertion sort,ordenamiento por inserción
+selection sort,ordenamiento por selección
+merge sort,ordenamiento por mezcla
+quicksort,ordenamiento rápido
+base case,caso base
+call stack,pila de llamadas
+traversal,recorrido
+sequential,secuencial
+ordered,ordenado
+unordered,no ordenado
+swap,intercambiar
+partition,partición / particionar
+hash,hash / resumen
+hash function,función hash
+hash table,tabla hash
+collision,colisión
+bucket,cubeta
+heap,montículo / heap
+priority queue,cola de prioridad
+balanced tree,árbol balanceado
+binary search tree,árbol binario de búsqueda
+AVL tree,árbol AVL
+red-black tree,árbol rojo-negro
+adjacency list,lista de adyacencia
+adjacency matrix,matriz de adyacencia
+doubly linked list,lista doblemente enlazada
+node pointer,puntero de nodo
+enqueue,añadir a una cola
+dequeue,retirar de una cola
+traversal order,orden de recorrido
+amortized,amortizado
+address (memory),dirección de memoria
+heap memory,memoria heap
+stack memory,memoria de pila
+garbage collection,recolección de basura
+mutable,mutable
+immutable,inmutable
+shallow copy,copia superficial
+deep copy,copia profunda
+alias,alias
+dereference,desreferenciar
+memory leak,fuga de memoria
+resource,recurso
+object lifetime,vida útil de un objeto
+null pointer,puntero nulo
+memory allocation,asignación de memoria
+concurrency,concurrencia
+parallelism,paralelismo
+scheduler,planificador
+synchronization,sincronización
+race condition,condición de carrera
+deadlock,interbloqueo
+mutex,exclusión mutua / mutex
+semaphore,semáforo
+context switch,cambio de contexto
+kernel,núcleo
+system call,llamada al sistema
+process ID,identificador de proceso
+shared memory,memoria compartida
+virtual memory,memoria virtual
+memory page,página de memoria
+memory management,gestión de memoria
+resource allocation,asignación de recursos
+cache,caché
+file system,sistema de archivos
+protocol,protocolo
+packet,paquete
+IP address,dirección IP
+port,puerto
+socket,socket
+client,cliente
+server,servidor
+client-server,cliente-servidor
+request,solicitud
+response,respuesta
+bandwidth,ancho de banda
+latency,latencia
+router,enrutador
+switch,conmutador
+DNS,sistema de nombres de dominio
+HTTP,HTTP
+HTTPS,HTTPS
+TCP,TCP
+UDP,UDP
+connection,conexión
+timeout,tiempo de espera
+parent,padre
+child,hijo
+vertex,vértice
+directed graph,grafo dirigido
+undirected graph,grafo no dirigido
+weighted graph,grafo ponderado
+adjacency,adyacencia
+path,camino
+cycle,ciclo
+depth-first search,búsqueda en profundidad
+breadth-first search,búsqueda en anchura
+shortest path,camino más corto
+spanning tree,árbol de expansión
+design pattern,patrón de diseño
+architecture,arquitectura
+component,componente
+coupling,acoplamiento
+cohesion,cohesión
+modularity,modularidad
+maintainability,mantenibilidad
+scalability,escalabilidad
+reliability,fiabilidad / confiabilidad
+fault tolerance,tolerancia a fallos
+refactor,refactorizar
+refactoring,refactorización
+technical debt,deuda técnica
+requirement specification,especificación de requisitos
+software lifecycle,ciclo de vida del software
+specification,especificación
+computational,computacional
+computation,computación / cálculo
+computability,computabilidad
+deterministic,determinista
+nondeterministic,no determinista
+finite,finito
+infinite,infinito
+discrete,discreto
+continuous,continuo
+decidable,decidible
+undecidable,indecidible
+Turing machine,máquina de Turing
+state,estado
+transition,transición
+formal language,lenguaje formal
+grammar,gramática
+automaton,autómata
+proof,demostración
+theorem,teorema
+invariant,invariante
+precondition,precondición
+postcondition,poscondición
+correctness,corrección
+proof of correctness,prueba de corrección
+termination,terminación
+asymptotic,asintótico
+upper bound,cota superior
+lower bound,cota inferior
+polynomial time,tiempo polinómico
+exponential time,tiempo exponencial
+tractable,tratable
+intractable,intratable
+NP,NP
+NP-hard,NP-difícil
+NP-complete,NP-completo
+reduction,reducción
+recurrence relation,relación de recurrencia
+memoization,memoización
+tabulation,tabulación
+optimal substructure,subestructura óptima
+overlapping subproblems,subproblemas superpuestos
+heuristic,heurística
+approximation,aproximación
+approximation algorithm,algoritmo de aproximación
+optimization problem,problema de optimización
+artificial intelligence,inteligencia artificial
+machine learning,aprendizaje automático
+neural network,red neuronal
+model,modelo
+training data,datos de entrenamiento
+training set,conjunto de entrenamiento
+validation set,conjunto de validación
+test set,conjunto de prueba
+feature,característica / atributo
+label,etiqueta
+prediction,predicción
+classification,clasificación
+regression,regresión
+clustering,agrupamiento
+inference,inferencia
+accuracy,exactitud
+precision,precisión
+recall,exhaustividad / recall
+bias,sesgo
+overfitting,sobreajuste
+distributed system,sistema distribuido
+distributed computing,computación distribuida
+cloud computing,computación en la nube
+virtualization,virtualización
+container,contenedor
+microservice,microservicio
+load balancing,balanceo de carga
+redundancy,redundancia
+replication,replicación
+consistency,consistencia
+availability,disponibilidad
+partition tolerance,tolerancia a particiones
+consensus,consenso
+leader,líder
+follower,seguidor
+fault,fallo
+throughput,tasa de procesamiento / rendimiento
+bottleneck,cuello de botella
+cluster,clúster
+node failure,fallo de nodo
+security,seguridad
+cybersecurity,ciberseguridad
+encryption,cifrado
+decryption,descifrado
+authentication,autenticación
+authorization,autorización
+access control,control de acceso
+confidentiality,confidencialidad
+integrity,integridad
+vulnerability,vulnerabilidad
+exploit,explotación / exploit
+threat,amenaza
+attack,ataque
+malicious,malicioso
+privilege,privilegio
+least privilege,mínimo privilegio
+digital signature,firma digital
+certificate,certificado
+secure channel,canal seguro
+Excel,Excel
+spreadsheet,hoja de cálculo
+workbook,libro de Excel / libro de trabajo
+worksheet,hoja de cálculo / hoja de trabajo
+cell,celda
+cell reference,referencia de celda
+range,rango
+active cell,celda activa
+mouse pointer,puntero del mouse
+cursor,cursor
+Ribbon,cinta de opciones
+Home tab,pestaña Inicio
+formula bar,barra de fórmulas
+worksheet tab,pestaña de hoja
+drop-down arrow,flecha desplegable
+first empty cell,primera celda vacía
+above,arriba de / encima de
+below,debajo de
+left,izquierda
+right,derecha
+next to,al lado de
+directly below,directamente debajo de
+immediately to the right,inmediatamente a la derecha
+at the top of the screen,en la parte superior de la pantalla
+at the bottom of the screen,en la parte inferior de la pantalla
+on the left,a la izquierda
+on the right,a la derecha
+inside,dentro de
+between,entre
+first,primero
+second,segundo
+last,último
+Enter key,tecla Enter
+Tab key,tecla Tab
+arrow keys,teclas de flecha
+undo,deshacer
+redo,rehacer
+clear,borrar contenido / limpiar
+move,mover
+bold,negrita
+italic,cursiva
+font,fuente
+font size,tamaño de fuente
+alignment,alineación
+center,centrar
+number format,formato de número
+percentage,porcentaje
+currency,moneda
+border,borde
+fill color,color de relleno
+autofill,autorrelleno
+resize,cambiar tamaño
+column width,ancho de columna
+row height,alto de fila
+insert row,insertar fila
+insert column,insertar columna
+delete row,eliminar fila
+delete column,eliminar columna
+copy formula,copiar fórmula
+formula,fórmula
+formula value,valor de fórmula
+relative reference,referencia relativa
+absolute reference,referencia absoluta
+mixed reference,referencia mixta
+AutoSum,Autosuma
+SUM,SUMA
+AVERAGE,PROMEDIO
+MIN,MIN
+MAX,MAX
+COUNT,CONTAR
+IF,SI
+IFERROR,SI.ERROR
+SUMIF,SUMAR.SI
+SUMIFS,SUMAR.SI.CONJUNTO
+COUNTIF,CONTAR.SI
+COUNTIFS,CONTAR.SI.CONJUNTO
+XLOOKUP,BUSCARX
+MATCH,COINCIDIR
+INDEX/MATCH,INDICE/COINCIDIR
+structured reference,referencia estructurada
+sort ascending,ordenar de menor a mayor / ascendente
+sort descending,ordenar de mayor a menor / descendente
+smallest to largest,de menor a mayor
+largest to smallest,de mayor a menor
+oldest to newest,de más antiguo a más reciente
+newest to oldest,de más reciente a más antiguo
+multi-level sort,ordenación de varios niveles
+filter arrow,flecha de filtro
+table formatting,formato de tabla
+conditional formatting,formato condicional
+data validation,validación de datos
+Find and Replace,Buscar y reemplazar
+freeze panes,inmovilizar paneles
+chart,gráfico
+column chart,gráfico de columnas
+PivotTable,tabla dinámica
+PivotChart,gráfico dinámico
+named range,rango con nombre
+worksheet protection,protección de hoja
+print setup,configuración de impresión
+page layout,diseño de página
+import data,importar datos
+CSV file,archivo CSV
+data cleaning,limpieza de datos
+data analysis,análisis de datos
+text function,función de texto
+date function,función de fecha
+visible values,valores visibles
+blank row,fila en blanco
+blank cell,celda vacía
+heading,encabezado
+revenue,ingresos
+sales,ventas
+expenses,gastos
+quarterly sales,ventas trimestrales
+region,región
+product,producto
+total,total
+tax rate,tasa de impuesto
