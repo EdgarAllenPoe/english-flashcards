@@ -1,0 +1,3430 @@
+{
+  "version": 1,
+  "voice": "en-US-EricNeural",
+  "voiceDisplayName": "Eric (inglés de EE. UU.)",
+  "recordingRate": "-25%",
+  "format": "MP3 mono, 24 kHz, 48 kbps",
+  "basePath": "audio/",
+  "entries": [
+    {
+      "english": "computer",
+      "spokenAs": "computer",
+      "file": "001-computer.mp3"
+    },
+    {
+      "english": "laptop",
+      "spokenAs": "laptop",
+      "file": "002-laptop.mp3"
+    },
+    {
+      "english": "desktop computer",
+      "spokenAs": "desktop computer",
+      "file": "003-desktop-computer.mp3"
+    },
+    {
+      "english": "screen",
+      "spokenAs": "screen",
+      "file": "004-screen.mp3"
+    },
+    {
+      "english": "monitor",
+      "spokenAs": "monitor",
+      "file": "005-monitor.mp3"
+    },
+    {
+      "english": "keyboard",
+      "spokenAs": "keyboard",
+      "file": "006-keyboard.mp3"
+    },
+    {
+      "english": "mouse",
+      "spokenAs": "mouse",
+      "file": "007-mouse.mp3"
+    },
+    {
+      "english": "key",
+      "spokenAs": "key",
+      "file": "008-key.mp3"
+    },
+    {
+      "english": "button",
+      "spokenAs": "button",
+      "file": "009-button.mp3"
+    },
+    {
+      "english": "cable",
+      "spokenAs": "cable",
+      "file": "010-cable.mp3"
+    },
+    {
+      "english": "charger",
+      "spokenAs": "charger",
+      "file": "011-charger.mp3"
+    },
+    {
+      "english": "battery",
+      "spokenAs": "battery",
+      "file": "012-battery.mp3"
+    },
+    {
+      "english": "power",
+      "spokenAs": "power",
+      "file": "013-power.mp3"
+    },
+    {
+      "english": "device",
+      "spokenAs": "device",
+      "file": "014-device.mp3"
+    },
+    {
+      "english": "hardware",
+      "spokenAs": "hardware",
+      "file": "015-hardware.mp3"
+    },
+    {
+      "english": "software",
+      "spokenAs": "software",
+      "file": "016-software.mp3"
+    },
+    {
+      "english": "program",
+      "spokenAs": "program",
+      "file": "017-program.mp3"
+    },
+    {
+      "english": "application / app",
+      "spokenAs": "application, or app",
+      "file": "018-application-app.mp3"
+    },
+    {
+      "english": "file",
+      "spokenAs": "file",
+      "file": "019-file.mp3"
+    },
+    {
+      "english": "folder",
+      "spokenAs": "folder",
+      "file": "020-folder.mp3"
+    },
+    {
+      "english": "document",
+      "spokenAs": "document",
+      "file": "021-document.mp3"
+    },
+    {
+      "english": "page",
+      "spokenAs": "page",
+      "file": "022-page.mp3"
+    },
+    {
+      "english": "window",
+      "spokenAs": "window",
+      "file": "023-window.mp3"
+    },
+    {
+      "english": "menu",
+      "spokenAs": "menu",
+      "file": "024-menu.mp3"
+    },
+    {
+      "english": "icon",
+      "spokenAs": "icon",
+      "file": "025-icon.mp3"
+    },
+    {
+      "english": "link",
+      "spokenAs": "link",
+      "file": "026-link.mp3"
+    },
+    {
+      "english": "website",
+      "spokenAs": "website",
+      "file": "027-website.mp3"
+    },
+    {
+      "english": "webpage",
+      "spokenAs": "webpage",
+      "file": "028-webpage.mp3"
+    },
+    {
+      "english": "browser",
+      "spokenAs": "browser",
+      "file": "029-browser.mp3"
+    },
+    {
+      "english": "Internet",
+      "spokenAs": "Internet",
+      "file": "030-internet.mp3"
+    },
+    {
+      "english": "network",
+      "spokenAs": "network",
+      "file": "031-network.mp3"
+    },
+    {
+      "english": "Wi-Fi",
+      "spokenAs": "Wi-Fi",
+      "file": "032-wi-fi.mp3"
+    },
+    {
+      "english": "password",
+      "spokenAs": "password",
+      "file": "033-password.mp3"
+    },
+    {
+      "english": "username",
+      "spokenAs": "username",
+      "file": "034-username.mp3"
+    },
+    {
+      "english": "account",
+      "spokenAs": "account",
+      "file": "035-account.mp3"
+    },
+    {
+      "english": "login",
+      "spokenAs": "login",
+      "file": "036-login.mp3"
+    },
+    {
+      "english": "log in",
+      "spokenAs": "log in",
+      "file": "037-log-in.mp3"
+    },
+    {
+      "english": "log out",
+      "spokenAs": "log out",
+      "file": "038-log-out.mp3"
+    },
+    {
+      "english": "download",
+      "spokenAs": "download",
+      "file": "039-download.mp3"
+    },
+    {
+      "english": "upload",
+      "spokenAs": "upload",
+      "file": "040-upload.mp3"
+    },
+    {
+      "english": "save",
+      "spokenAs": "save",
+      "file": "041-save.mp3"
+    },
+    {
+      "english": "open",
+      "spokenAs": "open",
+      "file": "042-open.mp3"
+    },
+    {
+      "english": "close",
+      "spokenAs": "close",
+      "file": "043-close.mp3"
+    },
+    {
+      "english": "copy",
+      "spokenAs": "copy",
+      "file": "044-copy.mp3"
+    },
+    {
+      "english": "paste",
+      "spokenAs": "paste",
+      "file": "045-paste.mp3"
+    },
+    {
+      "english": "cut",
+      "spokenAs": "cut",
+      "file": "046-cut.mp3"
+    },
+    {
+      "english": "delete",
+      "spokenAs": "delete",
+      "file": "047-delete.mp3"
+    },
+    {
+      "english": "select",
+      "spokenAs": "select",
+      "file": "048-select.mp3"
+    },
+    {
+      "english": "click",
+      "spokenAs": "click",
+      "file": "049-click.mp3"
+    },
+    {
+      "english": "double-click",
+      "spokenAs": "double-click",
+      "file": "050-double-click.mp3"
+    },
+    {
+      "english": "scroll",
+      "spokenAs": "scroll",
+      "file": "051-scroll.mp3"
+    },
+    {
+      "english": "search",
+      "spokenAs": "search",
+      "file": "052-search.mp3"
+    },
+    {
+      "english": "print",
+      "spokenAs": "print",
+      "file": "053-print.mp3"
+    },
+    {
+      "english": "install",
+      "spokenAs": "install",
+      "file": "054-install.mp3"
+    },
+    {
+      "english": "update",
+      "spokenAs": "update",
+      "file": "055-update.mp3"
+    },
+    {
+      "english": "settings",
+      "spokenAs": "settings",
+      "file": "056-settings.mp3"
+    },
+    {
+      "english": "error",
+      "spokenAs": "error",
+      "file": "057-error.mp3"
+    },
+    {
+      "english": "message",
+      "spokenAs": "message",
+      "file": "058-message.mp3"
+    },
+    {
+      "english": "data",
+      "spokenAs": "data",
+      "file": "059-data.mp3"
+    },
+    {
+      "english": "information",
+      "spokenAs": "information",
+      "file": "060-information.mp3"
+    },
+    {
+      "english": "online",
+      "spokenAs": "online",
+      "file": "061-online.mp3"
+    },
+    {
+      "english": "offline",
+      "spokenAs": "offline",
+      "file": "062-offline.mp3"
+    },
+    {
+      "english": "address",
+      "spokenAs": "address",
+      "file": "063-address.mp3"
+    },
+    {
+      "english": "access",
+      "spokenAs": "access",
+      "file": "064-access.mp3"
+    },
+    {
+      "english": "cloud",
+      "spokenAs": "cloud",
+      "file": "065-cloud.mp3"
+    },
+    {
+      "english": "course",
+      "spokenAs": "course",
+      "file": "066-course.mp3"
+    },
+    {
+      "english": "class",
+      "spokenAs": "class",
+      "file": "067-class.mp3"
+    },
+    {
+      "english": "lecture",
+      "spokenAs": "lecture",
+      "file": "068-lecture.mp3"
+    },
+    {
+      "english": "professor",
+      "spokenAs": "professor",
+      "file": "069-professor.mp3"
+    },
+    {
+      "english": "instructor",
+      "spokenAs": "instructor",
+      "file": "070-instructor.mp3"
+    },
+    {
+      "english": "teaching assistant / TA",
+      "spokenAs": "teaching assistant, or T A",
+      "file": "071-teaching-assistant-ta.mp3"
+    },
+    {
+      "english": "office hours",
+      "spokenAs": "office hours",
+      "file": "072-office-hours.mp3"
+    },
+    {
+      "english": "syllabus",
+      "spokenAs": "syllabus",
+      "file": "073-syllabus.mp3"
+    },
+    {
+      "english": "assignment",
+      "spokenAs": "assignment",
+      "file": "074-assignment.mp3"
+    },
+    {
+      "english": "homework",
+      "spokenAs": "homework",
+      "file": "075-homework.mp3"
+    },
+    {
+      "english": "exercise",
+      "spokenAs": "exercise",
+      "file": "076-exercise.mp3"
+    },
+    {
+      "english": "problem set",
+      "spokenAs": "problem set",
+      "file": "077-problem-set.mp3"
+    },
+    {
+      "english": "project",
+      "spokenAs": "project",
+      "file": "078-project.mp3"
+    },
+    {
+      "english": "lab",
+      "spokenAs": "lab",
+      "file": "079-lab.mp3"
+    },
+    {
+      "english": "deadline",
+      "spokenAs": "deadline",
+      "file": "080-deadline.mp3"
+    },
+    {
+      "english": "submission",
+      "spokenAs": "submission",
+      "file": "081-submission.mp3"
+    },
+    {
+      "english": "grade",
+      "spokenAs": "grade",
+      "file": "082-grade.mp3"
+    },
+    {
+      "english": "exam",
+      "spokenAs": "exam",
+      "file": "083-exam.mp3"
+    },
+    {
+      "english": "quiz",
+      "spokenAs": "quiz",
+      "file": "084-quiz.mp3"
+    },
+    {
+      "english": "midterm",
+      "spokenAs": "midterm",
+      "file": "085-midterm.mp3"
+    },
+    {
+      "english": "final exam",
+      "spokenAs": "final exam",
+      "file": "086-final-exam.mp3"
+    },
+    {
+      "english": "textbook",
+      "spokenAs": "textbook",
+      "file": "087-textbook.mp3"
+    },
+    {
+      "english": "chapter",
+      "spokenAs": "chapter",
+      "file": "088-chapter.mp3"
+    },
+    {
+      "english": "section",
+      "spokenAs": "section",
+      "file": "089-section.mp3"
+    },
+    {
+      "english": "example",
+      "spokenAs": "example",
+      "file": "090-example.mp3"
+    },
+    {
+      "english": "definition",
+      "spokenAs": "definition",
+      "file": "091-definition.mp3"
+    },
+    {
+      "english": "concept",
+      "spokenAs": "concept",
+      "file": "092-concept.mp3"
+    },
+    {
+      "english": "theory",
+      "spokenAs": "theory",
+      "file": "093-theory.mp3"
+    },
+    {
+      "english": "approach",
+      "spokenAs": "approach",
+      "file": "094-approach.mp3"
+    },
+    {
+      "english": "solution",
+      "spokenAs": "solution",
+      "file": "095-solution.mp3"
+    },
+    {
+      "english": "requirement",
+      "spokenAs": "requirement",
+      "file": "096-requirement.mp3"
+    },
+    {
+      "english": "instruction",
+      "spokenAs": "instruction",
+      "file": "097-instruction.mp3"
+    },
+    {
+      "english": "explain",
+      "spokenAs": "explain",
+      "file": "098-explain.mp3"
+    },
+    {
+      "english": "describe",
+      "spokenAs": "describe",
+      "file": "099-describe.mp3"
+    },
+    {
+      "english": "define",
+      "spokenAs": "define",
+      "file": "100-define.mp3"
+    },
+    {
+      "english": "identify",
+      "spokenAs": "identify",
+      "file": "101-identify.mp3"
+    },
+    {
+      "english": "determine",
+      "spokenAs": "determine",
+      "file": "102-determine.mp3"
+    },
+    {
+      "english": "demonstrate",
+      "spokenAs": "demonstrate",
+      "file": "103-demonstrate.mp3"
+    },
+    {
+      "english": "illustrate",
+      "spokenAs": "illustrate",
+      "file": "104-illustrate.mp3"
+    },
+    {
+      "english": "compare",
+      "spokenAs": "compare",
+      "file": "105-compare.mp3"
+    },
+    {
+      "english": "contrast",
+      "spokenAs": "contrast",
+      "file": "106-contrast.mp3"
+    },
+    {
+      "english": "analyze",
+      "spokenAs": "analyze",
+      "file": "107-analyze.mp3"
+    },
+    {
+      "english": "evaluate",
+      "spokenAs": "evaluate",
+      "file": "108-evaluate.mp3"
+    },
+    {
+      "english": "calculate",
+      "spokenAs": "calculate",
+      "file": "109-calculate.mp3"
+    },
+    {
+      "english": "compute",
+      "spokenAs": "compute",
+      "file": "110-compute.mp3"
+    },
+    {
+      "english": "derive",
+      "spokenAs": "derive",
+      "file": "111-derive.mp3"
+    },
+    {
+      "english": "prove",
+      "spokenAs": "prove",
+      "file": "112-prove.mp3"
+    },
+    {
+      "english": "assume",
+      "spokenAs": "assume",
+      "file": "113-assume.mp3"
+    },
+    {
+      "english": "verify",
+      "spokenAs": "verify",
+      "file": "114-verify.mp3"
+    },
+    {
+      "english": "justify",
+      "spokenAs": "justify",
+      "file": "115-justify.mp3"
+    },
+    {
+      "english": "estimate",
+      "spokenAs": "estimate",
+      "file": "116-estimate.mp3"
+    },
+    {
+      "english": "implement",
+      "spokenAs": "implement",
+      "file": "117-implement.mp3"
+    },
+    {
+      "english": "modify",
+      "spokenAs": "modify",
+      "file": "118-modify.mp3"
+    },
+    {
+      "english": "design",
+      "spokenAs": "design",
+      "file": "119-design.mp3"
+    },
+    {
+      "english": "develop",
+      "spokenAs": "develop",
+      "file": "120-develop.mp3"
+    },
+    {
+      "english": "test",
+      "spokenAs": "test",
+      "file": "121-test.mp3"
+    },
+    {
+      "english": "debug",
+      "spokenAs": "debug",
+      "file": "122-debug.mp3"
+    },
+    {
+      "english": "submit",
+      "spokenAs": "submit",
+      "file": "123-submit.mp3"
+    },
+    {
+      "english": "review",
+      "spokenAs": "review",
+      "file": "124-review.mp3"
+    },
+    {
+      "english": "prerequisite",
+      "spokenAs": "prerequisite",
+      "file": "125-prerequisite.mp3"
+    },
+    {
+      "english": "semester",
+      "spokenAs": "semester",
+      "file": "126-semester.mp3"
+    },
+    {
+      "english": "credit",
+      "spokenAs": "credit",
+      "file": "127-credit.mp3"
+    },
+    {
+      "english": "major",
+      "spokenAs": "major",
+      "file": "128-major.mp3"
+    },
+    {
+      "english": "minor",
+      "spokenAs": "minor",
+      "file": "129-minor.mp3"
+    },
+    {
+      "english": "undergraduate",
+      "spokenAs": "undergraduate",
+      "file": "130-undergraduate.mp3"
+    },
+    {
+      "english": "graduate student",
+      "spokenAs": "graduate student",
+      "file": "131-graduate-student.mp3"
+    },
+    {
+      "english": "code",
+      "spokenAs": "code",
+      "file": "132-code.mp3"
+    },
+    {
+      "english": "source code",
+      "spokenAs": "source code",
+      "file": "133-source-code.mp3"
+    },
+    {
+      "english": "programming",
+      "spokenAs": "programming",
+      "file": "134-programming.mp3"
+    },
+    {
+      "english": "programmer",
+      "spokenAs": "programmer",
+      "file": "135-programmer.mp3"
+    },
+    {
+      "english": "developer",
+      "spokenAs": "developer",
+      "file": "136-developer.mp3"
+    },
+    {
+      "english": "programming language",
+      "spokenAs": "programming language",
+      "file": "137-programming-language.mp3"
+    },
+    {
+      "english": "command",
+      "spokenAs": "command",
+      "file": "138-command.mp3"
+    },
+    {
+      "english": "statement",
+      "spokenAs": "statement",
+      "file": "139-statement.mp3"
+    },
+    {
+      "english": "line of code",
+      "spokenAs": "line of code",
+      "file": "140-line-of-code.mp3"
+    },
+    {
+      "english": "variable",
+      "spokenAs": "variable",
+      "file": "141-variable.mp3"
+    },
+    {
+      "english": "value",
+      "spokenAs": "value",
+      "file": "142-value.mp3"
+    },
+    {
+      "english": "constant",
+      "spokenAs": "constant",
+      "file": "143-constant.mp3"
+    },
+    {
+      "english": "number",
+      "spokenAs": "number",
+      "file": "144-number.mp3"
+    },
+    {
+      "english": "integer",
+      "spokenAs": "integer",
+      "file": "145-integer.mp3"
+    },
+    {
+      "english": "decimal",
+      "spokenAs": "decimal",
+      "file": "146-decimal.mp3"
+    },
+    {
+      "english": "float",
+      "spokenAs": "float",
+      "file": "147-float.mp3"
+    },
+    {
+      "english": "string",
+      "spokenAs": "string",
+      "file": "148-string.mp3"
+    },
+    {
+      "english": "character",
+      "spokenAs": "character",
+      "file": "149-character.mp3"
+    },
+    {
+      "english": "Boolean",
+      "spokenAs": "Boolean",
+      "file": "150-boolean.mp3"
+    },
+    {
+      "english": "true",
+      "spokenAs": "TRUE",
+      "file": "151-true.mp3"
+    },
+    {
+      "english": "false",
+      "spokenAs": "FALSE",
+      "file": "152-false.mp3"
+    },
+    {
+      "english": "null",
+      "spokenAs": "null",
+      "file": "153-null.mp3"
+    },
+    {
+      "english": "input",
+      "spokenAs": "input",
+      "file": "154-input.mp3"
+    },
+    {
+      "english": "output",
+      "spokenAs": "output",
+      "file": "155-output.mp3"
+    },
+    {
+      "english": "function",
+      "spokenAs": "function",
+      "file": "156-function.mp3"
+    },
+    {
+      "english": "parameter",
+      "spokenAs": "parameter",
+      "file": "157-parameter.mp3"
+    },
+    {
+      "english": "argument",
+      "spokenAs": "argument",
+      "file": "158-argument.mp3"
+    },
+    {
+      "english": "return",
+      "spokenAs": "return",
+      "file": "159-return.mp3"
+    },
+    {
+      "english": "return value",
+      "spokenAs": "return value",
+      "file": "160-return-value.mp3"
+    },
+    {
+      "english": "operator",
+      "spokenAs": "operator",
+      "file": "161-operator.mp3"
+    },
+    {
+      "english": "arithmetic operator",
+      "spokenAs": "arithmetic operator",
+      "file": "162-arithmetic-operator.mp3"
+    },
+    {
+      "english": "comparison operator",
+      "spokenAs": "comparison operator",
+      "file": "163-comparison-operator.mp3"
+    },
+    {
+      "english": "assignment operator",
+      "spokenAs": "assignment operator",
+      "file": "164-assignment-operator.mp3"
+    },
+    {
+      "english": "expression",
+      "spokenAs": "expression",
+      "file": "165-expression.mp3"
+    },
+    {
+      "english": "condition",
+      "spokenAs": "condition",
+      "file": "166-condition.mp3"
+    },
+    {
+      "english": "if statement",
+      "spokenAs": "if statement",
+      "file": "167-if-statement.mp3"
+    },
+    {
+      "english": "else",
+      "spokenAs": "else",
+      "file": "168-else.mp3"
+    },
+    {
+      "english": "branch",
+      "spokenAs": "branch",
+      "file": "169-branch.mp3"
+    },
+    {
+      "english": "loop",
+      "spokenAs": "loop",
+      "file": "170-loop.mp3"
+    },
+    {
+      "english": "for loop",
+      "spokenAs": "for loop",
+      "file": "171-for-loop.mp3"
+    },
+    {
+      "english": "while loop",
+      "spokenAs": "while loop",
+      "file": "172-while-loop.mp3"
+    },
+    {
+      "english": "iteration",
+      "spokenAs": "iteration",
+      "file": "173-iteration.mp3"
+    },
+    {
+      "english": "counter",
+      "spokenAs": "counter",
+      "file": "174-counter.mp3"
+    },
+    {
+      "english": "increment",
+      "spokenAs": "increment",
+      "file": "175-increment.mp3"
+    },
+    {
+      "english": "decrement",
+      "spokenAs": "decrement",
+      "file": "176-decrement.mp3"
+    },
+    {
+      "english": "array",
+      "spokenAs": "array",
+      "file": "177-array.mp3"
+    },
+    {
+      "english": "list",
+      "spokenAs": "list",
+      "file": "178-list.mp3"
+    },
+    {
+      "english": "index",
+      "spokenAs": "index",
+      "file": "179-index.mp3"
+    },
+    {
+      "english": "element",
+      "spokenAs": "element",
+      "file": "180-element.mp3"
+    },
+    {
+      "english": "length",
+      "spokenAs": "length",
+      "file": "181-length.mp3"
+    },
+    {
+      "english": "sequence",
+      "spokenAs": "sequence",
+      "file": "182-sequence.mp3"
+    },
+    {
+      "english": "collection",
+      "spokenAs": "collection",
+      "file": "183-collection.mp3"
+    },
+    {
+      "english": "dictionary",
+      "spokenAs": "dictionary",
+      "file": "184-dictionary.mp3"
+    },
+    {
+      "english": "value pair",
+      "spokenAs": "value pair",
+      "file": "185-value-pair.mp3"
+    },
+    {
+      "english": "set",
+      "spokenAs": "set",
+      "file": "186-set.mp3"
+    },
+    {
+      "english": "tuple",
+      "spokenAs": "tuple",
+      "file": "187-tuple.mp3"
+    },
+    {
+      "english": "object",
+      "spokenAs": "object",
+      "file": "188-object.mp3"
+    },
+    {
+      "english": "method",
+      "spokenAs": "method",
+      "file": "189-method.mp3"
+    },
+    {
+      "english": "property",
+      "spokenAs": "property",
+      "file": "190-property.mp3"
+    },
+    {
+      "english": "instance",
+      "spokenAs": "instance",
+      "file": "191-instance.mp3"
+    },
+    {
+      "english": "constructor",
+      "spokenAs": "constructor",
+      "file": "192-constructor.mp3"
+    },
+    {
+      "english": "scope",
+      "spokenAs": "scope",
+      "file": "193-scope.mp3"
+    },
+    {
+      "english": "local variable",
+      "spokenAs": "local variable",
+      "file": "194-local-variable.mp3"
+    },
+    {
+      "english": "global variable",
+      "spokenAs": "global variable",
+      "file": "195-global-variable.mp3"
+    },
+    {
+      "english": "block",
+      "spokenAs": "block",
+      "file": "196-block.mp3"
+    },
+    {
+      "english": "syntax",
+      "spokenAs": "syntax",
+      "file": "197-syntax.mp3"
+    },
+    {
+      "english": "syntax error",
+      "spokenAs": "syntax error",
+      "file": "198-syntax-error.mp3"
+    },
+    {
+      "english": "bug",
+      "spokenAs": "bug",
+      "file": "199-bug.mp3"
+    },
+    {
+      "english": "runtime error",
+      "spokenAs": "runtime error",
+      "file": "200-runtime-error.mp3"
+    },
+    {
+      "english": "logic error",
+      "spokenAs": "logic error",
+      "file": "201-logic-error.mp3"
+    },
+    {
+      "english": "exception",
+      "spokenAs": "exception",
+      "file": "202-exception.mp3"
+    },
+    {
+      "english": "exception handling",
+      "spokenAs": "exception handling",
+      "file": "203-exception-handling.mp3"
+    },
+    {
+      "english": "debugging",
+      "spokenAs": "debugging",
+      "file": "204-debugging.mp3"
+    },
+    {
+      "english": "debugger",
+      "spokenAs": "debugger",
+      "file": "205-debugger.mp3"
+    },
+    {
+      "english": "compile",
+      "spokenAs": "compile",
+      "file": "206-compile.mp3"
+    },
+    {
+      "english": "compiler",
+      "spokenAs": "compiler",
+      "file": "207-compiler.mp3"
+    },
+    {
+      "english": "execute",
+      "spokenAs": "execute",
+      "file": "208-execute.mp3"
+    },
+    {
+      "english": "run",
+      "spokenAs": "run",
+      "file": "209-run.mp3"
+    },
+    {
+      "english": "runtime",
+      "spokenAs": "runtime",
+      "file": "210-runtime.mp3"
+    },
+    {
+      "english": "terminal",
+      "spokenAs": "terminal",
+      "file": "211-terminal.mp3"
+    },
+    {
+      "english": "command line",
+      "spokenAs": "command line",
+      "file": "212-command-line.mp3"
+    },
+    {
+      "english": "console",
+      "spokenAs": "console",
+      "file": "213-console.mp3"
+    },
+    {
+      "english": "script",
+      "spokenAs": "script",
+      "file": "214-script.mp3"
+    },
+    {
+      "english": "library",
+      "spokenAs": "library",
+      "file": "215-library.mp3"
+    },
+    {
+      "english": "framework",
+      "spokenAs": "framework",
+      "file": "216-framework.mp3"
+    },
+    {
+      "english": "module",
+      "spokenAs": "module",
+      "file": "217-module.mp3"
+    },
+    {
+      "english": "package",
+      "spokenAs": "package",
+      "file": "218-package.mp3"
+    },
+    {
+      "english": "comment",
+      "spokenAs": "comment",
+      "file": "219-comment.mp3"
+    },
+    {
+      "english": "indentation",
+      "spokenAs": "indentation",
+      "file": "220-indentation.mp3"
+    },
+    {
+      "english": "brackets",
+      "spokenAs": "brackets",
+      "file": "221-brackets.mp3"
+    },
+    {
+      "english": "parentheses",
+      "spokenAs": "parentheses",
+      "file": "222-parentheses.mp3"
+    },
+    {
+      "english": "quotation marks",
+      "spokenAs": "quotation marks",
+      "file": "223-quotation-marks.mp3"
+    },
+    {
+      "english": "assign",
+      "spokenAs": "assign",
+      "file": "224-assign.mp3"
+    },
+    {
+      "english": "declare",
+      "spokenAs": "declare",
+      "file": "225-declare.mp3"
+    },
+    {
+      "english": "initialize",
+      "spokenAs": "initialize",
+      "file": "226-initialize.mp3"
+    },
+    {
+      "english": "call",
+      "spokenAs": "call",
+      "file": "227-call.mp3"
+    },
+    {
+      "english": "pass",
+      "spokenAs": "pass",
+      "file": "228-pass.mp3"
+    },
+    {
+      "english": "repeat",
+      "spokenAs": "repeat",
+      "file": "229-repeat.mp3"
+    },
+    {
+      "english": "iterate",
+      "spokenAs": "iterate",
+      "file": "230-iterate.mp3"
+    },
+    {
+      "english": "convert",
+      "spokenAs": "convert",
+      "file": "231-convert.mp3"
+    },
+    {
+      "english": "algorithm",
+      "spokenAs": "algorithm",
+      "file": "232-algorithm.mp3"
+    },
+    {
+      "english": "data structure",
+      "spokenAs": "data structure",
+      "file": "233-data-structure.mp3"
+    },
+    {
+      "english": "binary",
+      "spokenAs": "binary",
+      "file": "234-binary.mp3"
+    },
+    {
+      "english": "bit",
+      "spokenAs": "bit",
+      "file": "235-bit.mp3"
+    },
+    {
+      "english": "byte",
+      "spokenAs": "byte",
+      "file": "236-byte.mp3"
+    },
+    {
+      "english": "memory",
+      "spokenAs": "memory",
+      "file": "237-memory.mp3"
+    },
+    {
+      "english": "storage",
+      "spokenAs": "storage",
+      "file": "238-storage.mp3"
+    },
+    {
+      "english": "processor",
+      "spokenAs": "processor",
+      "file": "239-processor.mp3"
+    },
+    {
+      "english": "CPU",
+      "spokenAs": "C P U",
+      "file": "240-cpu.mp3"
+    },
+    {
+      "english": "operating system",
+      "spokenAs": "operating system",
+      "file": "241-operating-system.mp3"
+    },
+    {
+      "english": "process",
+      "spokenAs": "process",
+      "file": "242-process.mp3"
+    },
+    {
+      "english": "thread",
+      "spokenAs": "thread",
+      "file": "243-thread.mp3"
+    },
+    {
+      "english": "stack",
+      "spokenAs": "stack",
+      "file": "244-stack.mp3"
+    },
+    {
+      "english": "queue",
+      "spokenAs": "queue",
+      "file": "245-queue.mp3"
+    },
+    {
+      "english": "linked list",
+      "spokenAs": "linked list",
+      "file": "246-linked-list.mp3"
+    },
+    {
+      "english": "tree",
+      "spokenAs": "tree",
+      "file": "247-tree.mp3"
+    },
+    {
+      "english": "binary tree",
+      "spokenAs": "binary tree",
+      "file": "248-binary-tree.mp3"
+    },
+    {
+      "english": "graph",
+      "spokenAs": "graph",
+      "file": "249-graph.mp3"
+    },
+    {
+      "english": "node",
+      "spokenAs": "node",
+      "file": "250-node.mp3"
+    },
+    {
+      "english": "edge",
+      "spokenAs": "edge",
+      "file": "251-edge.mp3"
+    },
+    {
+      "english": "root",
+      "spokenAs": "root",
+      "file": "252-root.mp3"
+    },
+    {
+      "english": "leaf",
+      "spokenAs": "leaf",
+      "file": "253-leaf.mp3"
+    },
+    {
+      "english": "pointer",
+      "spokenAs": "pointer",
+      "file": "254-pointer.mp3"
+    },
+    {
+      "english": "reference",
+      "spokenAs": "reference",
+      "file": "255-reference.mp3"
+    },
+    {
+      "english": "recursion",
+      "spokenAs": "recursion",
+      "file": "256-recursion.mp3"
+    },
+    {
+      "english": "recursive",
+      "spokenAs": "recursive",
+      "file": "257-recursive.mp3"
+    },
+    {
+      "english": "search algorithm",
+      "spokenAs": "search algorithm",
+      "file": "258-search-algorithm.mp3"
+    },
+    {
+      "english": "sorting algorithm",
+      "spokenAs": "sorting algorithm",
+      "file": "259-sorting-algorithm.mp3"
+    },
+    {
+      "english": "linear search",
+      "spokenAs": "linear search",
+      "file": "260-linear-search.mp3"
+    },
+    {
+      "english": "binary search",
+      "spokenAs": "binary search",
+      "file": "261-binary-search.mp3"
+    },
+    {
+      "english": "sort",
+      "spokenAs": "sort",
+      "file": "262-sort.mp3"
+    },
+    {
+      "english": "dataset",
+      "spokenAs": "dataset",
+      "file": "263-dataset.mp3"
+    },
+    {
+      "english": "database",
+      "spokenAs": "database",
+      "file": "264-database.mp3"
+    },
+    {
+      "english": "table",
+      "spokenAs": "table",
+      "file": "265-table.mp3"
+    },
+    {
+      "english": "row",
+      "spokenAs": "row",
+      "file": "266-row.mp3"
+    },
+    {
+      "english": "record",
+      "spokenAs": "record",
+      "file": "267-record.mp3"
+    },
+    {
+      "english": "column",
+      "spokenAs": "column",
+      "file": "268-column.mp3"
+    },
+    {
+      "english": "field",
+      "spokenAs": "field",
+      "file": "269-field.mp3"
+    },
+    {
+      "english": "query",
+      "spokenAs": "query",
+      "file": "270-query.mp3"
+    },
+    {
+      "english": "primary key",
+      "spokenAs": "primary key",
+      "file": "271-primary-key.mp3"
+    },
+    {
+      "english": "foreign key",
+      "spokenAs": "foreign key",
+      "file": "272-foreign-key.mp3"
+    },
+    {
+      "english": "relationship",
+      "spokenAs": "relationship",
+      "file": "273-relationship.mp3"
+    },
+    {
+      "english": "relational database",
+      "spokenAs": "relational database",
+      "file": "274-relational-database.mp3"
+    },
+    {
+      "english": "schema",
+      "spokenAs": "schema",
+      "file": "275-schema.mp3"
+    },
+    {
+      "english": "SQL",
+      "spokenAs": "S Q L",
+      "file": "276-sql.mp3"
+    },
+    {
+      "english": "join",
+      "spokenAs": "join",
+      "file": "277-join.mp3"
+    },
+    {
+      "english": "filter",
+      "spokenAs": "filter",
+      "file": "278-filter.mp3"
+    },
+    {
+      "english": "transaction",
+      "spokenAs": "transaction",
+      "file": "279-transaction.mp3"
+    },
+    {
+      "english": "database schema",
+      "spokenAs": "database schema",
+      "file": "280-database-schema.mp3"
+    },
+    {
+      "english": "normalization",
+      "spokenAs": "normalization",
+      "file": "281-normalization.mp3"
+    },
+    {
+      "english": "constraint",
+      "spokenAs": "constraint",
+      "file": "282-constraint.mp3"
+    },
+    {
+      "english": "interface",
+      "spokenAs": "interface",
+      "file": "283-interface.mp3"
+    },
+    {
+      "english": "implementation",
+      "spokenAs": "implementation",
+      "file": "284-implementation.mp3"
+    },
+    {
+      "english": "abstraction",
+      "spokenAs": "abstraction",
+      "file": "285-abstraction.mp3"
+    },
+    {
+      "english": "inheritance",
+      "spokenAs": "inheritance",
+      "file": "286-inheritance.mp3"
+    },
+    {
+      "english": "encapsulation",
+      "spokenAs": "encapsulation",
+      "file": "287-encapsulation.mp3"
+    },
+    {
+      "english": "polymorphism",
+      "spokenAs": "polymorphism",
+      "file": "288-polymorphism.mp3"
+    },
+    {
+      "english": "object-oriented programming",
+      "spokenAs": "object-oriented programming",
+      "file": "289-object-oriented-programming.mp3"
+    },
+    {
+      "english": "procedural programming",
+      "spokenAs": "procedural programming",
+      "file": "290-procedural-programming.mp3"
+    },
+    {
+      "english": "unit test",
+      "spokenAs": "unit test",
+      "file": "291-unit-test.mp3"
+    },
+    {
+      "english": "test case",
+      "spokenAs": "test case",
+      "file": "292-test-case.mp3"
+    },
+    {
+      "english": "documentation",
+      "spokenAs": "documentation",
+      "file": "293-documentation.mp3"
+    },
+    {
+      "english": "repository",
+      "spokenAs": "repository",
+      "file": "294-repository.mp3"
+    },
+    {
+      "english": "version control",
+      "spokenAs": "version control",
+      "file": "295-version-control.mp3"
+    },
+    {
+      "english": "Git",
+      "spokenAs": "Git",
+      "file": "296-git.mp3"
+    },
+    {
+      "english": "commit",
+      "spokenAs": "commit",
+      "file": "297-commit.mp3"
+    },
+    {
+      "english": "merge",
+      "spokenAs": "merge",
+      "file": "298-merge.mp3"
+    },
+    {
+      "english": "conflict",
+      "spokenAs": "conflict",
+      "file": "299-conflict.mp3"
+    },
+    {
+      "english": "clone",
+      "spokenAs": "clone",
+      "file": "300-clone.mp3"
+    },
+    {
+      "english": "pull",
+      "spokenAs": "pull",
+      "file": "301-pull.mp3"
+    },
+    {
+      "english": "push",
+      "spokenAs": "push",
+      "file": "302-push.mp3"
+    },
+    {
+      "english": "remote",
+      "spokenAs": "remote",
+      "file": "303-remote.mp3"
+    },
+    {
+      "english": "local repository",
+      "spokenAs": "local repository",
+      "file": "304-local-repository.mp3"
+    },
+    {
+      "english": "change",
+      "spokenAs": "change",
+      "file": "305-change.mp3"
+    },
+    {
+      "english": "revision",
+      "spokenAs": "revision",
+      "file": "306-revision.mp3"
+    },
+    {
+      "english": "code review",
+      "spokenAs": "code review",
+      "file": "307-code-review.mp3"
+    },
+    {
+      "english": "README",
+      "spokenAs": "read me",
+      "file": "308-readme.mp3"
+    },
+    {
+      "english": "dependency",
+      "spokenAs": "dependency",
+      "file": "309-dependency.mp3"
+    },
+    {
+      "english": "allocate",
+      "spokenAs": "allocate",
+      "file": "310-allocate.mp3"
+    },
+    {
+      "english": "deallocate",
+      "spokenAs": "deallocate",
+      "file": "311-deallocate.mp3"
+    },
+    {
+      "english": "retrieve",
+      "spokenAs": "retrieve",
+      "file": "312-retrieve.mp3"
+    },
+    {
+      "english": "store",
+      "spokenAs": "store",
+      "file": "313-store.mp3"
+    },
+    {
+      "english": "process data",
+      "spokenAs": "process data",
+      "file": "314-process-data.mp3"
+    },
+    {
+      "english": "traverse",
+      "spokenAs": "traverse",
+      "file": "315-traverse.mp3"
+    },
+    {
+      "english": "insert",
+      "spokenAs": "insert",
+      "file": "316-insert.mp3"
+    },
+    {
+      "english": "remove",
+      "spokenAs": "remove",
+      "file": "317-remove.mp3"
+    },
+    {
+      "english": "inherit",
+      "spokenAs": "inherit",
+      "file": "318-inherit.mp3"
+    },
+    {
+      "english": "override",
+      "spokenAs": "override",
+      "file": "319-override.mp3"
+    },
+    {
+      "english": "instantiate",
+      "spokenAs": "instantiate",
+      "file": "320-instantiate.mp3"
+    },
+    {
+      "english": "handle",
+      "spokenAs": "handle",
+      "file": "321-handle.mp3"
+    },
+    {
+      "english": "validate",
+      "spokenAs": "validate",
+      "file": "322-validate.mp3"
+    },
+    {
+      "english": "computational complexity",
+      "spokenAs": "computational complexity",
+      "file": "323-computational-complexity.mp3"
+    },
+    {
+      "english": "complexity",
+      "spokenAs": "complexity",
+      "file": "324-complexity.mp3"
+    },
+    {
+      "english": "time complexity",
+      "spokenAs": "time complexity",
+      "file": "325-time-complexity.mp3"
+    },
+    {
+      "english": "space complexity",
+      "spokenAs": "space complexity",
+      "file": "326-space-complexity.mp3"
+    },
+    {
+      "english": "Big O notation",
+      "spokenAs": "Big O notation",
+      "file": "327-big-o-notation.mp3"
+    },
+    {
+      "english": "efficiency",
+      "spokenAs": "efficiency",
+      "file": "328-efficiency.mp3"
+    },
+    {
+      "english": "performance",
+      "spokenAs": "performance",
+      "file": "329-performance.mp3"
+    },
+    {
+      "english": "optimization",
+      "spokenAs": "optimization",
+      "file": "330-optimization.mp3"
+    },
+    {
+      "english": "optimize",
+      "spokenAs": "optimize",
+      "file": "331-optimize.mp3"
+    },
+    {
+      "english": "worst case",
+      "spokenAs": "worst case",
+      "file": "332-worst-case.mp3"
+    },
+    {
+      "english": "best case",
+      "spokenAs": "best case",
+      "file": "333-best-case.mp3"
+    },
+    {
+      "english": "average case",
+      "spokenAs": "average case",
+      "file": "334-average-case.mp3"
+    },
+    {
+      "english": "divide and conquer",
+      "spokenAs": "divide and conquer",
+      "file": "335-divide-and-conquer.mp3"
+    },
+    {
+      "english": "dynamic programming",
+      "spokenAs": "dynamic programming",
+      "file": "336-dynamic-programming.mp3"
+    },
+    {
+      "english": "greedy algorithm",
+      "spokenAs": "greedy algorithm",
+      "file": "337-greedy-algorithm.mp3"
+    },
+    {
+      "english": "linear",
+      "spokenAs": "linear",
+      "file": "338-linear.mp3"
+    },
+    {
+      "english": "logarithmic",
+      "spokenAs": "logarithmic",
+      "file": "339-logarithmic.mp3"
+    },
+    {
+      "english": "quadratic",
+      "spokenAs": "quadratic",
+      "file": "340-quadratic.mp3"
+    },
+    {
+      "english": "constant time",
+      "spokenAs": "constant time",
+      "file": "341-constant-time.mp3"
+    },
+    {
+      "english": "trade-off",
+      "spokenAs": "trade-off",
+      "file": "342-trade-off.mp3"
+    },
+    {
+      "english": "input size",
+      "spokenAs": "input size",
+      "file": "343-input-size.mp3"
+    },
+    {
+      "english": "operation",
+      "spokenAs": "operation",
+      "file": "344-operation.mp3"
+    },
+    {
+      "english": "step",
+      "spokenAs": "step",
+      "file": "345-step.mp3"
+    },
+    {
+      "english": "bubble sort",
+      "spokenAs": "bubble sort",
+      "file": "346-bubble-sort.mp3"
+    },
+    {
+      "english": "insertion sort",
+      "spokenAs": "insertion sort",
+      "file": "347-insertion-sort.mp3"
+    },
+    {
+      "english": "selection sort",
+      "spokenAs": "selection sort",
+      "file": "348-selection-sort.mp3"
+    },
+    {
+      "english": "merge sort",
+      "spokenAs": "merge sort",
+      "file": "349-merge-sort.mp3"
+    },
+    {
+      "english": "quicksort",
+      "spokenAs": "quicksort",
+      "file": "350-quicksort.mp3"
+    },
+    {
+      "english": "base case",
+      "spokenAs": "base case",
+      "file": "351-base-case.mp3"
+    },
+    {
+      "english": "call stack",
+      "spokenAs": "call stack",
+      "file": "352-call-stack.mp3"
+    },
+    {
+      "english": "traversal",
+      "spokenAs": "traversal",
+      "file": "353-traversal.mp3"
+    },
+    {
+      "english": "sequential",
+      "spokenAs": "sequential",
+      "file": "354-sequential.mp3"
+    },
+    {
+      "english": "ordered",
+      "spokenAs": "ordered",
+      "file": "355-ordered.mp3"
+    },
+    {
+      "english": "unordered",
+      "spokenAs": "unordered",
+      "file": "356-unordered.mp3"
+    },
+    {
+      "english": "swap",
+      "spokenAs": "swap",
+      "file": "357-swap.mp3"
+    },
+    {
+      "english": "partition",
+      "spokenAs": "partition",
+      "file": "358-partition.mp3"
+    },
+    {
+      "english": "hash",
+      "spokenAs": "hash",
+      "file": "359-hash.mp3"
+    },
+    {
+      "english": "hash function",
+      "spokenAs": "hash function",
+      "file": "360-hash-function.mp3"
+    },
+    {
+      "english": "hash table",
+      "spokenAs": "hash table",
+      "file": "361-hash-table.mp3"
+    },
+    {
+      "english": "collision",
+      "spokenAs": "collision",
+      "file": "362-collision.mp3"
+    },
+    {
+      "english": "bucket",
+      "spokenAs": "bucket",
+      "file": "363-bucket.mp3"
+    },
+    {
+      "english": "heap",
+      "spokenAs": "heap",
+      "file": "364-heap.mp3"
+    },
+    {
+      "english": "priority queue",
+      "spokenAs": "priority queue",
+      "file": "365-priority-queue.mp3"
+    },
+    {
+      "english": "balanced tree",
+      "spokenAs": "balanced tree",
+      "file": "366-balanced-tree.mp3"
+    },
+    {
+      "english": "binary search tree",
+      "spokenAs": "binary search tree",
+      "file": "367-binary-search-tree.mp3"
+    },
+    {
+      "english": "AVL tree",
+      "spokenAs": "A V L tree",
+      "file": "368-avl-tree.mp3"
+    },
+    {
+      "english": "red-black tree",
+      "spokenAs": "red-black tree",
+      "file": "369-red-black-tree.mp3"
+    },
+    {
+      "english": "adjacency list",
+      "spokenAs": "adjacency list",
+      "file": "370-adjacency-list.mp3"
+    },
+    {
+      "english": "adjacency matrix",
+      "spokenAs": "adjacency matrix",
+      "file": "371-adjacency-matrix.mp3"
+    },
+    {
+      "english": "doubly linked list",
+      "spokenAs": "doubly linked list",
+      "file": "372-doubly-linked-list.mp3"
+    },
+    {
+      "english": "node pointer",
+      "spokenAs": "node pointer",
+      "file": "373-node-pointer.mp3"
+    },
+    {
+      "english": "enqueue",
+      "spokenAs": "enqueue",
+      "file": "374-enqueue.mp3"
+    },
+    {
+      "english": "dequeue",
+      "spokenAs": "dequeue",
+      "file": "375-dequeue.mp3"
+    },
+    {
+      "english": "traversal order",
+      "spokenAs": "traversal order",
+      "file": "376-traversal-order.mp3"
+    },
+    {
+      "english": "amortized",
+      "spokenAs": "amortized",
+      "file": "377-amortized.mp3"
+    },
+    {
+      "english": "address (memory)",
+      "spokenAs": "address (memory)",
+      "file": "378-address-memory.mp3"
+    },
+    {
+      "english": "heap memory",
+      "spokenAs": "heap memory",
+      "file": "379-heap-memory.mp3"
+    },
+    {
+      "english": "stack memory",
+      "spokenAs": "stack memory",
+      "file": "380-stack-memory.mp3"
+    },
+    {
+      "english": "garbage collection",
+      "spokenAs": "garbage collection",
+      "file": "381-garbage-collection.mp3"
+    },
+    {
+      "english": "mutable",
+      "spokenAs": "mutable",
+      "file": "382-mutable.mp3"
+    },
+    {
+      "english": "immutable",
+      "spokenAs": "immutable",
+      "file": "383-immutable.mp3"
+    },
+    {
+      "english": "shallow copy",
+      "spokenAs": "shallow copy",
+      "file": "384-shallow-copy.mp3"
+    },
+    {
+      "english": "deep copy",
+      "spokenAs": "deep copy",
+      "file": "385-deep-copy.mp3"
+    },
+    {
+      "english": "alias",
+      "spokenAs": "alias",
+      "file": "386-alias.mp3"
+    },
+    {
+      "english": "dereference",
+      "spokenAs": "dereference",
+      "file": "387-dereference.mp3"
+    },
+    {
+      "english": "memory leak",
+      "spokenAs": "memory leak",
+      "file": "388-memory-leak.mp3"
+    },
+    {
+      "english": "resource",
+      "spokenAs": "resource",
+      "file": "389-resource.mp3"
+    },
+    {
+      "english": "object lifetime",
+      "spokenAs": "object lifetime",
+      "file": "390-object-lifetime.mp3"
+    },
+    {
+      "english": "null pointer",
+      "spokenAs": "null pointer",
+      "file": "391-null-pointer.mp3"
+    },
+    {
+      "english": "memory allocation",
+      "spokenAs": "memory allocation",
+      "file": "392-memory-allocation.mp3"
+    },
+    {
+      "english": "concurrency",
+      "spokenAs": "concurrency",
+      "file": "393-concurrency.mp3"
+    },
+    {
+      "english": "parallelism",
+      "spokenAs": "parallelism",
+      "file": "394-parallelism.mp3"
+    },
+    {
+      "english": "scheduler",
+      "spokenAs": "scheduler",
+      "file": "395-scheduler.mp3"
+    },
+    {
+      "english": "synchronization",
+      "spokenAs": "synchronization",
+      "file": "396-synchronization.mp3"
+    },
+    {
+      "english": "race condition",
+      "spokenAs": "race condition",
+      "file": "397-race-condition.mp3"
+    },
+    {
+      "english": "deadlock",
+      "spokenAs": "deadlock",
+      "file": "398-deadlock.mp3"
+    },
+    {
+      "english": "mutex",
+      "spokenAs": "mutex",
+      "file": "399-mutex.mp3"
+    },
+    {
+      "english": "semaphore",
+      "spokenAs": "semaphore",
+      "file": "400-semaphore.mp3"
+    },
+    {
+      "english": "context switch",
+      "spokenAs": "context switch",
+      "file": "401-context-switch.mp3"
+    },
+    {
+      "english": "kernel",
+      "spokenAs": "kernel",
+      "file": "402-kernel.mp3"
+    },
+    {
+      "english": "system call",
+      "spokenAs": "system call",
+      "file": "403-system-call.mp3"
+    },
+    {
+      "english": "process ID",
+      "spokenAs": "process I D",
+      "file": "404-process-id.mp3"
+    },
+    {
+      "english": "shared memory",
+      "spokenAs": "shared memory",
+      "file": "405-shared-memory.mp3"
+    },
+    {
+      "english": "virtual memory",
+      "spokenAs": "virtual memory",
+      "file": "406-virtual-memory.mp3"
+    },
+    {
+      "english": "memory page",
+      "spokenAs": "memory page",
+      "file": "407-memory-page.mp3"
+    },
+    {
+      "english": "memory management",
+      "spokenAs": "memory management",
+      "file": "408-memory-management.mp3"
+    },
+    {
+      "english": "resource allocation",
+      "spokenAs": "resource allocation",
+      "file": "409-resource-allocation.mp3"
+    },
+    {
+      "english": "cache",
+      "spokenAs": "cache",
+      "file": "410-cache.mp3"
+    },
+    {
+      "english": "file system",
+      "spokenAs": "file system",
+      "file": "411-file-system.mp3"
+    },
+    {
+      "english": "protocol",
+      "spokenAs": "protocol",
+      "file": "412-protocol.mp3"
+    },
+    {
+      "english": "packet",
+      "spokenAs": "packet",
+      "file": "413-packet.mp3"
+    },
+    {
+      "english": "IP address",
+      "spokenAs": "I P address",
+      "file": "414-ip-address.mp3"
+    },
+    {
+      "english": "port",
+      "spokenAs": "port",
+      "file": "415-port.mp3"
+    },
+    {
+      "english": "socket",
+      "spokenAs": "socket",
+      "file": "416-socket.mp3"
+    },
+    {
+      "english": "client",
+      "spokenAs": "client",
+      "file": "417-client.mp3"
+    },
+    {
+      "english": "server",
+      "spokenAs": "server",
+      "file": "418-server.mp3"
+    },
+    {
+      "english": "client-server",
+      "spokenAs": "client-server",
+      "file": "419-client-server.mp3"
+    },
+    {
+      "english": "request",
+      "spokenAs": "request",
+      "file": "420-request.mp3"
+    },
+    {
+      "english": "response",
+      "spokenAs": "response",
+      "file": "421-response.mp3"
+    },
+    {
+      "english": "bandwidth",
+      "spokenAs": "bandwidth",
+      "file": "422-bandwidth.mp3"
+    },
+    {
+      "english": "latency",
+      "spokenAs": "latency",
+      "file": "423-latency.mp3"
+    },
+    {
+      "english": "router",
+      "spokenAs": "router",
+      "file": "424-router.mp3"
+    },
+    {
+      "english": "switch",
+      "spokenAs": "switch",
+      "file": "425-switch.mp3"
+    },
+    {
+      "english": "DNS",
+      "spokenAs": "D N S",
+      "file": "426-dns.mp3"
+    },
+    {
+      "english": "HTTP",
+      "spokenAs": "H T T P",
+      "file": "427-http.mp3"
+    },
+    {
+      "english": "HTTPS",
+      "spokenAs": "H T T P S",
+      "file": "428-https.mp3"
+    },
+    {
+      "english": "TCP",
+      "spokenAs": "T C P",
+      "file": "429-tcp.mp3"
+    },
+    {
+      "english": "UDP",
+      "spokenAs": "U D P",
+      "file": "430-udp.mp3"
+    },
+    {
+      "english": "connection",
+      "spokenAs": "connection",
+      "file": "431-connection.mp3"
+    },
+    {
+      "english": "timeout",
+      "spokenAs": "timeout",
+      "file": "432-timeout.mp3"
+    },
+    {
+      "english": "parent",
+      "spokenAs": "parent",
+      "file": "433-parent.mp3"
+    },
+    {
+      "english": "child",
+      "spokenAs": "child",
+      "file": "434-child.mp3"
+    },
+    {
+      "english": "vertex",
+      "spokenAs": "vertex",
+      "file": "435-vertex.mp3"
+    },
+    {
+      "english": "directed graph",
+      "spokenAs": "directed graph",
+      "file": "436-directed-graph.mp3"
+    },
+    {
+      "english": "undirected graph",
+      "spokenAs": "undirected graph",
+      "file": "437-undirected-graph.mp3"
+    },
+    {
+      "english": "weighted graph",
+      "spokenAs": "weighted graph",
+      "file": "438-weighted-graph.mp3"
+    },
+    {
+      "english": "adjacency",
+      "spokenAs": "adjacency",
+      "file": "439-adjacency.mp3"
+    },
+    {
+      "english": "path",
+      "spokenAs": "path",
+      "file": "440-path.mp3"
+    },
+    {
+      "english": "cycle",
+      "spokenAs": "cycle",
+      "file": "441-cycle.mp3"
+    },
+    {
+      "english": "depth-first search",
+      "spokenAs": "depth-first search",
+      "file": "442-depth-first-search.mp3"
+    },
+    {
+      "english": "breadth-first search",
+      "spokenAs": "breadth-first search",
+      "file": "443-breadth-first-search.mp3"
+    },
+    {
+      "english": "shortest path",
+      "spokenAs": "shortest path",
+      "file": "444-shortest-path.mp3"
+    },
+    {
+      "english": "spanning tree",
+      "spokenAs": "spanning tree",
+      "file": "445-spanning-tree.mp3"
+    },
+    {
+      "english": "design pattern",
+      "spokenAs": "design pattern",
+      "file": "446-design-pattern.mp3"
+    },
+    {
+      "english": "architecture",
+      "spokenAs": "architecture",
+      "file": "447-architecture.mp3"
+    },
+    {
+      "english": "component",
+      "spokenAs": "component",
+      "file": "448-component.mp3"
+    },
+    {
+      "english": "coupling",
+      "spokenAs": "coupling",
+      "file": "449-coupling.mp3"
+    },
+    {
+      "english": "cohesion",
+      "spokenAs": "cohesion",
+      "file": "450-cohesion.mp3"
+    },
+    {
+      "english": "modularity",
+      "spokenAs": "modularity",
+      "file": "451-modularity.mp3"
+    },
+    {
+      "english": "maintainability",
+      "spokenAs": "maintainability",
+      "file": "452-maintainability.mp3"
+    },
+    {
+      "english": "scalability",
+      "spokenAs": "scalability",
+      "file": "453-scalability.mp3"
+    },
+    {
+      "english": "reliability",
+      "spokenAs": "reliability",
+      "file": "454-reliability.mp3"
+    },
+    {
+      "english": "fault tolerance",
+      "spokenAs": "fault tolerance",
+      "file": "455-fault-tolerance.mp3"
+    },
+    {
+      "english": "refactor",
+      "spokenAs": "refactor",
+      "file": "456-refactor.mp3"
+    },
+    {
+      "english": "refactoring",
+      "spokenAs": "refactoring",
+      "file": "457-refactoring.mp3"
+    },
+    {
+      "english": "technical debt",
+      "spokenAs": "technical debt",
+      "file": "458-technical-debt.mp3"
+    },
+    {
+      "english": "requirement specification",
+      "spokenAs": "requirement specification",
+      "file": "459-requirement-specification.mp3"
+    },
+    {
+      "english": "software lifecycle",
+      "spokenAs": "software lifecycle",
+      "file": "460-software-lifecycle.mp3"
+    },
+    {
+      "english": "specification",
+      "spokenAs": "specification",
+      "file": "461-specification.mp3"
+    },
+    {
+      "english": "computational",
+      "spokenAs": "computational",
+      "file": "462-computational.mp3"
+    },
+    {
+      "english": "computation",
+      "spokenAs": "computation",
+      "file": "463-computation.mp3"
+    },
+    {
+      "english": "computability",
+      "spokenAs": "computability",
+      "file": "464-computability.mp3"
+    },
+    {
+      "english": "deterministic",
+      "spokenAs": "deterministic",
+      "file": "465-deterministic.mp3"
+    },
+    {
+      "english": "nondeterministic",
+      "spokenAs": "nondeterministic",
+      "file": "466-nondeterministic.mp3"
+    },
+    {
+      "english": "finite",
+      "spokenAs": "finite",
+      "file": "467-finite.mp3"
+    },
+    {
+      "english": "infinite",
+      "spokenAs": "infinite",
+      "file": "468-infinite.mp3"
+    },
+    {
+      "english": "discrete",
+      "spokenAs": "discrete",
+      "file": "469-discrete.mp3"
+    },
+    {
+      "english": "continuous",
+      "spokenAs": "continuous",
+      "file": "470-continuous.mp3"
+    },
+    {
+      "english": "decidable",
+      "spokenAs": "decidable",
+      "file": "471-decidable.mp3"
+    },
+    {
+      "english": "undecidable",
+      "spokenAs": "undecidable",
+      "file": "472-undecidable.mp3"
+    },
+    {
+      "english": "Turing machine",
+      "spokenAs": "Turing machine",
+      "file": "473-turing-machine.mp3"
+    },
+    {
+      "english": "state",
+      "spokenAs": "state",
+      "file": "474-state.mp3"
+    },
+    {
+      "english": "transition",
+      "spokenAs": "transition",
+      "file": "475-transition.mp3"
+    },
+    {
+      "english": "formal language",
+      "spokenAs": "formal language",
+      "file": "476-formal-language.mp3"
+    },
+    {
+      "english": "grammar",
+      "spokenAs": "grammar",
+      "file": "477-grammar.mp3"
+    },
+    {
+      "english": "automaton",
+      "spokenAs": "automaton",
+      "file": "478-automaton.mp3"
+    },
+    {
+      "english": "proof",
+      "spokenAs": "proof",
+      "file": "479-proof.mp3"
+    },
+    {
+      "english": "theorem",
+      "spokenAs": "theorem",
+      "file": "480-theorem.mp3"
+    },
+    {
+      "english": "invariant",
+      "spokenAs": "invariant",
+      "file": "481-invariant.mp3"
+    },
+    {
+      "english": "precondition",
+      "spokenAs": "precondition",
+      "file": "482-precondition.mp3"
+    },
+    {
+      "english": "postcondition",
+      "spokenAs": "postcondition",
+      "file": "483-postcondition.mp3"
+    },
+    {
+      "english": "correctness",
+      "spokenAs": "correctness",
+      "file": "484-correctness.mp3"
+    },
+    {
+      "english": "proof of correctness",
+      "spokenAs": "proof of correctness",
+      "file": "485-proof-of-correctness.mp3"
+    },
+    {
+      "english": "termination",
+      "spokenAs": "termination",
+      "file": "486-termination.mp3"
+    },
+    {
+      "english": "asymptotic",
+      "spokenAs": "asymptotic",
+      "file": "487-asymptotic.mp3"
+    },
+    {
+      "english": "upper bound",
+      "spokenAs": "upper bound",
+      "file": "488-upper-bound.mp3"
+    },
+    {
+      "english": "lower bound",
+      "spokenAs": "lower bound",
+      "file": "489-lower-bound.mp3"
+    },
+    {
+      "english": "polynomial time",
+      "spokenAs": "polynomial time",
+      "file": "490-polynomial-time.mp3"
+    },
+    {
+      "english": "exponential time",
+      "spokenAs": "exponential time",
+      "file": "491-exponential-time.mp3"
+    },
+    {
+      "english": "tractable",
+      "spokenAs": "tractable",
+      "file": "492-tractable.mp3"
+    },
+    {
+      "english": "intractable",
+      "spokenAs": "intractable",
+      "file": "493-intractable.mp3"
+    },
+    {
+      "english": "NP",
+      "spokenAs": "N P",
+      "file": "494-np.mp3"
+    },
+    {
+      "english": "NP-hard",
+      "spokenAs": "N P hard",
+      "file": "495-np-hard.mp3"
+    },
+    {
+      "english": "NP-complete",
+      "spokenAs": "N P complete",
+      "file": "496-np-complete.mp3"
+    },
+    {
+      "english": "reduction",
+      "spokenAs": "reduction",
+      "file": "497-reduction.mp3"
+    },
+    {
+      "english": "recurrence relation",
+      "spokenAs": "recurrence relation",
+      "file": "498-recurrence-relation.mp3"
+    },
+    {
+      "english": "memoization",
+      "spokenAs": "memoization",
+      "file": "499-memoization.mp3"
+    },
+    {
+      "english": "tabulation",
+      "spokenAs": "tabulation",
+      "file": "500-tabulation.mp3"
+    },
+    {
+      "english": "optimal substructure",
+      "spokenAs": "optimal substructure",
+      "file": "501-optimal-substructure.mp3"
+    },
+    {
+      "english": "overlapping subproblems",
+      "spokenAs": "overlapping subproblems",
+      "file": "502-overlapping-subproblems.mp3"
+    },
+    {
+      "english": "heuristic",
+      "spokenAs": "heuristic",
+      "file": "503-heuristic.mp3"
+    },
+    {
+      "english": "approximation",
+      "spokenAs": "approximation",
+      "file": "504-approximation.mp3"
+    },
+    {
+      "english": "approximation algorithm",
+      "spokenAs": "approximation algorithm",
+      "file": "505-approximation-algorithm.mp3"
+    },
+    {
+      "english": "optimization problem",
+      "spokenAs": "optimization problem",
+      "file": "506-optimization-problem.mp3"
+    },
+    {
+      "english": "artificial intelligence",
+      "spokenAs": "artificial intelligence",
+      "file": "507-artificial-intelligence.mp3"
+    },
+    {
+      "english": "machine learning",
+      "spokenAs": "machine learning",
+      "file": "508-machine-learning.mp3"
+    },
+    {
+      "english": "neural network",
+      "spokenAs": "neural network",
+      "file": "509-neural-network.mp3"
+    },
+    {
+      "english": "model",
+      "spokenAs": "model",
+      "file": "510-model.mp3"
+    },
+    {
+      "english": "training data",
+      "spokenAs": "training data",
+      "file": "511-training-data.mp3"
+    },
+    {
+      "english": "training set",
+      "spokenAs": "training set",
+      "file": "512-training-set.mp3"
+    },
+    {
+      "english": "validation set",
+      "spokenAs": "validation set",
+      "file": "513-validation-set.mp3"
+    },
+    {
+      "english": "test set",
+      "spokenAs": "test set",
+      "file": "514-test-set.mp3"
+    },
+    {
+      "english": "feature",
+      "spokenAs": "feature",
+      "file": "515-feature.mp3"
+    },
+    {
+      "english": "label",
+      "spokenAs": "label",
+      "file": "516-label.mp3"
+    },
+    {
+      "english": "prediction",
+      "spokenAs": "prediction",
+      "file": "517-prediction.mp3"
+    },
+    {
+      "english": "classification",
+      "spokenAs": "classification",
+      "file": "518-classification.mp3"
+    },
+    {
+      "english": "regression",
+      "spokenAs": "regression",
+      "file": "519-regression.mp3"
+    },
+    {
+      "english": "clustering",
+      "spokenAs": "clustering",
+      "file": "520-clustering.mp3"
+    },
+    {
+      "english": "inference",
+      "spokenAs": "inference",
+      "file": "521-inference.mp3"
+    },
+    {
+      "english": "accuracy",
+      "spokenAs": "accuracy",
+      "file": "522-accuracy.mp3"
+    },
+    {
+      "english": "precision",
+      "spokenAs": "precision",
+      "file": "523-precision.mp3"
+    },
+    {
+      "english": "recall",
+      "spokenAs": "recall",
+      "file": "524-recall.mp3"
+    },
+    {
+      "english": "bias",
+      "spokenAs": "bias",
+      "file": "525-bias.mp3"
+    },
+    {
+      "english": "overfitting",
+      "spokenAs": "overfitting",
+      "file": "526-overfitting.mp3"
+    },
+    {
+      "english": "distributed system",
+      "spokenAs": "distributed system",
+      "file": "527-distributed-system.mp3"
+    },
+    {
+      "english": "distributed computing",
+      "spokenAs": "distributed computing",
+      "file": "528-distributed-computing.mp3"
+    },
+    {
+      "english": "cloud computing",
+      "spokenAs": "cloud computing",
+      "file": "529-cloud-computing.mp3"
+    },
+    {
+      "english": "virtualization",
+      "spokenAs": "virtualization",
+      "file": "530-virtualization.mp3"
+    },
+    {
+      "english": "container",
+      "spokenAs": "container",
+      "file": "531-container.mp3"
+    },
+    {
+      "english": "microservice",
+      "spokenAs": "microservice",
+      "file": "532-microservice.mp3"
+    },
+    {
+      "english": "load balancing",
+      "spokenAs": "load balancing",
+      "file": "533-load-balancing.mp3"
+    },
+    {
+      "english": "redundancy",
+      "spokenAs": "redundancy",
+      "file": "534-redundancy.mp3"
+    },
+    {
+      "english": "replication",
+      "spokenAs": "replication",
+      "file": "535-replication.mp3"
+    },
+    {
+      "english": "consistency",
+      "spokenAs": "consistency",
+      "file": "536-consistency.mp3"
+    },
+    {
+      "english": "availability",
+      "spokenAs": "availability",
+      "file": "537-availability.mp3"
+    },
+    {
+      "english": "partition tolerance",
+      "spokenAs": "partition tolerance",
+      "file": "538-partition-tolerance.mp3"
+    },
+    {
+      "english": "consensus",
+      "spokenAs": "consensus",
+      "file": "539-consensus.mp3"
+    },
+    {
+      "english": "leader",
+      "spokenAs": "leader",
+      "file": "540-leader.mp3"
+    },
+    {
+      "english": "follower",
+      "spokenAs": "follower",
+      "file": "541-follower.mp3"
+    },
+    {
+      "english": "fault",
+      "spokenAs": "fault",
+      "file": "542-fault.mp3"
+    },
+    {
+      "english": "throughput",
+      "spokenAs": "throughput",
+      "file": "543-throughput.mp3"
+    },
+    {
+      "english": "bottleneck",
+      "spokenAs": "bottleneck",
+      "file": "544-bottleneck.mp3"
+    },
+    {
+      "english": "cluster",
+      "spokenAs": "cluster",
+      "file": "545-cluster.mp3"
+    },
+    {
+      "english": "node failure",
+      "spokenAs": "node failure",
+      "file": "546-node-failure.mp3"
+    },
+    {
+      "english": "security",
+      "spokenAs": "security",
+      "file": "547-security.mp3"
+    },
+    {
+      "english": "cybersecurity",
+      "spokenAs": "cybersecurity",
+      "file": "548-cybersecurity.mp3"
+    },
+    {
+      "english": "encryption",
+      "spokenAs": "encryption",
+      "file": "549-encryption.mp3"
+    },
+    {
+      "english": "decryption",
+      "spokenAs": "decryption",
+      "file": "550-decryption.mp3"
+    },
+    {
+      "english": "authentication",
+      "spokenAs": "authentication",
+      "file": "551-authentication.mp3"
+    },
+    {
+      "english": "authorization",
+      "spokenAs": "authorization",
+      "file": "552-authorization.mp3"
+    },
+    {
+      "english": "access control",
+      "spokenAs": "access control",
+      "file": "553-access-control.mp3"
+    },
+    {
+      "english": "confidentiality",
+      "spokenAs": "confidentiality",
+      "file": "554-confidentiality.mp3"
+    },
+    {
+      "english": "integrity",
+      "spokenAs": "integrity",
+      "file": "555-integrity.mp3"
+    },
+    {
+      "english": "vulnerability",
+      "spokenAs": "vulnerability",
+      "file": "556-vulnerability.mp3"
+    },
+    {
+      "english": "exploit",
+      "spokenAs": "exploit",
+      "file": "557-exploit.mp3"
+    },
+    {
+      "english": "threat",
+      "spokenAs": "threat",
+      "file": "558-threat.mp3"
+    },
+    {
+      "english": "attack",
+      "spokenAs": "attack",
+      "file": "559-attack.mp3"
+    },
+    {
+      "english": "malicious",
+      "spokenAs": "malicious",
+      "file": "560-malicious.mp3"
+    },
+    {
+      "english": "privilege",
+      "spokenAs": "privilege",
+      "file": "561-privilege.mp3"
+    },
+    {
+      "english": "least privilege",
+      "spokenAs": "least privilege",
+      "file": "562-least-privilege.mp3"
+    },
+    {
+      "english": "digital signature",
+      "spokenAs": "digital signature",
+      "file": "563-digital-signature.mp3"
+    },
+    {
+      "english": "certificate",
+      "spokenAs": "certificate",
+      "file": "564-certificate.mp3"
+    },
+    {
+      "english": "secure channel",
+      "spokenAs": "secure channel",
+      "file": "565-secure-channel.mp3"
+    },
+    {
+      "english": "Excel",
+      "spokenAs": "Excel",
+      "file": "566-excel.mp3"
+    },
+    {
+      "english": "spreadsheet",
+      "spokenAs": "spreadsheet",
+      "file": "567-spreadsheet.mp3"
+    },
+    {
+      "english": "workbook",
+      "spokenAs": "workbook",
+      "file": "568-workbook.mp3"
+    },
+    {
+      "english": "worksheet",
+      "spokenAs": "worksheet",
+      "file": "569-worksheet.mp3"
+    },
+    {
+      "english": "cell",
+      "spokenAs": "cell",
+      "file": "570-cell.mp3"
+    },
+    {
+      "english": "cell reference",
+      "spokenAs": "cell reference",
+      "file": "571-cell-reference.mp3"
+    },
+    {
+      "english": "range",
+      "spokenAs": "range",
+      "file": "572-range.mp3"
+    },
+    {
+      "english": "active cell",
+      "spokenAs": "active cell",
+      "file": "573-active-cell.mp3"
+    },
+    {
+      "english": "mouse pointer",
+      "spokenAs": "mouse pointer",
+      "file": "574-mouse-pointer.mp3"
+    },
+    {
+      "english": "cursor",
+      "spokenAs": "cursor",
+      "file": "575-cursor.mp3"
+    },
+    {
+      "english": "Ribbon",
+      "spokenAs": "Ribbon",
+      "file": "576-ribbon.mp3"
+    },
+    {
+      "english": "Home tab",
+      "spokenAs": "Home tab",
+      "file": "577-home-tab.mp3"
+    },
+    {
+      "english": "formula bar",
+      "spokenAs": "formula bar",
+      "file": "578-formula-bar.mp3"
+    },
+    {
+      "english": "worksheet tab",
+      "spokenAs": "worksheet tab",
+      "file": "579-worksheet-tab.mp3"
+    },
+    {
+      "english": "drop-down arrow",
+      "spokenAs": "drop-down arrow",
+      "file": "580-drop-down-arrow.mp3"
+    },
+    {
+      "english": "first empty cell",
+      "spokenAs": "first empty cell",
+      "file": "581-first-empty-cell.mp3"
+    },
+    {
+      "english": "above",
+      "spokenAs": "above",
+      "file": "582-above.mp3"
+    },
+    {
+      "english": "below",
+      "spokenAs": "below",
+      "file": "583-below.mp3"
+    },
+    {
+      "english": "left",
+      "spokenAs": "left",
+      "file": "584-left.mp3"
+    },
+    {
+      "english": "right",
+      "spokenAs": "right",
+      "file": "585-right.mp3"
+    },
+    {
+      "english": "next to",
+      "spokenAs": "next to",
+      "file": "586-next-to.mp3"
+    },
+    {
+      "english": "directly below",
+      "spokenAs": "directly below",
+      "file": "587-directly-below.mp3"
+    },
+    {
+      "english": "immediately to the right",
+      "spokenAs": "immediately to the right",
+      "file": "588-immediately-to-the-right.mp3"
+    },
+    {
+      "english": "at the top of the screen",
+      "spokenAs": "at the top of the screen",
+      "file": "589-at-the-top-of-the-screen.mp3"
+    },
+    {
+      "english": "at the bottom of the screen",
+      "spokenAs": "at the bottom of the screen",
+      "file": "590-at-the-bottom-of-the-screen.mp3"
+    },
+    {
+      "english": "on the left",
+      "spokenAs": "on the left",
+      "file": "591-on-the-left.mp3"
+    },
+    {
+      "english": "on the right",
+      "spokenAs": "on the right",
+      "file": "592-on-the-right.mp3"
+    },
+    {
+      "english": "inside",
+      "spokenAs": "inside",
+      "file": "593-inside.mp3"
+    },
+    {
+      "english": "between",
+      "spokenAs": "between",
+      "file": "594-between.mp3"
+    },
+    {
+      "english": "first",
+      "spokenAs": "first",
+      "file": "595-first.mp3"
+    },
+    {
+      "english": "second",
+      "spokenAs": "second",
+      "file": "596-second.mp3"
+    },
+    {
+      "english": "last",
+      "spokenAs": "last",
+      "file": "597-last.mp3"
+    },
+    {
+      "english": "Enter key",
+      "spokenAs": "Enter key",
+      "file": "598-enter-key.mp3"
+    },
+    {
+      "english": "Tab key",
+      "spokenAs": "Tab key",
+      "file": "599-tab-key.mp3"
+    },
+    {
+      "english": "arrow keys",
+      "spokenAs": "arrow keys",
+      "file": "600-arrow-keys.mp3"
+    },
+    {
+      "english": "undo",
+      "spokenAs": "undo",
+      "file": "601-undo.mp3"
+    },
+    {
+      "english": "redo",
+      "spokenAs": "redo",
+      "file": "602-redo.mp3"
+    },
+    {
+      "english": "clear",
+      "spokenAs": "clear",
+      "file": "603-clear.mp3"
+    },
+    {
+      "english": "move",
+      "spokenAs": "move",
+      "file": "604-move.mp3"
+    },
+    {
+      "english": "bold",
+      "spokenAs": "bold",
+      "file": "605-bold.mp3"
+    },
+    {
+      "english": "italic",
+      "spokenAs": "italic",
+      "file": "606-italic.mp3"
+    },
+    {
+      "english": "font",
+      "spokenAs": "font",
+      "file": "607-font.mp3"
+    },
+    {
+      "english": "font size",
+      "spokenAs": "font size",
+      "file": "608-font-size.mp3"
+    },
+    {
+      "english": "alignment",
+      "spokenAs": "alignment",
+      "file": "609-alignment.mp3"
+    },
+    {
+      "english": "center",
+      "spokenAs": "center",
+      "file": "610-center.mp3"
+    },
+    {
+      "english": "number format",
+      "spokenAs": "number format",
+      "file": "611-number-format.mp3"
+    },
+    {
+      "english": "percentage",
+      "spokenAs": "percentage",
+      "file": "612-percentage.mp3"
+    },
+    {
+      "english": "currency",
+      "spokenAs": "currency",
+      "file": "613-currency.mp3"
+    },
+    {
+      "english": "border",
+      "spokenAs": "border",
+      "file": "614-border.mp3"
+    },
+    {
+      "english": "fill color",
+      "spokenAs": "fill color",
+      "file": "615-fill-color.mp3"
+    },
+    {
+      "english": "autofill",
+      "spokenAs": "autofill",
+      "file": "616-autofill.mp3"
+    },
+    {
+      "english": "resize",
+      "spokenAs": "resize",
+      "file": "617-resize.mp3"
+    },
+    {
+      "english": "column width",
+      "spokenAs": "column width",
+      "file": "618-column-width.mp3"
+    },
+    {
+      "english": "row height",
+      "spokenAs": "row height",
+      "file": "619-row-height.mp3"
+    },
+    {
+      "english": "insert row",
+      "spokenAs": "insert row",
+      "file": "620-insert-row.mp3"
+    },
+    {
+      "english": "insert column",
+      "spokenAs": "insert column",
+      "file": "621-insert-column.mp3"
+    },
+    {
+      "english": "delete row",
+      "spokenAs": "delete row",
+      "file": "622-delete-row.mp3"
+    },
+    {
+      "english": "delete column",
+      "spokenAs": "delete column",
+      "file": "623-delete-column.mp3"
+    },
+    {
+      "english": "copy formula",
+      "spokenAs": "copy formula",
+      "file": "624-copy-formula.mp3"
+    },
+    {
+      "english": "formula",
+      "spokenAs": "formula",
+      "file": "625-formula.mp3"
+    },
+    {
+      "english": "formula value",
+      "spokenAs": "formula value",
+      "file": "626-formula-value.mp3"
+    },
+    {
+      "english": "relative reference",
+      "spokenAs": "relative reference",
+      "file": "627-relative-reference.mp3"
+    },
+    {
+      "english": "absolute reference",
+      "spokenAs": "absolute reference",
+      "file": "628-absolute-reference.mp3"
+    },
+    {
+      "english": "mixed reference",
+      "spokenAs": "mixed reference",
+      "file": "629-mixed-reference.mp3"
+    },
+    {
+      "english": "AutoSum",
+      "spokenAs": "auto sum",
+      "file": "630-autosum.mp3"
+    },
+    {
+      "english": "SUM",
+      "spokenAs": "SUM",
+      "file": "631-sum.mp3"
+    },
+    {
+      "english": "AVERAGE",
+      "spokenAs": "AVERAGE",
+      "file": "632-average.mp3"
+    },
+    {
+      "english": "MIN",
+      "spokenAs": "MIN",
+      "file": "633-min.mp3"
+    },
+    {
+      "english": "MAX",
+      "spokenAs": "MAX",
+      "file": "634-max.mp3"
+    },
+    {
+      "english": "COUNT",
+      "spokenAs": "COUNT",
+      "file": "635-count.mp3"
+    },
+    {
+      "english": "IF",
+      "spokenAs": "if",
+      "file": "636-if.mp3"
+    },
+    {
+      "english": "IFERROR",
+      "spokenAs": "if error",
+      "file": "637-iferror.mp3"
+    },
+    {
+      "english": "SUMIF",
+      "spokenAs": "sum if",
+      "file": "638-sumif.mp3"
+    },
+    {
+      "english": "SUMIFS",
+      "spokenAs": "sum ifs",
+      "file": "639-sumifs.mp3"
+    },
+    {
+      "english": "COUNTIF",
+      "spokenAs": "count if",
+      "file": "640-countif.mp3"
+    },
+    {
+      "english": "COUNTIFS",
+      "spokenAs": "count ifs",
+      "file": "641-countifs.mp3"
+    },
+    {
+      "english": "XLOOKUP",
+      "spokenAs": "X lookup",
+      "file": "642-xlookup.mp3"
+    },
+    {
+      "english": "MATCH",
+      "spokenAs": "MATCH",
+      "file": "643-match.mp3"
+    },
+    {
+      "english": "INDEX/MATCH",
+      "spokenAs": "index match",
+      "file": "644-index-match.mp3"
+    },
+    {
+      "english": "structured reference",
+      "spokenAs": "structured reference",
+      "file": "645-structured-reference.mp3"
+    },
+    {
+      "english": "sort ascending",
+      "spokenAs": "sort ascending",
+      "file": "646-sort-ascending.mp3"
+    },
+    {
+      "english": "sort descending",
+      "spokenAs": "sort descending",
+      "file": "647-sort-descending.mp3"
+    },
+    {
+      "english": "smallest to largest",
+      "spokenAs": "smallest to largest",
+      "file": "648-smallest-to-largest.mp3"
+    },
+    {
+      "english": "largest to smallest",
+      "spokenAs": "largest to smallest",
+      "file": "649-largest-to-smallest.mp3"
+    },
+    {
+      "english": "oldest to newest",
+      "spokenAs": "oldest to newest",
+      "file": "650-oldest-to-newest.mp3"
+    },
+    {
+      "english": "newest to oldest",
+      "spokenAs": "newest to oldest",
+      "file": "651-newest-to-oldest.mp3"
+    },
+    {
+      "english": "multi-level sort",
+      "spokenAs": "multi-level sort",
+      "file": "652-multi-level-sort.mp3"
+    },
+    {
+      "english": "filter arrow",
+      "spokenAs": "filter arrow",
+      "file": "653-filter-arrow.mp3"
+    },
+    {
+      "english": "table formatting",
+      "spokenAs": "table formatting",
+      "file": "654-table-formatting.mp3"
+    },
+    {
+      "english": "conditional formatting",
+      "spokenAs": "conditional formatting",
+      "file": "655-conditional-formatting.mp3"
+    },
+    {
+      "english": "data validation",
+      "spokenAs": "data validation",
+      "file": "656-data-validation.mp3"
+    },
+    {
+      "english": "Find and Replace",
+      "spokenAs": "Find and Replace",
+      "file": "657-find-and-replace.mp3"
+    },
+    {
+      "english": "freeze panes",
+      "spokenAs": "freeze panes",
+      "file": "658-freeze-panes.mp3"
+    },
+    {
+      "english": "chart",
+      "spokenAs": "chart",
+      "file": "659-chart.mp3"
+    },
+    {
+      "english": "column chart",
+      "spokenAs": "column chart",
+      "file": "660-column-chart.mp3"
+    },
+    {
+      "english": "PivotTable",
+      "spokenAs": "pivot table",
+      "file": "661-pivottable.mp3"
+    },
+    {
+      "english": "PivotChart",
+      "spokenAs": "pivot chart",
+      "file": "662-pivotchart.mp3"
+    },
+    {
+      "english": "named range",
+      "spokenAs": "named range",
+      "file": "663-named-range.mp3"
+    },
+    {
+      "english": "worksheet protection",
+      "spokenAs": "worksheet protection",
+      "file": "664-worksheet-protection.mp3"
+    },
+    {
+      "english": "print setup",
+      "spokenAs": "print setup",
+      "file": "665-print-setup.mp3"
+    },
+    {
+      "english": "page layout",
+      "spokenAs": "page layout",
+      "file": "666-page-layout.mp3"
+    },
+    {
+      "english": "import data",
+      "spokenAs": "import data",
+      "file": "667-import-data.mp3"
+    },
+    {
+      "english": "CSV file",
+      "spokenAs": "C S V file",
+      "file": "668-csv-file.mp3"
+    },
+    {
+      "english": "data cleaning",
+      "spokenAs": "data cleaning",
+      "file": "669-data-cleaning.mp3"
+    },
+    {
+      "english": "data analysis",
+      "spokenAs": "data analysis",
+      "file": "670-data-analysis.mp3"
+    },
+    {
+      "english": "text function",
+      "spokenAs": "text function",
+      "file": "671-text-function.mp3"
+    },
+    {
+      "english": "date function",
+      "spokenAs": "date function",
+      "file": "672-date-function.mp3"
+    },
+    {
+      "english": "visible values",
+      "spokenAs": "visible values",
+      "file": "673-visible-values.mp3"
+    },
+    {
+      "english": "blank row",
+      "spokenAs": "blank row",
+      "file": "674-blank-row.mp3"
+    },
+    {
+      "english": "blank cell",
+      "spokenAs": "blank cell",
+      "file": "675-blank-cell.mp3"
+    },
+    {
+      "english": "heading",
+      "spokenAs": "heading",
+      "file": "676-heading.mp3"
+    },
+    {
+      "english": "revenue",
+      "spokenAs": "revenue",
+      "file": "677-revenue.mp3"
+    },
+    {
+      "english": "sales",
+      "spokenAs": "sales",
+      "file": "678-sales.mp3"
+    },
+    {
+      "english": "expenses",
+      "spokenAs": "expenses",
+      "file": "679-expenses.mp3"
+    },
+    {
+      "english": "quarterly sales",
+      "spokenAs": "quarterly sales",
+      "file": "680-quarterly-sales.mp3"
+    },
+    {
+      "english": "region",
+      "spokenAs": "region",
+      "file": "681-region.mp3"
+    },
+    {
+      "english": "product",
+      "spokenAs": "product",
+      "file": "682-product.mp3"
+    },
+    {
+      "english": "total",
+      "spokenAs": "total",
+      "file": "683-total.mp3"
+    },
+    {
+      "english": "tax rate",
+      "spokenAs": "tax rate",
+      "file": "684-tax-rate.mp3"
+    }
+  ]
+}
