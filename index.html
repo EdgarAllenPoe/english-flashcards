@@ -438,7 +438,12 @@
       border: 24px solid rgba(13, 124, 120, .055);
       border-radius: 50%;
     }
-    .card-back { transform: rotateY(180deg); }
+    /* Only the visible face accepts taps. This avoids mobile-browser hit-testing
+       problems with buttons on the rotated back face. */
+    .card-front { pointer-events: auto; }
+    .card-back { transform: rotateY(180deg); pointer-events: none; }
+    .flashcard-inner.flipped .card-front { pointer-events: none; }
+    .flashcard-inner.flipped .card-back { pointer-events: auto; }
 
     .spanish-word {
       position: relative;
@@ -467,6 +472,7 @@
       color: white;
       box-shadow: 0 18px 32px rgba(23, 50, 77, .26);
       cursor: pointer;
+      touch-action: manipulation;
       transition: transform .14s ease, background .15s ease;
     }
     .audio-button:hover { background: var(--navy-2); }
@@ -2547,6 +2553,18 @@
           </button>`;
       }
 
+      function bindAudioButton(button) {
+        if (!button) return;
+        button.addEventListener("click", event => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (currentCard) speak(currentCard.english, button);
+        });
+        button.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") event.stopPropagation();
+        });
+      }
+
       function loadNextCard() {
         stopEnglishAudio();
         if (!session || !session.queue.length) {
@@ -2576,6 +2594,9 @@
           $("#studyDirectionText").textContent = "Inglés → español";
           $("#studyInstruction").textContent = "Escucha, piensa en el significado y luego voltea la tarjeta.";
         }
+
+        bindAudioButton(els.cardFront.querySelector(".audio-button"));
+        bindAudioButton(els.cardBack.querySelector(".audio-button"));
 
         const totalRemaining = session.completed + 1 + session.queue.length;
         $("#studyProgressText").textContent = `Tarjeta ${session.completed + 1} de ${totalRemaining}`;
