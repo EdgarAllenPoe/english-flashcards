@@ -1,0 +1,56 @@
+name: Generate English male flashcard audio
+
+on:
+  push:
+    branches:
+      - automation/generate-male-audio-20260817
+    paths:
+      - "tts/**"
+      - ".github/workflows/generate-audio.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  generate-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check out isolated branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install audio tools and Piper
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install --upgrade pip
+          python -m pip install piper-tts
+
+      - name: Download American English male voice
+        run: |
+          mkdir -p tts-models
+          python -m piper.download_voices --data-dir tts-models en_US-ryan-high
+          test -s tts-models/en_US-ryan-high.onnx
+          test -s tts-models/en_US-ryan-high.onnx.json
+
+      - name: Generate and validate all audio files
+        run: |
+          python tts/generate_audio.py \
+            --csv vocabulary.csv \
+            --model tts-models/en_US-ryan-high.onnx \
+            --output english-male-audio
+
+      - name: Upload completed audio package
+        uses: actions/upload-artifact@v4
+        with:
+          name: english-male-audio-files
+          path: english-male-audio/
+          if-no-files-found: error
+          compression-level: 6
+          retention-days: 7
