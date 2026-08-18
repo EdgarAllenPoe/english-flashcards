@@ -1,6 +1,6 @@
 # Tarjetas de inglés — Sistema Leitner (versión corregida)
 
-## Completamente hecho por vibe code con ChatGPT Pro 17SAUG2026 - El codigo no fue revisado.
+## Completamente hecho por vibe code con ChatGPT Pro 17AUG2026 - El codigo no fue revisado.
 ## Publicación
 
 Sube estos dos archivos a la misma carpeta pública:
